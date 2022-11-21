@@ -1,7 +1,7 @@
-import { withInstall } from "@xs-ui/utils";
+import { withInstall } from '@xs-ui/utils';
 
-import Button from "./src/button.vue";
+import Button from './src/button.vue';
 
 export * from './src/button';
-export const XSButton = withInstall(Button);
-export default XSButton;
+export const XsButton = withInstall(Button);
+export default XsButton;

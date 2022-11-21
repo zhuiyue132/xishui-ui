@@ -2,9 +2,8 @@
   "name": "@xs-ui/theme-chalk",
   "version": "0.0.1",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "keywords": [],
-  "author": "",
+  "author": "zhuiyue132",
   "license": "ISC"
 }

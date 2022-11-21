@@ -1,5 +1,5 @@
-import * as components from "./components";
-import { version } from "./package.json";
+import * as components from './components';
+import { version } from './package.json';
 
 const install = function (app) {
   Object.entries(components).forEach(([key, value]) => {
@@ -7,8 +7,7 @@ const install = function (app) {
   });
 };
 
-
 export default {
-    install,
-    version
-}
+  install,
+  version
+};

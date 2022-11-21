@@ -1,23 +1,14 @@
 /*
- * @Author: chenghao 
- * @Date: 2022-11-19 23:42:45 
+ * @Author: chenghao
+ * @Date: 2022-11-19 23:42:45
  * @Last Modified by: chenghao
  * @Last Modified time: 2022-11-20 21:16:18
  * @Desc: 按钮配置
  */
-import { useSizeProp } from "@xs-ui/hooks";
+import { useSizeProp } from '@xs-ui/hooks';
 
 // 按钮类型;
-export const buttonTypes = [
-  'default',
-  'primary',
-  'success',
-  'warning',
-  'info',
-  'danger',
-  'text',
-  '',
-];
+export const buttonTypes = ['default', 'primary', 'success', 'warning', 'info', 'danger', 'text', ''];
 // 原生按钮类型；
 export const buttonNativeTypes = ['button', 'submit', 'reset'];
 // 按钮事件；
@@ -38,7 +29,7 @@ export const Props = {
   type: {
     type: String,
     values: buttonTypes,
-    default: '',
+    default: ''
   },
   /**
    * @description native button type
@@ -46,7 +37,7 @@ export const Props = {
   nativeType: {
     type: String,
     values: buttonNativeTypes,
-    default: 'button',
+    default: 'button'
   },
 
   /**
@@ -84,6 +75,5 @@ export const Props = {
   /**
    * @description dark mode, which automatically converts `color` to dark mode colors
    */
-  dark: Boolean,
-
+  dark: Boolean
 };

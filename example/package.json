@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "zhuiyue132",
   "license": "ISC",
   "dependencies": {
     "vite": "^3.2.4",

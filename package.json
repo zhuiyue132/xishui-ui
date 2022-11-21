@@ -3,18 +3,26 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "dev": "pnpm -C example dev"
+    "dev": "pnpm -C example dev",
+    "clear": "rimraf dist",
+    "clear:lib": "rimraf node_modules",
+    "clear:cache": "rimraf node_modules/.cache/ rimraf node_modules/.vite",
+    "reinstall": "rimraf pnpm-lock.yarm && rimraf node_modules && pnpm install"
   },
   "author": "zhuiyue132",
   "license": "ISC",
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.2.0",
+    "rimraf": "^3.0.2",
+    "sass": "^1.56.1",
     "vite": "^3.2.4",
     "vite-plugin-vue-setup-extend": "^0.4.0",
     "vue": "^3.2.36"
   },
   "dependencies": {
     "@xs-ui/components": "workspace:^0.0.1",
+    "@xs-ui/config": "workspace:^0.0.1",
+    "@xs-ui/hooks": "workspace:^0.0.1",
     "@xs-ui/theme-chalk": "workspace:^0.0.1",
     "@xs-ui/utils": "workspace:^0.0.1"
   }

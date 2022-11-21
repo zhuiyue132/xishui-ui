@@ -1,17 +1,11 @@
 <template>
-  <button
-    class="xs-button"
-    :class="classList"
-    :type="nativeType"
-    :autofocus="autoFocus"
-    :disabled="disabled || loading"
-    @click="handlerClick"
-  >
+  <button class="xs-button" :class="classList" :type="nativeType"  :disabled="disabled"
+    @click="handlerClick">
     <slot></slot>
   </button>
 </template>
 
-<script setup name="XsButton">
+<script setup name="XSButton">
 import { computed } from "vue"
 import { Props, Emits } from "./button"
 
@@ -27,23 +21,20 @@ const classList = computed(() => {
     circle,
     disabled,
     nativeType,
-    autoFocus,
-    icon,
-    loading,
   } = props
   return [
     {
-      [`br-button--${type}`]: type,
-      [`br-button--${size}`]: size,
+      [`xs-button--${type}`]: type,
+      [`xs-button--${size}`]: size,
       [`is-disabled`]: disabled,
-      [`is-loading`]: loading,
       [`is-round`]: round,
       [`is-plain`]: plain,
       [`is-circle`]: circle,
     },
   ]
-})
-function handlerClick(evt) {
+});
+
+const handlerClick = (evt) => {
   emits("click", evt)
 }
 </script>

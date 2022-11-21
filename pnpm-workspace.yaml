@@ -1,6 +1,5 @@
 packages:
   - packages/*
   - example
-  - play
   - docs
-  - internal/*
+  - build/*

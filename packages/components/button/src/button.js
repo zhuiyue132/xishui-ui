@@ -5,6 +5,7 @@
  * @Last Modified time: 2022-11-20 21:16:18
  * @Desc: 按钮配置
  */
+import { useSizeProp } from "@xs-ui/hooks";
 
 // 按钮类型;
 export const buttonTypes = [

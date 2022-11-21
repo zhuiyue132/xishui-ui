@@ -15,7 +15,13 @@
     "lint:staged": "lint-staged",
     "prepare": "husky install",
     "postinstall": "npx husky install",
-    "reinstall": "rimraf pnpm-lock.yarm && rimraf node_modules && pnpm install"
+    "reinstall": "rimraf pnpm-lock.yarm && rimraf node_modules && pnpm install",
+    "commit": "git-cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   },
   "author": "zhuiyue132",
   "license": "ISC",
@@ -24,6 +30,7 @@
     "@commitlint/config-conventional": "^17.2.0",
     "@ls-lint/ls-lint": "^1.11.2",
     "@vitejs/plugin-vue": "^3.2.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",

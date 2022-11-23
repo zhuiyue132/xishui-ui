@@ -12,15 +12,14 @@
   const emits = defineEmits(Emits);
 
   const classList = computed(() => {
-    const { type, size, round, plain, circle, disabled } = props;
+    const { type, size, round, plain, disabled } = props;
     return [
       {
         [`xs-button--${type}`]: type,
         [`xs-button--${size}`]: size,
         ['is-disabled']: disabled,
         ['is-round']: round,
-        ['is-plain']: plain,
-        ['is-circle']: circle
+        ['is-plain']: plain
       }
     ];
   });

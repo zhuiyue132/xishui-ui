@@ -3,7 +3,7 @@ module.exports = {
   'prettier/prettier': 'error',
   'arrow-body-style': 'off',
   'prefer-arrow-callback': 'off',
-  'no-console': 2,
+  'no-console': 'off',
   // 不允许不必要的转义字符 https://eslint.org/docs/latest/rules/no-useless-escape
   'no-useless-escape': 'off',
   //

@@ -134,32 +134,15 @@ $button-border-radius: $border-radius-base !default;
 $button-padding-vertical: 8px !default;
 $button-padding-horizontal: 16px !default;
 
-$button-medium-font-size: $font-size-base !default;
-$button-medium-border-radius: $border-radius-base !default;
-$button-medium-padding-vertical: 6px !default;
-$button-medium-padding-horizontal: 16px !default;
-
 $button-small-font-size: 12px !default;
 $button-small-border-radius: #{$border-radius-base - 1} !default;
 $button-small-padding-vertical: 5px !default;
 $button-small-padding-horizontal: 10px !default;
 
-$button-mini-font-size: 12px !default;
-$button-mini-border-radius: #{$border-radius-base - 1} !default;
-
-$button-tiny-font-size: 10px !default;
-$button-tiny-border-radius: #{$border-radius-base - 2} !default;
-
-$button-mini-padding-vertical: 3px !default;
-$button-tiny-padding-vertical: 2px !default;
-
-$button-mini-padding-horizontal: 10px !default;
-$button-tiny-padding-horizontal: 10px !default;
-
-$button-tiny-font-size: 12px !default;
-$button-tiny-border-radius: #{$border-radius-base - 1} !default;
-$button-tiny-padding-vertical: 5px !default;
-$button-tiny-padding-horizontal: 10px !default;
+$button-large-font-size: 14px !default;
+$button-large-border-radius: #{$border-radius-base - 1} !default;
+$button-large-padding-vertical: 12px !default;
+$button-large-padding-horizontal: 20px !default;
 
 $button-default-font-color: $color-text-regular !default;
 $button-default-background-color: $color-white !default;

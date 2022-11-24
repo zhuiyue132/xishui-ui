@@ -1,5 +1,19 @@
 <template>
-  <button class="xs-button" :class="classList" :type="nativeType" :disabled="disabled" @click="handlerClick">
+  <button
+    :class="[
+      ns.b(),
+      ns.m(_type),
+      ns.m(_size),
+      ns.is('disabled', _disabled),
+      ns.is('plain', plain),
+      ns.is('round', round),
+      ns.is('circle', circle)
+    ]"
+    :type="nativeType"
+    :aria-disabled="_disabled"
+    :disabled="_disabled"
+    @click="handleClick"
+  >
     <slot></slot>
   </button>
 </template>
@@ -7,24 +21,20 @@
 <script setup name="XsButton">
   import { computed } from 'vue';
   import { Props, Emits } from './button';
+  import { useNamespace, useSize, useDisabled } from '@xs-ui/hooks';
 
   const props = defineProps(Props);
   const emits = defineEmits(Emits);
 
-  const classList = computed(() => {
-    const { type, size, round, plain, disabled } = props;
-    return [
-      {
-        [`xs-button--${type}`]: type,
-        [`xs-button--${size}`]: size,
-        ['is-disabled']: disabled,
-        ['is-round']: round,
-        ['is-plain']: plain
-      }
-    ];
-  });
+  const ns = useNamespace('button');
+  const _size = useSize(computed(() => props?.size));
 
-  const handlerClick = evt => {
+  const _type = computed(() => props.type || '');
+  const _disabled = useDisabled();
+
+  const handleClick = evt => {
+    const { disabled } = props;
+    if (disabled) return;
     emits('click', evt);
   };
 </script>

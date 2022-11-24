@@ -58,6 +58,7 @@
     "@xs-ui/eslint-config": "workspace:^0.0.1",
     "@xs-ui/hooks": "workspace:^0.0.1",
     "@xs-ui/theme-chalk": "workspace:^0.0.1",
+    "@xs-ui/token": "workspace:^0.0.1",
     "@xs-ui/utils": "workspace:^0.0.1"
   }
 }

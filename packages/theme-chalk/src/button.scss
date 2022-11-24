@@ -51,17 +51,6 @@
   }
 
   /* size */
-  @include m(medium) {
-    @include button-size(
-      $button-medium-padding-vertical,
-      $button-medium-padding-horizontal,
-      $button-medium-font-size,
-      $button-medium-border-radius
-    );
-    @include when(circle) {
-      padding: $button-medium-padding-vertical;
-    }
-  }
 
   @include m(small) {
     @include button-size(
@@ -75,27 +64,15 @@
     }
   }
 
-  @include m(mini) {
+  @include m(large) {
     @include button-size(
-      $button-mini-padding-vertical,
-      $button-mini-padding-horizontal,
-      $button-mini-font-size,
-      $button-mini-border-radius
+      $button-large-padding-vertical,
+      $button-large-padding-horizontal,
+      $button-large-font-size,
+      $button-large-border-radius
     );
     @include when(circle) {
-      padding: $button-mini-padding-vertical;
-    }
-  }
-
-  @include m(tiny) {
-    @include button-size(
-      $button-tiny-padding-vertical,
-      $button-tiny-padding-horizontal,
-      $button-tiny-font-size,
-      $button-tiny-border-radius
-    );
-    @include when(circle) {
-      padding: $button-tiny-padding-vertical;
+      padding: $button-large-padding-vertical;
     }
   }
 
@@ -209,11 +186,10 @@
     }
   }
   @include when(round) {
-    padding: 12px 23px;
     border-radius: 20px;
   }
   @include when(circle) {
-    padding: $button-padding-vertical;
+    // padding: $button-padding-vertical;
     border-radius: 50%;
   }
 }

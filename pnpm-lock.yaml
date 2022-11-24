@@ -13,6 +13,7 @@ importers:
       '@xs-ui/eslint-config': workspace:^0.0.1
       '@xs-ui/hooks': workspace:^0.0.1
       '@xs-ui/theme-chalk': workspace:^0.0.1
+      '@xs-ui/token': workspace:^0.0.1
       '@xs-ui/utils': workspace:^0.0.1
       cz-conventional-changelog: ^3.3.0
       eslint: ^8.28.0
@@ -41,6 +42,7 @@ importers:
       '@xs-ui/eslint-config': link:packages/eslint-config
       '@xs-ui/hooks': link:packages/hooks
       '@xs-ui/theme-chalk': link:packages/theme-chalk
+      '@xs-ui/token': link:packages/token
       '@xs-ui/utils': link:packages/utils
     devDependencies:
       '@commitlint/cli': registry.npmmirror.com/@commitlint/cli/17.2.0

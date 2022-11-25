@@ -1,42 +1,54 @@
-@use './mixins/mixins.scss' as *;
-@use './mixins/utils.scss' as *;
-@use './common/var.scss' as *;
-@use './mixins/button' as *;
+@use 'mixins/mixins.scss' as *;
+@use 'mixins/utils.scss' as *;
+@use 'common/var.scss' as *;
+@use 'mixins/button' as *;
+@use 'mixins/var' as *;
+@use 'mixins/function.scss' as *;
+@use 'sass:map';
+
+@include b(button) {
+  @include set-component-css-var('button', $button);
+}
 
 @include b(button) {
   display: inline-block;
   margin: 0;
-  font-weight: $button-font-weight;
+  font-weight: getCssVar('button', 'font-weight');
   line-height: 1;
-  color: $button-default-font-color;
+  color: getCssVar('button', 'text-color');
   text-align: center;
   white-space: nowrap;
   cursor: pointer;
-  background: $button-default-background-color;
-  border: $border-base;
-  border-color: $button-default-border-color;
+  background: getCssVar('button', 'bg-color');
+  border: getCssVar('border');
+  border-color: getCssVar('button', 'border-color');
   outline: none;
   box-sizing: border-box;
   transition: 0.1s;
   appearance: none;
-  @include utils-user-select(none);
+  user-select: none;
 
   & + & {
     margin-left: 10px;
   }
 
-  @include button-size($button-padding-vertical, $button-padding-horizontal, $button-font-size, $button-border-radius);
+  @include button-size(
+    map.get($button-padding-vertical, 'default'),
+    map.get($button-padding-horizontal, 'default'),
+    map.get($button-font-size, 'default'),
+    map.get($button-border-radius, 'default')
+  );
 
   &:hover,
   &:focus {
-    color: $color-primary;
-    background-color: $color-primary-light-9;
-    border-color: $color-primary-light-7;
+    color: getCssVar('color-primary');
+    background-color: getCssVar('color-primary-light-9');
+    border-color: getCssVar('color-primary-light-7');
   }
 
   &:active {
-    color: mix($color-black, $color-primary, $button-active-shade-percent);
-    border-color: mix($color-black, $color-primary, $button-active-shade-percent);
+    color: getCssVar('button', 'active-text-color');
+    border-color: getCssVar('button', 'active-border-color');
     outline: none;
   }
 
@@ -44,9 +56,13 @@
     border: 0;
   }
 
-  & [class*='xs-icon-'] {
+  & [class*='#{$namespace}-icon-'] {
     & + span {
       margin-left: 5px;
+    }
+
+    svg {
+      vertical-align: bottom;
     }
   }
 
@@ -54,10 +70,10 @@
 
   @include m(small) {
     @include button-size(
-      $button-small-padding-vertical,
-      $button-small-padding-horizontal,
-      $button-small-font-size,
-      $button-small-border-radius
+      map.get($button-padding-vertical, 'small'),
+      map.get($button-padding-horizontal, 'small'),
+      map.get($button-font-size, 'small'),
+      map.get($button-border-radius, 'small')
     );
     @include when(circle) {
       padding: $button-small-padding-vertical;
@@ -66,11 +82,12 @@
 
   @include m(large) {
     @include button-size(
-      $button-large-padding-vertical,
-      $button-large-padding-horizontal,
-      $button-large-font-size,
-      $button-large-border-radius
+      map.get($button-padding-vertical, 'large'),
+      map.get($button-padding-horizontal, 'large'),
+      map.get($button-font-size, 'large'),
+      map.get($button-border-radius, 'large')
     );
+
     @include when(circle) {
       padding: $button-large-padding-vertical;
     }
@@ -78,19 +95,9 @@
 
   /* other */
   @include when(plain) {
-    &:hover,
-    &:focus {
-      color: $color-primary;
-      background: $color-white;
-      border-color: $color-primary;
-    }
-
-    &:active {
-      color: mix($color-black, $color-primary, $button-active-shade-percent);
-      background: $color-white;
-      border-color: mix($color-black, $color-primary, $button-active-shade-percent);
-      outline: none;
-    }
+    @include css-var-from-global(('button', 'hover', 'text-color'), ('color', 'primary'));
+    @include css-var-from-global(('button', 'hover', 'bg-color'), ('fill-color', 'blank'));
+    @include css-var-from-global(('button', 'hover', 'border-color'), ('color', 'primary'));
   }
 
   /* type */

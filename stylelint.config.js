@@ -9,9 +9,24 @@ module.exports = {
     'at-rule-no-unknown': [
       true,
       {
-        ignoreAtRules: ['function', 'if', 'each', 'include', 'mixin', 'mix', 'use', 'forward', 'at-root']
+        ignoreAtRules: [
+          'function',
+          'if',
+          'each',
+          'include',
+          'mixin',
+          'mix',
+          'use',
+          'forward',
+          'at-root',
+          'return',
+          'else',
+          'for',
+          'debug'
+        ]
       }
     ],
+    'function-name-case': null,
     'function-no-unknown': null,
     'annotation-no-unknown': null,
     'selector-class-pattern': null,

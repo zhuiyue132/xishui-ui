@@ -13,8 +13,8 @@
     <br />
     <br />
     <xs-config-provider size="large">
-      <xs-button>溪水</xs-button>
-      <xs-button type="danger">溪水</xs-button>
+      <xs-button plain>溪水</xs-button>
+      <xs-button round type="danger">溪水</xs-button>
       <xs-button type="success">溪水</xs-button>
       <xs-button type="danger">溪水</xs-button>
       <xs-button type="warning">溪水</xs-button>

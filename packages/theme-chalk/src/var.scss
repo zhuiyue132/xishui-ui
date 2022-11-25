@@ -1,0 +1,56 @@
+// CSS3 var
+@use 'common/var' as *;
+@use 'mixins/var' as *;
+@use 'mixins/mixins' as *;
+@use 'sass:map';
+
+:root {
+  @include set-css-var-value('color-white', $color-white);
+  @include set-css-var-value('color-black', $color-black);
+
+  // get rgb
+  @each $type in (primary, success, warning, danger, error, info) {
+    @include set-css-color-rgb($type);
+    @include set-component-css-var('color-' + #{$type}, map.get($colors, $type));
+    @include set-css-var-value('color-' + #{$type}, map.get($colors, $type, 'base'));
+  }
+
+  // Border
+  @include set-css-var-value('border-width', $border-width);
+  @include set-css-var-value('border-style', $border-style);
+  @include set-css-var-value('border', $border);
+  @include set-component-css-var('border-color', $border-color);
+
+  // FillColor
+  @include set-component-css-var('fill-color', $fill-color);
+
+  // TextColor
+  @include set-component-css-var('text-color', $text-color);
+
+  // Disabled
+  @include set-component-css-var('disabled', $disabled);
+
+  // Colors
+  // @include set-component-css-var('colors', $colors);
+
+  // Typography
+  @include set-component-css-var('font-size', $font-size);
+  @include set-component-css-var('font-family', $font-family);
+
+  @include set-css-var-value('font-weight-primary', 500);
+  @include set-css-var-value('font-line-height-primary', 24px);
+
+  // z-index --el-index-#{$type}
+  @include set-component-css-var('index', $z-index);
+
+  // --el-border-radius-#{$type}
+  @include set-component-css-var('border-radius', $border-radius);
+
+  // Transition
+  @include set-component-css-var('transition-duration', $transition-duration);
+  @include set-component-css-var('transition-function', $transition-function);
+  @include set-component-css-var('transition', $transition);
+
+  // common component size
+  @include set-component-css-var('component-size', $common-component-size);
+}

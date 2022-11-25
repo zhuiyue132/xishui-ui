@@ -1,31 +1,65 @@
-/* Brain-ui Chalk Variables */
+/* Xs-ui Chalk Variables */
+@use 'sass:map';
+@use 'sass:math';
+@use '../mixins/function.scss' as *;
 
-/* Transition
--------------------------- */
-$all-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) !default;
-$fade-transition: opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) !default;
-$fade-linear-transition: opacity 200ms linear !default;
-$md-fade-transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1), opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) !default;
-$border-transition-base: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) !default;
-$color-transition-base: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) !default;
+/* Types */
+$types: primary, success, warning, danger, error, info;
 
 /* Color
 -------------------------- */
+// #region
 
-/* light */
+/* 基础色 light
+-------------------------- */
+$colors: () !default;
+$colors: map.deep-merge(
+  (
+    'white': #fff,
+    'black': #000,
+    'primary': (
+      'base': #3d6dda
+    ),
+    'success': (
+      'base': #38903c
+    ),
+    'warning': (
+      'base': #ffb32c
+    ),
+    'danger': (
+      'base': #bd4206
+    ),
+    'error': (
+      'base': #bd4206
+    ),
+    'info': (
+      'base': #8c8c8c
+    )
+  ),
+  $colors
+);
 
-/*
-$color-primary: #1890FF !default;
-$color-success: #52C41A !default;
-$color-warning: #FAAD14 !default;
-$color-danger: #F5222D !default;
-*/
+@mixin set-color-mix-level($type, $number, $mode: 'light', $mix-color: $color-white) {
+  $colors: map.deep-merge(
+    (
+      $type: (
+        '#{$mode}-#{$number}': mix($mix-color, map.get($colors, $type, 'base'), math.percentage(math.div($number, 10)))
+      )
+    ),
+    $colors
+  ) !global;
+}
 
-$color-primary: #3d6dda !default;
-$color-success: #38903c !default;
-$color-warning: #ffb32c !default;
-$color-danger: #bd4206 !default;
-$color-info: #8c8c8c !default;
+// #region
+$color-white: map.get($colors, 'white') !default;
+$color-black: map.get($colors, 'black') !default;
+$color-primary: map.get($colors, 'primary', 'base') !default;
+$color-success: map.get($colors, 'success', 'base') !default;
+$color-warning: map.get($colors, 'warning', 'base') !default;
+$color-danger: map.get($colors, 'danger', 'base') !default;
+$color-error: map.get($colors, 'error', 'base') !default;
+$color-info: map.get($colors, 'info', 'base') !default;
+// #endregion
 
 /* dark */
 
@@ -37,27 +71,305 @@ $color-danger: #D32029 !default;
 $color-info: #7D7D7D !default;
 */
 
-$color-white: #fff !default;
-$color-black: #000 !default;
-$color-primary-light-1: mix($color-white, $color-primary, 10%) !default;
-$color-primary-light-2: mix($color-white, $color-primary, 20%) !default;
-$color-primary-light-3: mix($color-white, $color-primary, 30%) !default;
-$color-primary-light-4: mix($color-white, $color-primary, 40%) !default;
-$color-primary-light-5: mix($color-white, $color-primary, 50%) !default;
-$color-primary-light-6: mix($color-white, $color-primary, 60%) !default;
-$color-primary-light-7: mix($color-white, $color-primary, 70%) !default;
-$color-primary-light-8: mix($color-white, $color-primary, 80%) !default;
-$color-primary-light-9: mix($color-white, $color-primary, 90%) !default;
+/* 基础色降阶
+-------------------------- */
+@each $type in $types {
+  @for $i from 1 through 9 {
+    @include set-color-mix-level($type, $i, 'light', $color-white);
+  }
+}
 
-$color-success-light: mix($color-white, $color-success, 80%) !default;
-$color-warning-light: mix($color-white, $color-warning, 80%) !default;
-$color-danger-light: mix($color-white, $color-danger, 80%) !default;
-$color-info-light: mix($color-white, $color-info, 80%) !default;
+// --xs-color-primary-dark-2
+@each $type in $types {
+  @include set-color-mix-level($type, 2, 'dark', $color-black);
+}
 
-$color-success-lighter: mix($color-white, $color-success, 90%) !default;
-$color-warning-lighter: mix($color-white, $color-warning, 90%) !default;
-$color-danger-lighter: mix($color-white, $color-danger, 90%) !default;
-$color-info-lighter: mix($color-white, $color-info, 90%) !default;
+// #endregion
+
+/* 文字色
+-------------------------- */
+// #region
+$text-color: () !default;
+$text-color: map.merge(
+  (
+    'primary': #303133,
+    'regular': #606266,
+    'secondary': #909399,
+    'placeholder': #a8abb2,
+    'disabled': #c0c4cc
+  ),
+  $text-color
+);
+// #endregion
+
+/* 边框色
+--------------- */
+// #region
+$border-color: () !default;
+$border-color: map.merge(
+  (
+    '': #dcdfe6,
+    'light': #e4e7ed,
+    'lighter': #ebeef5,
+    'extra-light': #f2f6fc,
+    'dark': #d4d7de,
+    'darker': #cdd0d6
+  ),
+  $border-color
+);
+// #endregion
+
+/* 填充色
+-------------------------- */
+// #region
+$fill-color: () !default;
+$fill-color: map.merge(
+  (
+    '': #f0f2f5,
+    'light': #f5f7fa,
+    'lighter': #fafafa,
+    'extra-light': #fafcff,
+    'dark': #ebedf0,
+    'darker': #e6e8eb,
+    'blank': #fff
+  ),
+  $fill-color
+);
+// #endregion
+
+/* 背景色
+-------------------------- */
+// #region
+$bg-color: () !default;
+$bg-color: map.merge(
+  (
+    '': #fff,
+    'page': #f2f3f5,
+    'overlay': #fff
+  ),
+  $bg-color
+);
+// #endregion
+
+/* 文字排版
+------------------ */
+// #region
+$font-family: () !default;
+$font-family: map.merge(
+  (
+    // default family
+    '':
+      "'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif"
+  ),
+  $font-family
+);
+
+$font-size: () !default;
+$font-size: map.merge(
+  (
+    'extra-large': 20px,
+    'large': 18px,
+    'medium': 16px,
+    'base': 14px,
+    'small': 13px,
+    'extra-small': 12px
+  ),
+  $font-size
+);
+// #endregion
+
+/* Z-index层级
+------------------ */
+// #region
+$z-index: () !default;
+$z-index: map.merge(
+  (
+    'normal': 1,
+    'top': 1000,
+    'popper': 2000
+  ),
+  $z-index
+);
+// #endregion
+
+/* Border
+------------------ */
+// #region
+$border-width: 1px !default;
+$border-style: solid !default;
+$border-color-hover: getCssVar('text-color', 'disabled') !default;
+$border: getCssVar('border-width') getCssVar('border-style') getCssVar('border-color') !default;
+$border-radius: () !default;
+$border-radius: map.merge(
+  (
+    'base': 3px,
+    'small': 2px,
+    'round': 20px,
+    'circle': 100%
+  ),
+  $border-radius
+);
+// #endregion
+
+/* Transition
+------------------ */
+// #region
+$transition: () !default;
+$transition: map.merge(
+  (
+    'all': all getCssVar('transition-duration') getCssVar('transition-function-ease-in-out-bezier'),
+    'fade': opacity getCssVar('transition-duration') getCssVar('transition-function-fast-bezier'),
+    'md-fade': (
+      transform getCssVar('transition-duration') getCssVar('transition-function-fast-bezier'),
+      opacity getCssVar('transition-duration') getCssVar('transition-function-fast-bezier')
+    ),
+    'fade-linear': opacity getCssVar('transition-duration-fast') linear,
+    'border': border-color getCssVar('transition-duration-fast') getCssVar('transition-function-ease-in-out-bezier'),
+    'box-shadow': box-shadow getCssVar('transition-duration-fast') getCssVar('transition-function-ease-in-out-bezier'),
+    'color': color getCssVar('transition-duration-fast') getCssVar('transition-function-ease-in-out-bezier')
+  ),
+  $transition
+);
+
+$transition-duration: () !default;
+$transition-duration: map.merge(
+  (
+    '': 0.3s,
+    'fast': 0.2s
+  ),
+  $transition-duration
+);
+
+$transition-function: () !default;
+$transition-function: map.merge(
+  (
+    'ease-in-out-bezier': cubic-bezier(0.645, 0.045, 0.355, 1),
+    'fast-bezier': cubic-bezier(0.23, 1, 0.32, 1)
+  ),
+  $transition-function
+);
+// #endregion
+
+/* Size
+------------------ */
+// #region
+$common-component-size: () !default;
+$common-component-size: map.merge(
+  (
+    'large': 40px,
+    'default': 32px,
+    'small': 24px
+  ),
+  $common-component-size
+);
+// #endregion
+
+/* Dsiabled
+------------------ */
+// #region
+$disabled: () !default;
+$disabled: map.merge(
+  (
+    'bg-color': getCssVar('fill-color', 'light'),
+    'text-color': getCssVar('text-color', 'placeholder'),
+    'border-color': getCssVar('border-color', 'light')
+  ),
+  $disabled
+);
+// #endregion
+
+/* Button
+------------------ */
+// #region
+$button: () !default;
+$button: map.merge(
+  (
+    'font-weight': getCssVar('font-weight-primary'),
+    'border-color': getCssVar('border-color'),
+    'bg-color': getCssVar('fill-color', 'blank'),
+    'text-color': getCssVar('text-color', 'regular'),
+    'disabled-text-color': getCssVar('disabled-text-color'),
+    'disabled-bg-color': getCssVar('fill-color', 'blank'),
+    'disabled-border-color': getCssVar('border-color-light'),
+    'divide-border-color': rgba($color-white, 0.5),
+    'hover-text-color': getCssVar('color-primary'),
+    'hover-bg-color': getCssVar('color-primary', 'light-9'),
+    'hover-border-color': getCssVar('color-primary-light-7'),
+    'active-text-color': getCssVar('button-hover-text-color'),
+    'active-border-color': getCssVar('color-primary'),
+    'active-bg-color': getCssVar('button', 'hover-bg-color'),
+    'outline-color': getCssVar('color-primary', 'light-5'),
+    'hover-link-text-color': getCssVar('color-info'),
+    'active-color': getCssVar('text-color', 'primary')
+  ),
+  $button
+);
+@debug 1, getCssVar('border-color');
+$button-border-width: $border-width !default;
+$button-hover-tint-percent: 20%;
+$button-active-shade-percent: 10%;
+
+$button-border-color: () !default;
+$button-bg-color: () !default;
+$button-text-color: () !default;
+
+@each $type in $types {
+  $button-border-color: map.merge(
+    (
+      $type: map.get($colors, $type, 'base')
+    ),
+    $button-border-color
+  ) !global;
+
+  $button-bg-color: map.merge(
+    (
+      $type: map.get($colors, $type, 'base')
+    ),
+    $button-bg-color
+  ) !global;
+}
+
+$button-font-size: () !default;
+$button-font-size: map.merge(
+  (
+    'large': getCssVar('font-size', 'base'),
+    'default': getCssVar('font-size', 'base'),
+    'small': 12px
+  ),
+  $button-font-size
+);
+
+$button-border-radius: () !default;
+$button-border-radius: map.merge(
+  (
+    'large': getCssVar('border-radius', 'base'),
+    'default': getCssVar('border-radius', 'base'),
+    'small': calc(#{getCssVar('border-radius', 'base')} - 1px)
+  ),
+  $button-border-radius
+);
+
+$button-padding-vertical: () !default;
+$button-padding-vertical: map.merge(
+  (
+    'large': 13px,
+    'default': 9px,
+    'small': 6px
+  ),
+  $button-padding-vertical
+);
+
+$button-padding-horizontal: () !default;
+$button-padding-horizontal: map.merge(
+  (
+    'large': 20px,
+    'default': 16px,
+    'small': 12px
+  ),
+  $button-padding-horizontal
+);
+// #endregion
+
 $color-text-primary: #303133 !default;
 $color-text-regular: #606266 !default;
 $color-text-secondary: #909399 !default;
@@ -71,7 +383,7 @@ $background-color-base: #f5f7fa !default;
 
 /* Link
 -------------------------- */
-$link-color: $color-primary-light-2 !default;
+$link-color: map.get($colors, 'primary', 'light-2') !default;
 $link-hover-color: $color-primary !default;
 
 /* Border

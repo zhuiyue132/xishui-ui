@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "pnpm -C example dev",
+    "docs": "pnpm -C docs dev",
+    "docs:build": "pnpm -C docs build",
+    "docs:serve": "pnpm -C docs serve",
     "lint:fix": "eslint . --fix",
     "lint:eslint": "eslint .",
     "lint:prettier": "prettier --write .",

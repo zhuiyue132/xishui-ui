@@ -18,7 +18,13 @@
   </button>
 </template>
 
-<script setup name="XsButton">
+<script>
+  export default {
+    name: 'XsButton'
+  };
+</script>
+
+<script setup>
   import { computed } from 'vue';
   import { Props, Emits } from './button';
   import { useNamespace, useSize, useDisabled } from '@xs-ui/hooks';

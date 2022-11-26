@@ -2,7 +2,7 @@
  * @Author: chenghao
  * @Date: 2022-11-26 13:47:20
  * @Last Modified by: chenghao
- * @Last Modified time: 2022-11-26 16:38:50
+ * @Last Modified time: 2022-11-26 17:23:46
  * @Desc：文档站点的一些配置；
  */
 import { defineConfig } from 'vitepress';
@@ -12,7 +12,7 @@ import sidebar from './config/sidebar';
 
 export default defineConfig({
   // lang: 'en-US',
-  title: 'Vitepress',
+  title: '溪水UI',
   description: '使用 Vitepress 搭建组件库文档站点。',
 
   lastUpdated: true,

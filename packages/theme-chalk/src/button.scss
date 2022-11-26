@@ -12,6 +12,7 @@
 
 @include b(button) {
   display: inline-block;
+  width: auto;
   margin: 0;
   font-weight: getCssVar('button', 'font-weight');
   line-height: 1;
@@ -29,12 +30,12 @@
   user-select: none;
 
   & + & {
-    margin-left: 10px;
+    margin-left: 8px;
   }
 
   @include button-size(
-    map.get($button-padding-vertical, 'default'),
-    map.get($button-padding-horizontal, 'default'),
+    map.get($button-padding-vertical, 'default') - $button-border-width,
+    map.get($button-padding-horizontal, 'default') - $button-border-width,
     map.get($button-font-size, 'default'),
     map.get($button-border-radius, 'default')
   );
@@ -44,6 +45,7 @@
     color: getCssVar('color-primary');
     background-color: getCssVar('color-primary-light-9');
     border-color: getCssVar('color-primary-light-7');
+    outline: none;
   }
 
   &:active {
@@ -76,7 +78,7 @@
       map.get($button-border-radius, 'small')
     );
     @include when(circle) {
-      padding: $button-small-padding-vertical;
+      padding: map.get($button-padding-vertical, 'small');
     }
   }
 
@@ -89,7 +91,7 @@
     );
 
     @include when(circle) {
-      padding: $button-large-padding-vertical;
+      padding: map.get($button-padding-vertical, 'large');
     }
   }
 
@@ -100,51 +102,21 @@
     @include css-var-from-global(('button', 'hover', 'border-color'), ('color', 'primary'));
   }
 
-  /* type */
-  @include m(primary) {
-    @include button-variant($button-primary-font-color, $button-primary-background-color, $button-primary-border-color);
-  }
-  @include m(success) {
-    @include button-variant($button-success-font-color, $button-success-background-color, $button-success-border-color);
-  }
-  @include m(warning) {
-    @include button-variant($button-warning-font-color, $button-warning-background-color, $button-warning-border-color);
-  }
-  @include m(danger) {
-    @include button-variant($button-danger-font-color, $button-danger-background-color, $button-danger-border-color);
-  }
-  @include m(info) {
-    @include button-variant($button-info-font-color, $button-info-background-color, $button-info-border-color);
-  }
-
   @include when(active) {
-    color: mix($color-black, $color-primary, $button-active-shade-percent);
-    border-color: mix($color-black, $color-primary, $button-active-shade-percent);
+    color: getCssVar('button', 'active', 'text-color');
+    background-color: getCssVar('button', 'active', 'bg-color');
+    border-color: getCssVar('button', 'active', 'border-color');
   }
 
   @include when(disabled) {
     &,
     &:hover,
     &:focus {
-      color: $button-disabled-font-color;
+      color: getCssVar('button', 'disabled', 'text-color');
       cursor: not-allowed;
-      background-color: $button-disabled-background-color;
+      background-color: getCssVar('button', 'disabled', 'bg-color');
       background-image: none;
-      border-color: $button-disabled-border-color;
-    }
-
-    &.el-button--text {
-      background-color: transparent;
-    }
-
-    &.is-plain {
-      &,
-      &:hover,
-      &:focus {
-        color: $button-disabled-font-color;
-        background-color: $color-white;
-        border-color: $button-disabled-border-color;
-      }
+      border-color: getCssVar('button', 'disabled', 'border-color');
     }
   }
 
@@ -152,30 +124,73 @@
   @include m(text) {
     padding-right: 0;
     padding-left: 0;
-    color: $color-primary;
+    color: getCssVar('button', 'text-color');
     background: transparent;
+    border-color: transparent;
+
+    @include when(disabled) {
+      color: getCssVar('button', 'disabled', 'text-color');
+      background-color: transparent !important;
+      border-color: transparent !important;
+    }
+
+    &:not(.is-disabled) {
+      &:hover,
+      &:focus {
+        color: mix($color-white, $color-primary, $button-hover-tint-percent);
+        background-color: transparent;
+        border-color: transparent;
+      }
+
+      &:active {
+        color: mix($color-black, $color-primary, $button-active-shade-percent);
+        background-color: transparent;
+        border-color: transparent;
+      }
+    }
+  }
+
+  @include m(link) {
+    padding: 0;
+    color: getCssVar('color', 'primary');
+    background-color: transparent;
     border-color: transparent;
 
     &:hover,
     &:focus {
-      color: mix($color-white, $color-primary, $button-hover-tint-percent);
+      width: auto;
       background-color: transparent;
       border-color: transparent;
+
+      &::after {
+        display: block;
+        float: left;
+        width: 100%;
+        height: 1px;
+        margin-top: 2px;
+        background-color: getCssVar('color', 'primary');
+        content: '';
+      }
     }
 
-    &:active {
-      color: mix($color-black, $color-primary, $button-active-shade-percent);
-      background-color: transparent;
-      border-color: transparent;
-    }
+    @include when(disabled) {
+      color: getCssVar('button', 'hover', 'border-color');
+      cursor: not-allowed;
+      background-color: transparent !important;
+      border-color: transparent !important;
 
-    &.is-disabled,
-    &.is-disabled:hover,
-    &.is-disabled:focus {
-      border-color: transparent;
+      &:hover,
+      &:focus {
+        color: getCssVar('button', 'hover', 'border-color');
+      }
+
+      &::after {
+        display: none;
+      }
     }
   }
 
+  // 暂时还没有loading状态的按钮，因为没有icon组件；
   @include when(loading) {
     position: relative;
     pointer-events: none;
@@ -196,7 +211,39 @@
     border-radius: 20px;
   }
   @include when(circle) {
-    // padding: $button-padding-vertical;
+    padding: map.get($button-padding-vertical, 'default') - $button-border-width;
     border-radius: 50%;
+  }
+
+  /* type */
+  @include m(primary) {
+    @include button-variant(
+      $color-white,
+      map.get($button-bg-color, 'primary'),
+      map.get($button-border-color, 'primary')
+    );
+  }
+  @include m(success) {
+    @include button-variant(
+      $color-white,
+      map.get($button-bg-color, 'success'),
+      map.get($button-border-color, 'success')
+    );
+  }
+
+  @include m(warning) {
+    @include button-variant(
+      $color-white,
+      map.get($button-bg-color, 'warning'),
+      map.get($button-border-color, 'warning')
+    );
+  }
+
+  @include m(danger) {
+    @include button-variant($color-white, map.get($button-bg-color, 'danger'), map.get($button-border-color, 'danger'));
+  }
+
+  @include m(info) {
+    @include button-variant($color-white, map.get($button-bg-color, 'info'), map.get($button-border-color, 'info'));
   }
 }

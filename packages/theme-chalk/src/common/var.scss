@@ -342,9 +342,9 @@ $button-font-size: map.merge(
 $button-border-radius: () !default;
 $button-border-radius: map.merge(
   (
-    'large': getCssVar('border-radius', 'base'),
-    'default': getCssVar('border-radius', 'base'),
-    'small': calc(#{getCssVar('border-radius', 'base')} - 1px)
+    'large': getCssVar('border-radius', 'small'),
+    'default': getCssVar('border-radius', 'small'),
+    'small': calc(#{getCssVar('border-radius', 'small')})
   ),
   $button-border-radius
 );
@@ -386,17 +386,6 @@ $background-color-base: #f5f7fa !default;
 $link-color: map.get($colors, 'primary', 'light-2') !default;
 $link-hover-color: $color-primary !default;
 
-/* Border
--------------------------- */
-$border-width-base: 1px !default;
-$border-style-base: solid !default;
-$border-color-hover: $color-text-placeholder !default;
-$border-base: $border-width-base $border-style-base $border-color-base !default;
-$border-radius-base: 2px !default;
-$border-radius-small: 2px !default;
-$border-radius-circle: 100% !default;
-$border-radius-zero: 0 !default;
-
 /* Box-shadow */
 $box-shadow-base: 0 2px 4px rgb(0 0 0 / 12%), 0 0 6px rgb(0 0 0 / 4%) !default;
 $box-shadow-dark: 0 2px 4px rgb(0 0 0 / 12%), 0 0 6px rgb(0 0 0 / 12%) !default;
@@ -437,103 +426,3 @@ $index-popper: 2000 !default;
 $disabled-fill-base: $background-color-base !default;
 $disabled-color-base: $color-text-placeholder !default;
 $disabled-border-base: $border-color-light !default;
-
-/* Button
--------------------------- */
-$button-font-size: $font-size-base !default;
-$button-font-weight: $font-weight-primary !default;
-$button-border-radius: $border-radius-base !default;
-$button-padding-vertical: 8px !default;
-$button-padding-horizontal: 16px !default;
-
-$button-small-font-size: 12px !default;
-$button-small-border-radius: #{$border-radius-base - 1} !default;
-$button-small-padding-vertical: 5px !default;
-$button-small-padding-horizontal: 10px !default;
-
-$button-large-font-size: 14px !default;
-$button-large-border-radius: #{$border-radius-base - 1} !default;
-$button-large-padding-vertical: 12px !default;
-$button-large-padding-horizontal: 20px !default;
-
-$button-default-font-color: $color-text-regular !default;
-$button-default-background-color: $color-white !default;
-$button-default-border-color: $border-color-base !default;
-
-$button-disabled-font-color: $color-text-placeholder !default;
-$button-disabled-background-color: $color-white !default;
-$button-disabled-border-color: $border-color-lighter !default;
-
-$button-primary-border-color: $color-primary !default;
-$button-primary-font-color: $color-white !default;
-$button-primary-background-color: $color-primary !default;
-$button-success-border-color: $color-success !default;
-$button-success-font-color: $color-white !default;
-$button-success-background-color: $color-success !default;
-$button-warning-border-color: $color-warning !default;
-$button-warning-font-color: $color-white !default;
-$button-warning-background-color: $color-warning !default;
-$button-danger-border-color: $color-danger !default;
-$button-danger-font-color: $color-white !default;
-$button-danger-background-color: $color-danger !default;
-$button-info-border-color: $color-info !default;
-$button-info-font-color: $color-white !default;
-$button-info-background-color: $color-info !default;
-
-$button-hover-tint-percent: 20% !default;
-$button-active-shade-percent: 10% !default;
-
-/* Break-point
--------------------------- */
-$sm: 768px !default;
-$md: 992px !default;
-$lg: 1200px !default;
-$xl: 1920px !default;
-
-$breakpoints: (
-  'xs': (
-    max-width: $sm - 1
-  ),
-  'sm': (
-    min-width: $sm
-  ),
-  'md': (
-    min-width: $md
-  ),
-  'lg': (
-    min-width: $lg
-  ),
-  'xl': (
-    min-width: $xl
-  )
-);
-
-$breakpoints-spec: (
-  'xs-only': (
-    max-width: $sm - 1
-  ),
-  'sm-and-up': (
-    min-width: $sm
-  ),
-  'sm-only': '(min-width: #{$sm}) and (max-width: #{$md - 1})',
-  'sm-and-down': (
-    max-width: $md - 1
-  ),
-  'md-and-up': (
-    min-width: $md
-  ),
-  'md-only': '(min-width: #{$md}) and (max-width: #{$lg - 1})',
-  'md-and-down': (
-    max-width: $lg - 1
-  ),
-  'lg-and-up': (
-    min-width: $lg
-  ),
-  'lg-only': '(min-width: #{$lg}) and (max-width: #{$xl - 1})',
-  'lg-and-down': (
-    max-width: $xl - 1
-  ),
-  'xl-only': (
-    min-width: $xl
-  )
-);

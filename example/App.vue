@@ -7,19 +7,21 @@
       <xs-button type="danger" circle>溪</xs-button>
       <xs-button type="warning">溪水</xs-button>
       <xs-button type="info">溪水</xs-button>
+      <xs-button type="text">溪水</xs-button>
       <xs-button type="link">溪水</xs-button>
     </xs-config-provider>
 
     <br />
     <br />
     <xs-config-provider size="large">
-      <xs-button plain>溪水</xs-button>
-      <xs-button round type="danger">溪水</xs-button>
-      <xs-button type="success">溪水</xs-button>
-      <xs-button type="danger">溪水</xs-button>
-      <xs-button type="warning">溪水</xs-button>
-      <xs-button type="info">溪水</xs-button>
-      <xs-button type="text">溪水</xs-button>
+      <xs-button plain disabled>溪水</xs-button>
+      <xs-button type="primary">溪水</xs-button>
+      <xs-button round type="danger" disabled>溪水</xs-button>
+      <xs-button circle type="success" disabled>水</xs-button>
+      <xs-button type="warning" disabled>溪水</xs-button>
+      <xs-button type="info" disabled>溪水</xs-button>
+      <xs-button type="text" disabled>溪水</xs-button>
+      <xs-button type="link" disabled>溪水</xs-button>
     </xs-config-provider>
 
     <br />
@@ -31,8 +33,8 @@
     <xs-button type="warning">溪水</xs-button>
     <xs-button type="info">溪水</xs-button>
     <xs-button type="text">溪水</xs-button>
+    <xs-button type="link" disabled>溪水</xs-button>
 
-    <xs-button>溪水</xs-button>
     <!-- <xs-button type="primary">溪水</xs-button> -->
     <!-- <xs-button type="success">溪水</xs-button>
     <xs-button type="danger">溪水</xs-button>

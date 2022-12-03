@@ -28,4 +28,3 @@ export const buildConfig = {
   }
 };
 export const buildConfigEntries = Object.entries(buildConfig);
-export const target = 'es2018';

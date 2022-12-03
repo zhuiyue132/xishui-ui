@@ -159,7 +159,16 @@ importers:
     specifiers: {}
 
   packages/theme-chalk:
-    specifiers: {}
+    specifiers:
+      gulp-autoprefixer: ^8.0.0
+      gulp-clean-css: ^4.3.0
+      gulp-rename: ^2.0.0
+      gulp-sass: ^5.1.0
+    devDependencies:
+      gulp-autoprefixer: registry.npmmirror.com/gulp-autoprefixer/8.0.0
+      gulp-clean-css: registry.npmmirror.com/gulp-clean-css/4.3.0
+      gulp-rename: registry.npmmirror.com/gulp-rename/2.0.0
+      gulp-sass: registry.npmmirror.com/gulp-sass/5.1.0
 
   packages/token:
     specifiers: {}
@@ -2216,6 +2225,25 @@ packages:
     hasBin: true
     dev: true
 
+  registry.npmmirror.com/autoprefixer/10.4.13_postcss@8.4.19:
+    resolution: {integrity: sha512-49vKpMqcZYsJjwotvt4+h/BCjJVnhGwcLpDt5xkcaOG3eLrG/HUYLagrihYsQ+qrIBgIzX1Rw7a6L8I/ZA1Atg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/autoprefixer/-/autoprefixer-10.4.13.tgz}
+    id: registry.npmmirror.com/autoprefixer/10.4.13
+    name: autoprefixer
+    version: 10.4.13
+    engines: {node: ^10 || ^12 || >=14}
+    hasBin: true
+    peerDependencies:
+      postcss: ^8.1.0
+    dependencies:
+      browserslist: registry.npmmirror.com/browserslist/4.21.4
+      caniuse-lite: registry.npmmirror.com/caniuse-lite/1.0.30001434
+      fraction.js: registry.npmmirror.com/fraction.js/4.2.0
+      normalize-range: registry.npmmirror.com/normalize-range/0.1.2
+      picocolors: registry.npmmirror.com/picocolors/1.0.0
+      postcss: registry.npmmirror.com/postcss/8.4.19
+      postcss-value-parser: registry.npmmirror.com/postcss-value-parser/4.2.0
+    dev: true
+
   registry.npmmirror.com/bach/1.2.0:
     resolution: {integrity: sha512-bZOOfCb3gXBXbTFXq3OZtGR88LwGeJvzu6szttaIzymOTS4ZttBNOWSv7aLZja2EMycKtRYV0Oa8SNKH/zkxvg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/bach/-/bach-1.2.0.tgz}
     name: bach
@@ -2561,6 +2589,15 @@ packages:
       define-property: registry.npmmirror.com/define-property/0.2.5
       isobject: registry.npmmirror.com/isobject/3.0.1
       static-extend: registry.npmmirror.com/static-extend/0.1.2
+    dev: true
+
+  registry.npmmirror.com/clean-css/4.2.3:
+    resolution: {integrity: sha512-VcMWDN54ZN/DS+g58HYL5/n4Zrqe8vHJpGA8KdgUXFU4fuP/aHNw8eld9SyEIyabIMJX/0RaY/fplOo5hYLSFA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/clean-css/-/clean-css-4.2.3.tgz}
+    name: clean-css
+    version: 4.2.3
+    engines: {node: '>= 4.0'}
+    dependencies:
+      source-map: registry.npmmirror.com/source-map/0.6.1
     dev: true
 
   registry.npmmirror.com/clean-stack/2.2.0:
@@ -4312,6 +4349,12 @@ packages:
       for-in: registry.npmmirror.com/for-in/1.0.2
     dev: true
 
+  registry.npmmirror.com/fraction.js/4.2.0:
+    resolution: {integrity: sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/fraction.js/-/fraction.js-4.2.0.tgz}
+    name: fraction.js
+    version: 4.2.0
+    dev: true
+
   registry.npmmirror.com/fragment-cache/0.2.1:
     resolution: {integrity: sha512-GMBAbW9antB8iZRHLoGw0b3HANt57diZYFO/HL1JGIC1MjKrdmhxvrJbupnVvpys0zsz7yBApXdQyfepKly2kA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/fragment-cache/-/fragment-cache-0.2.1.tgz}
     name: fragment-cache
@@ -4663,6 +4706,36 @@ packages:
     version: 1.0.4
     dev: true
 
+  registry.npmmirror.com/gulp-autoprefixer/8.0.0:
+    resolution: {integrity: sha512-sVR++PIaXpa81p52dmmA/jt50bw0egmylK5mjagfgOJ8uLDGaF9tHyzvetkY9Uo0gBZUS5sVqN3kX/GlUKOyog==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/gulp-autoprefixer/-/gulp-autoprefixer-8.0.0.tgz}
+    name: gulp-autoprefixer
+    version: 8.0.0
+    engines: {node: '>=12'}
+    peerDependencies:
+      gulp: '>=4'
+    peerDependenciesMeta:
+      gulp:
+        optional: true
+    dependencies:
+      autoprefixer: registry.npmmirror.com/autoprefixer/10.4.13_postcss@8.4.19
+      fancy-log: registry.npmmirror.com/fancy-log/1.3.3
+      plugin-error: registry.npmmirror.com/plugin-error/1.0.1
+      postcss: registry.npmmirror.com/postcss/8.4.19
+      through2: registry.npmmirror.com/through2/4.0.2
+      vinyl-sourcemaps-apply: registry.npmmirror.com/vinyl-sourcemaps-apply/0.2.1
+    dev: true
+
+  registry.npmmirror.com/gulp-clean-css/4.3.0:
+    resolution: {integrity: sha512-mGyeT3qqFXTy61j0zOIciS4MkYziF2U594t2Vs9rUnpkEHqfu6aDITMp8xOvZcvdX61Uz3y1mVERRYmjzQF5fg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/gulp-clean-css/-/gulp-clean-css-4.3.0.tgz}
+    name: gulp-clean-css
+    version: 4.3.0
+    dependencies:
+      clean-css: registry.npmmirror.com/clean-css/4.2.3
+      plugin-error: registry.npmmirror.com/plugin-error/1.0.1
+      through2: registry.npmmirror.com/through2/3.0.1
+      vinyl-sourcemaps-apply: registry.npmmirror.com/vinyl-sourcemaps-apply/0.2.1
+    dev: true
+
   registry.npmmirror.com/gulp-cli/2.3.0:
     resolution: {integrity: sha512-zzGBl5fHo0EKSXsHzjspp3y5CONegCm8ErO5Qh0UzFzk2y4tMvzLWhoDokADbarfZRL2pGpRp7yt6gfJX4ph7A==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/gulp-cli/-/gulp-cli-2.3.0.tgz}
     name: gulp-cli
@@ -4690,6 +4763,27 @@ packages:
       yargs: registry.npmmirror.com/yargs/7.1.2
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  registry.npmmirror.com/gulp-rename/2.0.0:
+    resolution: {integrity: sha512-97Vba4KBzbYmR5VBs9mWmK+HwIf5mj+/zioxfZhOKeXtx5ZjBk57KFlePf5nxq9QsTtFl0ejnHE3zTC9MHXqyQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/gulp-rename/-/gulp-rename-2.0.0.tgz}
+    name: gulp-rename
+    version: 2.0.0
+    engines: {node: '>=4'}
+    dev: true
+
+  registry.npmmirror.com/gulp-sass/5.1.0:
+    resolution: {integrity: sha512-7VT0uaF+VZCmkNBglfe1b34bxn/AfcssquLKVDYnCDJ3xNBaW7cUuI3p3BQmoKcoKFrs9jdzUxyb+u+NGfL4OQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/gulp-sass/-/gulp-sass-5.1.0.tgz}
+    name: gulp-sass
+    version: 5.1.0
+    engines: {node: '>=12'}
+    dependencies:
+      lodash.clonedeep: registry.npmmirror.com/lodash.clonedeep/4.5.0
+      picocolors: registry.npmmirror.com/picocolors/1.0.0
+      plugin-error: registry.npmmirror.com/plugin-error/1.0.1
+      replace-ext: registry.npmmirror.com/replace-ext/2.0.0
+      strip-ansi: registry.npmmirror.com/strip-ansi/6.0.1
+      vinyl-sourcemaps-apply: registry.npmmirror.com/vinyl-sourcemaps-apply/0.2.1
     dev: true
 
   registry.npmmirror.com/gulp/4.0.2:
@@ -5685,6 +5779,12 @@ packages:
     version: 4.3.0
     dev: true
 
+  registry.npmmirror.com/lodash.clonedeep/4.5.0:
+    resolution: {integrity: sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz}
+    name: lodash.clonedeep
+    version: 4.5.0
+    dev: true
+
   registry.npmmirror.com/lodash.map/4.6.0:
     resolution: {integrity: sha512-worNHGKLDetmcEYDvh2stPCrrQRkP20E4l0iIS7F8EvzMqBBi7ltvFN5m1HvTf1P7Jk1txKhvFcmYsCr8O2F1Q==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/lodash.map/-/lodash.map-4.6.0.tgz}
     name: lodash.map
@@ -6193,6 +6293,13 @@ packages:
     version: 3.0.0
     engines: {node: '>=0.10.0'}
 
+  registry.npmmirror.com/normalize-range/0.1.2:
+    resolution: {integrity: sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/normalize-range/-/normalize-range-0.1.2.tgz}
+    name: normalize-range
+    version: 0.1.2
+    engines: {node: '>=0.10.0'}
+    dev: true
+
   registry.npmmirror.com/normalize-url/6.1.0:
     resolution: {integrity: sha512-DlL+XwOy3NxAQ8xuC0okPgK46iuVNAK01YN7RueYBqqFeGsBjV9XmCAzAdgt+667bCl5kPh9EqKKDwnaPG1I7A==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/normalize-url/-/normalize-url-6.1.0.tgz}
     name: normalize-url
@@ -6692,6 +6799,18 @@ packages:
       mlly: registry.npmmirror.com/mlly/1.0.0
       pathe: registry.npmmirror.com/pathe/1.0.0
     dev: false
+
+  registry.npmmirror.com/plugin-error/1.0.1:
+    resolution: {integrity: sha512-L1zP0dk7vGweZME2i+EeakvUNqSrdiI3F91TwEoYiGrAfUXmVv6fJIq4g82PAXxNsWOp0J7ZqQy/3Szz0ajTxA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/plugin-error/-/plugin-error-1.0.1.tgz}
+    name: plugin-error
+    version: 1.0.1
+    engines: {node: '>= 0.10'}
+    dependencies:
+      ansi-colors: registry.npmmirror.com/ansi-colors/1.1.0
+      arr-diff: registry.npmmirror.com/arr-diff/4.0.0
+      arr-union: registry.npmmirror.com/arr-union/3.1.0
+      extend-shallow: registry.npmmirror.com/extend-shallow/3.0.2
+    dev: true
 
   registry.npmmirror.com/posix-character-classes/0.1.1:
     resolution: {integrity: sha512-xTgYBc3fuo7Yt7JbiuFxSYGToMoz8fLoE6TC9Wx1P/u+LfeThMOAqmuyECnlBaaJb+u1m9hHiXUEtwW4OzfUJg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz}
@@ -7510,6 +7629,13 @@ packages:
     name: replace-ext
     version: 1.0.1
     engines: {node: '>= 0.10'}
+    dev: true
+
+  registry.npmmirror.com/replace-ext/2.0.0:
+    resolution: {integrity: sha512-UszKE5KVK6JvyD92nzMn9cDapSk6w/CaFZ96CnmDMUqH9oowfxF/ZjRITD25H4DnOQClLA4/j7jLGXXLVKxAug==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/replace-ext/-/replace-ext-2.0.0.tgz}
+    name: replace-ext
+    version: 2.0.0
+    engines: {node: '>= 10'}
     dev: true
 
   registry.npmmirror.com/replace-homedir/1.0.0:
@@ -8542,6 +8668,14 @@ packages:
       xtend: registry.npmmirror.com/xtend/4.0.2
     dev: true
 
+  registry.npmmirror.com/through2/3.0.1:
+    resolution: {integrity: sha512-M96dvTalPT3YbYLaKaCuwu+j06D/8Jfib0o/PxbVt6Amhv3dUAtW6rTV1jPgJSBG83I/e04Y6xkVdVhSRhi0ww==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/through2/-/through2-3.0.1.tgz}
+    name: through2
+    version: 3.0.1
+    dependencies:
+      readable-stream: registry.npmmirror.com/readable-stream/3.6.0
+    dev: true
+
   registry.npmmirror.com/through2/4.0.2:
     resolution: {integrity: sha512-iOqSav00cVxEEICeD7TjLB1sueEL+81Wpzp2bY17uZjZN0pWZPuo4suZ/61VujxmqSGFfgOcNuTZ85QJwNZQpw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/through2/-/through2-4.0.2.tgz}
     name: through2
@@ -9024,6 +9158,14 @@ packages:
       now-and-later: registry.npmmirror.com/now-and-later/2.0.1
       remove-bom-buffer: registry.npmmirror.com/remove-bom-buffer/3.0.0
       vinyl: registry.npmmirror.com/vinyl/2.2.1
+    dev: true
+
+  registry.npmmirror.com/vinyl-sourcemaps-apply/0.2.1:
+    resolution: {integrity: sha512-+oDh3KYZBoZC8hfocrbrxbLUeaYtQK7J5WU5Br9VqWqmCll3tFJqKp97GC9GmMsVIL0qnx2DgEDVxdo5EZ5sSw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vinyl-sourcemaps-apply/-/vinyl-sourcemaps-apply-0.2.1.tgz}
+    name: vinyl-sourcemaps-apply
+    version: 0.2.1
+    dependencies:
+      source-map: registry.npmmirror.com/source-map/0.5.7
     dev: true
 
   registry.npmmirror.com/vinyl/2.2.1:

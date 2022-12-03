@@ -2,7 +2,7 @@
  * @Author: chenghao
  * @Date: 2022-11-28 11:17:44
  * @Last Modified by: chenghao
- * @Last Modified time: 2022-11-30 19:26:01
+ * @Last Modified time: 2022-12-02 16:08:54
  * @Desc: 打包辅助函数;
  */
 import { existsSync } from 'fs';
@@ -129,4 +129,8 @@ export const generateExternal = async (options = {}) => {
 };
 export function writeBundles(bundle, options) {
   return Promise.all(options.map(option => bundle.write(option)));
+}
+
+export function formatBundleFilename(name, minify, ext) {
+  return `${name}${minify ? '.min' : ''}.${ext}`;
 }

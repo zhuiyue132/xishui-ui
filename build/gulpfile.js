@@ -2,12 +2,12 @@
  * @Author: chenghao
  * @Date: 2022-11-28 11:42:21
  * @Last Modified by: chenghao
- * @Last Modified time: 2022-12-05 15:44:42
+ * @Last Modified time: 2022-12-05 16:03:42
  * @Desc: 项目打包入口；
  */
 import path from 'path';
 import { copyFile, mkdir } from 'fs/promises';
-import { run, runTask, withTaskName, epOutput } from './utils';
+import { run, runTask, withTaskName, epOutput, epPackage, projRoot } from './utils';
 import { parallel, series } from 'gulp';
 
 export const copyFiles = () =>
@@ -31,7 +31,8 @@ export default series(
       withTaskName('buildThemeChalk', () => run('pnpm run -C packages/theme-chalk build')),
       copyFullStyle
     )
-  )
+  ),
+  parallel(copyFiles)
 );
 
 export * from './work';

@@ -2,7 +2,7 @@
  * @Author: chenghao
  * @Date: 2022-11-28 11:42:21
  * @Last Modified by: chenghao
- * @Last Modified time: 2022-12-03 09:32:51
+ * @Last Modified time: 2022-12-05 15:44:42
  * @Desc: 项目打包入口；
  */
 import path from 'path';
@@ -27,9 +27,10 @@ export default series(
   parallel(
     runTask('buildModules'),
     runTask('buildFullBundle'),
-    series()
-    // withTaskName('buildThemeChalk', () => run('pnpm run -C packages/theme-chalk build')),
-    // copyFullStyle
+    series(
+      withTaskName('buildThemeChalk', () => run('pnpm run -C packages/theme-chalk build')),
+      copyFullStyle
+    )
   )
 );
 

@@ -3,7 +3,6 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "build": "cross-env NODE_ENV=production rollup -c",
     "dev": "pnpm -C example dev",
     "docs": "pnpm -C docs dev",
     "docs:build": "pnpm -C docs build",
@@ -20,7 +19,8 @@
     "prepare": "husky install",
     "postinstall": "npx husky install",
     "reinstall": "rimraf pnpm-lock.yarm && rimraf node_modules && pnpm install",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "build": "pnpm run -C build start"
   },
   "config": {
     "commitizen": {

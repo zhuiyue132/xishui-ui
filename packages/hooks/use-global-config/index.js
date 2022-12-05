@@ -1,5 +1,5 @@
 import { computed, getCurrentInstance, inject, provide, ref, unref } from 'vue';
-import { configProviderContextKey } from '@xs-ui/token';
+import { configProviderContextKey } from '@xishui-ui/token';
 
 const globalConfig = ref();
 

@@ -4,7 +4,7 @@
  * @Last Modified by: chenghao
  * @Last Modified time: 2022-11-24 17:33:17
  */
-import { componentSizes } from '@xs-ui/config';
+import { componentSizes } from '@xishui-ui/config';
 import { computed, unref } from 'vue';
 import { useProp } from '../use-prop';
 import { useGlobalConfig } from '../use-global-config';

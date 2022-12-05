@@ -1,4 +1,4 @@
-import { provideGlobalConfig, useSizeProp } from '@xs-ui/hooks';
+import { provideGlobalConfig, useSizeProp } from '@xishui-ui/hooks';
 import { defineComponent, renderSlot } from 'vue';
 
 export const Props = {

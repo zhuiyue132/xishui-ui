@@ -1,4 +1,4 @@
 {
   "root": true,
-  "extends": ["@xs-ui/eslint-config"]
+  "extends": ["@xishui-ui/eslint-config"]
 }

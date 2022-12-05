@@ -27,7 +27,7 @@
 <script setup>
   import { computed } from 'vue';
   import { Props, Emits } from './button';
-  import { useNamespace, useSize, useDisabled } from '@xs-ui/hooks';
+  import { useNamespace, useSize, useDisabled } from '@xishui-ui/hooks';
 
   const props = defineProps(Props);
   const emits = defineEmits(Emits);

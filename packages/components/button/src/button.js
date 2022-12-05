@@ -5,7 +5,7 @@
  * @Last Modified time: 2022-11-24 18:09:13
  * @Desc: 按钮配置
  */
-import { useSizeProp } from '@xs-ui/hooks';
+import { useSizeProp } from '@xishui-ui/hooks';
 
 // 按钮类型;
 export const buttonTypes = ['primary', 'success', 'warning', 'info', 'danger', 'link', ''];

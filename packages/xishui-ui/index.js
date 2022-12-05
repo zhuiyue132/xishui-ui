@@ -1,9 +1,9 @@
 import installer from './defaults';
-export * from '@xs-ui/components';
-export * from '@xs-ui/config';
-export * from '@xs-ui/directives';
-export * from '@xs-ui/hooks';
-export * from '@xs-ui/tokens';
+export * from '@xishui-ui/components';
+export * from '@xishui-ui/config';
+export * from '@xishui-ui/directives';
+export * from '@xishui-ui/hooks';
+export * from '@xishui-ui/tokens';
 export * from './installer';
 
 export const install = installer.install;

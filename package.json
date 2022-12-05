@@ -66,12 +66,12 @@
     "vue": "^3.2.36"
   },
   "dependencies": {
-    "@xs-ui/components": "workspace:^0.0.1",
-    "@xs-ui/config": "workspace:^0.0.1",
-    "@xs-ui/eslint-config": "workspace:^0.0.1",
-    "@xs-ui/hooks": "workspace:^0.0.1",
-    "@xs-ui/theme-chalk": "workspace:^0.0.1",
-    "@xs-ui/token": "workspace:^0.0.1",
-    "@xs-ui/utils": "workspace:^0.0.1"
+    "@xishui-ui/components": "workspace:^0.0.1",
+    "@xishui-ui/config": "workspace:^0.0.1",
+    "@xishui-ui/eslint-config": "workspace:^0.0.1",
+    "@xishui-ui/hooks": "workspace:^0.0.1",
+    "@xishui-ui/theme-chalk": "workspace:^0.0.1",
+    "@xishui-ui/token": "workspace:^0.0.1",
+    "@xishui-ui/utils": "workspace:^0.0.1"
   }
 }

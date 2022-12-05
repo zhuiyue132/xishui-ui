@@ -1,5 +1,5 @@
-import { provideGlobalConfig } from '@xs-ui/hooks';
-import { INSTALLED_KEY } from '@xs-ui/token';
+import { provideGlobalConfig } from '@xishui-ui/hooks';
+import { INSTALLED_KEY } from '@xishui-ui/token';
 import { version } from './package.json';
 
 export const makeInstaller = components => {

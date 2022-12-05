@@ -1,4 +1,4 @@
-import { withInstall } from '@xs-ui/utils';
+import { withInstall } from '@xishui-ui/utils';
 
 import Button from './src/button.vue';
 

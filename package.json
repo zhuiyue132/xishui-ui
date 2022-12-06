@@ -1,7 +1,7 @@
 {
   "name": "xishui-ui",
   "private": true,
-  "version": "1.0.2-beta.0",
+  "version": "1.0.3-beta.0",
   "scripts": {
     "dev": "pnpm -C example dev",
     "docs": "pnpm -C docs dev",
@@ -22,8 +22,7 @@
     "commit": "git-cz",
     "build": "pnpm run -C build start",
     "release": "node release",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-    "publish": "npm-publish --token=$NPM_PUBLISH_TOKEN"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
   "config": {
     "commitizen": {

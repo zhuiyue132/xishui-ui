@@ -1,7 +1,8 @@
-## 1.0.2-beta.0 (2022-12-06)
+## 1.0.3-beta.0 (2022-12-06)
 
 ### Bug Fixes
 
+- 修改流水线; ([a336e26](https://gitee.com/creektech/xishui-ui/commits/a336e2680b6b27b986f116c33ea24a95b1d009a6))
 - 修正一些包名的引用; ([a68478a](https://gitee.com/creektech/xishui-ui/commits/a68478ac3ff92dafe4fca9a2f929194aed4371f5))
 
 ### Features

@@ -1,4 +1,10 @@
-/** release.js **/
+/*
+ * @Author: chenghao
+ * @Date: 2022-12-06 16:13:41
+ * @Last Modified by: chenghao
+ * @Last Modified time: 2022-12-06 16:16:45
+ * @Desc: 自动发布;
+ */
 const process = require('process');
 const path = require('path');
 const fs = require('fs');
@@ -68,7 +74,7 @@ async function generateChangelog(targetVersion) {
  */
 async function buildModules() {
   step('\n打包构建');
-  await execa('yarn', ['build'], { stdio: 'inherit' });
+  await execa('pnpm', ['build'], { stdio: 'inherit' });
 }
 
 /**
@@ -80,7 +86,11 @@ async function publishPkg(targetVersion) {
   const pkgName = rootPkgInfo.name;
   try {
     // npm publish 发布
-    await execa('npm', ['publish', root, '--access', 'public', '--registry', NPM_DEFAULT_REGISTRY], { stdio: 'pipe' });
+    await execa(
+      'npm',
+      ['publish', `${root}/dist/xishui-ui`, '--access', 'public', '--registry', NPM_DEFAULT_REGISTRY],
+      { stdio: 'pipe' }
+    );
     console.success(`Successfully published ${pkgName}@${targetVersion}`);
   } catch (e) {
     throw e;

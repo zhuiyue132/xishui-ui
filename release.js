@@ -2,8 +2,8 @@
  * @Author: chenghao
  * @Date: 2022-12-06 16:13:41
  * @Last Modified by: chenghao
- * @Last Modified time: 2022-12-06 16:16:45
- * @Desc: 自动发布;
+ * @Last Modified time: 2022-12-06 17:13:14
+ * @Desc: 自动发布到npm;
  */
 const process = require('process');
 const path = require('path');
@@ -12,9 +12,11 @@ const semver = require('semver');
 const inquirer = require('inquirer');
 const execa = require('execa');
 const consola = require('consola');
+const npmPublish = require('@jsdevtools/npm-publish');
 
 // PS: 调试的时候把该地址改成本地 npm 私服
 const NPM_DEFAULT_REGISTRY = 'https://registry.npmjs.org';
+const NPM_PUBLISH_TOKEN = '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';
 
 const root = process.cwd();
 // package.json 文件内容
@@ -86,11 +88,11 @@ async function publishPkg(targetVersion) {
   const pkgName = rootPkgInfo.name;
   try {
     // npm publish 发布
-    await execa(
-      'npm',
-      ['publish', `${root}/dist/xishui-ui`, '--access', 'public', '--registry', NPM_DEFAULT_REGISTRY],
-      { stdio: 'pipe' }
-    );
+    await npmPublish({
+      package: `${root}/dist/xishui-ui/package.json`,
+      token: NPM_PUBLISH_TOKEN,
+      registry: NPM_DEFAULT_REGISTRY
+    });
     console.success(`Successfully published ${pkgName}@${targetVersion}`);
   } catch (e) {
     throw e;

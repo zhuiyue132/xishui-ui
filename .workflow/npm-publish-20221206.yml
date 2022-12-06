@@ -26,10 +26,8 @@ stages:
           - npm install pnpm -g
           - pnpm install
           - pnpm run build
-          - pnpm add @jsdevtools/npm-publish -g
-          - pnpm setup
-          - cd dist
-          - npm-publish --token=$NPM_PUBLISH_TOKEN ./package.json
+          - cd dist/xishui-ui
+          - pnpm run publish
         artifacts:
           - name: BUILD_ARTIFACT
             path:

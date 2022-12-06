@@ -22,7 +22,8 @@
     "commit": "git-cz",
     "build": "pnpm run -C build start",
     "release": "node release",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "publish": "npm-publish --token=$NPM_PUBLISH_TOKEN"
   },
   "config": {
     "commitizen": {
@@ -36,6 +37,7 @@
     "@commitlint/cli": "^17.2.0",
     "@commitlint/config-conventional": "^17.2.0",
     "@esbuild-kit/cjs-loader": "^2.4.1",
+    "@jsdevtools/npm-publish": "^1.4.3",
     "@ls-lint/ls-lint": "^1.11.2",
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^23.0.3",

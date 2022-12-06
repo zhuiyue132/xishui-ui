@@ -2,7 +2,7 @@
  * @Author: chenghao
  * @Date: 2022-12-06 16:13:41
  * @Last Modified by: chenghao
- * @Last Modified time: 2022-12-06 17:13:14
+ * @Last Modified time: 2022-12-06 17:14:00
  * @Desc: 自动发布到npm;
  */
 const process = require('process');
@@ -73,7 +73,7 @@ async function generateChangelog(targetVersion) {
 
 /**
  * 打包构建
- */
+ */ console.success;
 async function buildModules() {
   step('\n打包构建');
   await execa('pnpm', ['build'], { stdio: 'inherit' });
@@ -93,7 +93,7 @@ async function publishPkg(targetVersion) {
       token: NPM_PUBLISH_TOKEN,
       registry: NPM_DEFAULT_REGISTRY
     });
-    console.success(`Successfully published ${pkgName}@${targetVersion}`);
+    consola.success(`Successfully published ${pkgName}@${targetVersion}`);
   } catch (e) {
     throw e;
   }

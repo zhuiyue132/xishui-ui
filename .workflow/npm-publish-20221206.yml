@@ -23,12 +23,13 @@ stages:
         nodeVersion: 16.14.2
         commands:
           - npm config set registry https://registry.npmmirror.com
+          - ls
           - npm install pnpm -g
           - pnpm install
           - pnpm run build
           - pnpm add @jsdevtools/npm-publish -g
           - pnpm setup
-          - cd dist
+          - cd dist/xishui-ui
           - npm-publish --token=$NPM_PUBLISH_TOKEN ./package.json
         artifacts:
           - name: BUILD_ARTIFACT

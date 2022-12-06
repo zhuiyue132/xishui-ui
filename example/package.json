@@ -9,9 +9,5 @@
   },
   "keywords": [],
   "author": "zhuiyue132",
-  "license": "ISC",
-  "dependencies": {
-    "vite": "^3.2.4",
-    "vite-plugin-vue-setup-extend": "^0.4.0"
-  }
+  "license": "ISC"
 }

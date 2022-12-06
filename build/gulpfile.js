@@ -2,7 +2,7 @@
  * @Author: chenghao
  * @Date: 2022-11-28 11:42:21
  * @Last Modified by: chenghao
- * @Last Modified time: 2022-12-06 16:34:45
+ * @Last Modified time: 2022-12-06 17:53:52
  * @Desc: 项目打包入口；
  */
 import path from 'path';
@@ -24,8 +24,6 @@ export const copyFullStyle = async () => {
 export default series(
   withTaskName('clear', () => run('pnpm run clear')),
   withTaskName('createOutput', () => mkdir(epOutput, { recursive: true })),
-
-  withTaskName('clear', () => run('pnpm run changelog')),
   parallel(
     runTask('buildModules'),
     runTask('buildFullBundle'),

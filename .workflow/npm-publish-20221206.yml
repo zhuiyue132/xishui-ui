@@ -7,6 +7,9 @@ triggers:
     tags:
       include:
         - /\d+.\d+.\d+/
+variables:
+  global:
+    - NPM_PUBLISH_TOKEN
 stages:
   - name: stage-39568205
     displayName: 依赖安装并打包

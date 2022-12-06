@@ -30,6 +30,7 @@
   "author": "zhuiyue132",
   "license": "ISC",
   "devDependencies": {
+    "@vitejs/plugin-vue-jsx": "^2.1.1",
     "@babel/core": "^7.20.2",
     "@commitlint/cli": "^17.2.0",
     "@commitlint/config-conventional": "^17.2.0",
@@ -50,6 +51,7 @@
     "postcss": "^8.4.19",
     "postcss-scss": "^4.0.5",
     "prettier": "^2.7.1",
+    "release-it": "^15.5.1",
     "rimraf": "^3.0.2",
     "rollup": "^3.5.0",
     "rollup-plugin-postcss": "^4.0.2",

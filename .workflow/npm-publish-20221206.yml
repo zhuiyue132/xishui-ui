@@ -27,7 +27,8 @@ stages:
           - pnpm install
           - pnpm run build
           - pnpm add @jsdevtools/npm-publish -g
-          - ls
+          - pnpm setup
+          - cd dist
           - npm-publish --token=$NPM_PUBLISH_TOKEN ./package.json
         artifacts:
           - name: BUILD_ARTIFACT

@@ -84,7 +84,8 @@
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-vue-setup-extend": "^0.4.0",
     "vitepress": "1.0.0-alpha.29",
-    "vitepress-theme-demoblock": "^2.0.0"
+    "vitepress-theme-demoblock": "^2.0.0",
+    "xishui-ui": "workspace:1.0.4-beta.2"
   },
   "dependencies": {
     "@xishui-ui/components": "workspace:^0.0.1",

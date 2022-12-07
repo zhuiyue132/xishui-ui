@@ -1,3 +1,9 @@
+## [1.0.4-beta.3](https://gitee.com/creektech/xishui-ui/compare/v1.0.4-beta.2...v1.0.4-beta.3) (2022-12-07)
+
+### Bug Fixes
+
+- 修改目录以适配按需加载; ([629b118](https://gitee.com/creektech/xishui-ui/commits/629b11863088ad1f51028e2d4fe2043a81675ec1))
+
 ## [1.0.4-beta.2](https://gitee.com/creektech/xishui-ui/compare/v1.0.4-beta.1...v1.0.4-beta.2) (2022-12-07)
 
 ## [1.0.4-beta.1](https://gitee.com/creektech/xishui-ui/compare/v1.0.4-beta.0...v1.0.4-beta.1) (2022-12-07)

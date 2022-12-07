@@ -1,1 +1,1 @@
-import '@xishui-ui//theme-chalk/src/base.scss';
+import '@xishui-ui/theme-chalk/src/base.scss';

@@ -9,6 +9,7 @@ import glob from 'fast-glob';
 import { epRoot, excludeFiles, pkgRoot, generateExternal, writeBundles } from '../utils';
 import json from '@rollup/plugin-json';
 import { buildConfigEntries } from '../build-info';
+import postcss from 'rollup-plugin-postcss';
 
 // 构建任务
 export const buildModules = async () => {
@@ -32,6 +33,7 @@ export const buildModules = async () => {
       }),
       commonjs(),
       json(),
+      postcss(),
       esbuild({
         sourceMap: true,
         target: 'es2018'

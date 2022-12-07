@@ -1,4 +1,8 @@
-## [1.0.3](https://gitee.com/creektech/xishui-ui/compare/v1.0.1...v1.0.3) (2022-12-07)
+## [1.0.4-beta.0](https://gitee.com/creektech/xishui-ui/compare/v1.0.1...v1.0.4-beta.0) (2022-12-07)
+
+### Features
+
+- 增加 style 的按需加载; ([72b8e39](https://gitee.com/creektech/xishui-ui/commits/72b8e39cc53ab37e905e90d33b8c672ad4b684c3))
 
 ## [1.0.1](https://gitee.com/creektech/xishui-ui/compare/v1.0.4...v1.0.1) (2022-12-06)
 

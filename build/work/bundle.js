@@ -11,9 +11,11 @@ import { PKG_CAMELCASE_NAME } from '../config';
 import { epOutput, epRoot } from '../utils';
 import { formatBundleFilename, generateExternal, withTaskName, writeBundles } from '../utils';
 import json from '@rollup/plugin-json';
+import { XishuiUiAlias } from '../plugin/alias';
 
 async function buildFullEntry(minify) {
   const plugins = [
+    XishuiUiAlias(),
     DefineOptions(),
     vue({
       isProduction: true

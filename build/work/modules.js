@@ -9,12 +9,12 @@ import glob from 'fast-glob';
 import { epRoot, excludeFiles, pkgRoot, generateExternal, writeBundles } from '../utils';
 import json from '@rollup/plugin-json';
 import { buildConfigEntries } from '../build-info';
-import postcss from 'rollup-plugin-postcss';
+import { XishuiUiAlias } from '../plugin/alias';
 
 // 构建任务
 export const buildModules = async () => {
   const input = excludeFiles(
-    await glob('**/*.{js,ts,vue}', {
+    await glob('**/*.{js,vue}', {
       cwd: pkgRoot,
       absolute: true,
       onlyFiles: true
@@ -23,6 +23,7 @@ export const buildModules = async () => {
   const bundle = await rollup({
     input,
     plugins: [
+      XishuiUiAlias(),
       DefineOptions(),
       vue({
         isProduction: false
@@ -33,7 +34,6 @@ export const buildModules = async () => {
       }),
       commonjs(),
       json(),
-      postcss(),
       esbuild({
         sourceMap: true,
         target: 'es2018'
@@ -45,6 +45,7 @@ export const buildModules = async () => {
   await writeBundles(
     bundle,
     buildConfigEntries.map(([module, config]) => {
+      console.log('config.output.path', config.output.path);
       return {
         format: config.format,
         dir: config.output.path,

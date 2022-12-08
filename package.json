@@ -1,7 +1,7 @@
 {
   "name": "xishui-ui",
   "private": true,
-  "version": "1.0.4-beta.3",
+  "version": "1.0.4-beta.8",
   "scripts": {
     "dev": "pnpm -C example dev",
     "docs": "pnpm -C docs dev",

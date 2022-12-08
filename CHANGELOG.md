@@ -1,3 +1,5 @@
+## [1.0.4-beta.8](https://gitee.com/creektech/xishui-ui/compare/v1.0.4-beta.3...v1.0.4-beta.8) (2022-12-08)
+
 ## [1.0.4-beta.3](https://gitee.com/creektech/xishui-ui/compare/v1.0.4-beta.2...v1.0.4-beta.3) (2022-12-07)
 
 ### Bug Fixes

@@ -1,0 +1,57 @@
+@use 'mixins/mixins.scss' as *;
+@use 'mixins/utils.scss' as *;
+@use 'common/var.scss' as *;
+@use 'mixins/var' as *;
+@use 'mixins/function.scss' as *;
+@use 'sass:map';
+
+@include b(tab-pane) {
+  display: inline-flex;
+  width: auto;
+  padding: 6px 16px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 20px;
+  color: getCssVar('color-info');
+  cursor: pointer;
+  border: getCssVar('border');
+  user-select: none;
+  align-items: center;
+
+  &:first-child {
+    border-radius: getCssVar('tabs', 'border-radius') 0 0 getCssVar('tabs', 'border-radius');
+  }
+
+  &:last-child {
+    border-radius: 0 getCssVar('tabs', 'border-radius') getCssVar('tabs', 'border-radius') 0;
+  }
+
+  &:not(:last-child) {
+    border-right: none;
+  }
+
+  &:not(.is-active) {
+    &:hover {
+      color: getCssVar('color-primary');
+    }
+  }
+
+  @include when(active) {
+    color: getCssVar('color-white');
+    background-color: getCssVar('color-primary');
+    border-color: getCssVar('color-primary');
+
+    & + .xs-tab-pane {
+      border-left-color: transparent;
+    }
+  }
+
+  @include when(disabled) {
+    &,
+    &:hover,
+    &:focus {
+      color: getCssVar('tabs', 'disabled-color');
+      cursor: not-allowed;
+    }
+  }
+}

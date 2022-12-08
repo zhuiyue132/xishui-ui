@@ -1,0 +1,16 @@
+@use 'mixins/mixins.scss' as *;
+@use 'mixins/utils.scss' as *;
+@use 'common/var.scss' as *;
+@use 'mixins/var' as *;
+@use 'mixins/function.scss' as *;
+@use 'sass:map';
+
+@include b(tabs) {
+  @include set-component-css-var('tabs', $tabs);
+}
+
+@include b(tabs) {
+  display: inline-flex;
+  overflow: hidden;
+  justify-content: flex-start;
+}

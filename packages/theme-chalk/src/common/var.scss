@@ -92,11 +92,11 @@ $color-info: #7D7D7D !default;
 $text-color: () !default;
 $text-color: map.merge(
   (
-    'primary': #303133,
-    'regular': #606266,
+    'primary': #000,
+    'regular': #8c8c8c,
     'secondary': #909399,
-    'placeholder': #a8abb2,
-    'disabled': #c0c4cc
+    'placeholder': #bfbfbf,
+    'disabled': #d4dbe9
   ),
   $text-color
 );
@@ -426,3 +426,14 @@ $index-popper: 2000 !default;
 $disabled-fill-base: $background-color-base !default;
 $disabled-color-base: $color-text-placeholder !default;
 $disabled-border-base: $border-color-light !default;
+
+/* Tabs
+-------------------------- */
+$tabs: () !default;
+$tabs: map.merge(
+  (
+    'border-radius': calc(#{getCssVar('border-radius', 'small')}),
+    'disabled-color': getCssVar('text-color', 'disabled')
+  ),
+  $tabs
+);

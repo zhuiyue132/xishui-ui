@@ -1,10 +1,3 @@
-/*
- * @Author: chenghao
- * @Date: 2022-11-19 23:42:45
- * @Last Modified by: chenghao
- * @Last Modified time: 2022-11-24 18:09:13
- * @Desc: 按钮配置
- */
 import { useSizeProp } from '@xishui-ui/hooks';
 
 // 按钮类型;

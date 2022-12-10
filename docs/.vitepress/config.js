@@ -2,7 +2,7 @@
  * @Author: chenghao
  * @Date: 2022-11-26 13:47:20
  * @Last Modified by: chenghao
- * @Last Modified time: 2022-11-26 17:23:46
+ * @Last Modified time: 2022-12-10 16:51:36
  * @Desc：文档站点的一些配置；
  */
 import { defineConfig } from 'vitepress';
@@ -19,7 +19,12 @@ export default defineConfig({
   cleanUrls: 'without-subfolders',
 
   base: process.env.BASE || '/',
-  head: [['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }]],
+  head: [
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
+    ['script', { src: '//at.alicdn.com/t/c/font_3759346_bq2y5b0qsgw.js' }],
+    ['script', { src: '//at.alicdn.com/t/c/font_3759470_js03enos04h.js' }],
+    ['script', { src: '//at.alicdn.com/t/c/font_3766763_85qv1gojmxq.js' }]
+  ],
 
   markdown: {
     headers: {

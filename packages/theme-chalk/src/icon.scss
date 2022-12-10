@@ -1,0 +1,38 @@
+@use 'sass:map';
+
+@use 'mixins/mixins' as *;
+@use 'common/var' as *;
+
+@keyframes rotating {
+  0% {
+    transform: rotateZ(0deg);
+  }
+
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@include b(icon) {
+  --color: inherit;
+
+  position: relative;
+  display: inline-flex;
+  width: 1em;
+  height: 1em;
+  font-size: inherit;
+  line-height: 1em;
+  color: var(--color);
+  justify-content: center;
+  align-items: center;
+  fill: currentcolor;
+
+  @include when(loading) {
+    animation: rotating 2.5s linear infinite;
+    transform-origin: center center;
+  }
+
+  & + & {
+    margin-left: 4px;
+  }
+}

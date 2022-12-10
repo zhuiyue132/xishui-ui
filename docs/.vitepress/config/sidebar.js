@@ -10,6 +10,10 @@ export default {
         {
           text: 'Tabs 标签页',
           link: '/components/tabs'
+        },
+        {
+          text: 'Icon 图标',
+          link: '/components/icon'
         }
       ]
     }

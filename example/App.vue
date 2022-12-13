@@ -1,46 +1,32 @@
 <template>
-  <div style="width: 1000px">
-    <xs-tabs v-model="tab" :tab-list="list">
-      <template #key1>
-        <div> hello slot </div>
+  <div>
+    <xs-card header="商品总览"> 商品总览数据 </xs-card>
+    <xs-card header="商品总览">
+      商品总览数据
+
+      <template #extra>
+        <xs-button type="primary">更多数据</xs-button>
       </template>
-    </xs-tabs>
+    </xs-card>
 
-    <!-- <xs-scrollbar max-height="500px" wrap-class="test" view-class="test2">
-      <p v-for="item in 20" :key="item" class="scrollbar-demo-item">{{ item }}</p>
-    </xs-scrollbar> -->
-    <div style="height: 2000px"></div>
-    <xs-scrollbar always stickyable>
-      <div style="width: 1000px">
-        <p v-for="item in 100" :key="item" class="scrollbar-demo-item">{{ item }}</p>
-      </div>
-    </xs-scrollbar>
+    <xs-card header="商品总览">
+      <template #header>
+        <span>商品总览标题</span>
+      </template>
 
-    <div style="height: 1000px"></div>
+      <template #sub-header>
+        <span>商品总览副标题</span>
+      </template>
+
+      <template #extra>
+        <span>1223</span>
+      </template>
+      商品总览数据
+    </xs-card>
   </div>
 </template>
 <script setup>
-  import { ref } from 'vue';
-  const list = [
-    { name: 'key1', label: '标签1', disabled: true },
-    { name: 'key2', label: '标签2' },
-    { name: 'key3', label: '标签3', disabled: true },
-    { name: 'key4', label: '标签4' }
-  ];
-  const tab = ref('key2');
+  // import { ref } from 'vue';
 </script>
 
-<style scoped>
-  .scrollbar-demo-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    width: 1700px;
-    margin: 10px;
-    text-align: center;
-    border-radius: 4px;
-    background: var(--xs-color-primary-light-9);
-    color: var(--xs-color-primary);
-  }
-</style>
+<style scoped></style>

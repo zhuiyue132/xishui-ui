@@ -18,6 +18,10 @@ export default {
         {
           text: 'Scrollbar 滚动条',
           link: '/components/scrollbar'
+        },
+        {
+          text: 'Card 卡片',
+          link: '/components/card'
         }
       ]
     }

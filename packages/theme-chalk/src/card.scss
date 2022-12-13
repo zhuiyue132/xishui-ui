@@ -1,0 +1,49 @@
+@use 'sass:map';
+@use 'mixins/function.scss' as *;
+@use 'mixins/mixins' as *;
+@use 'common/var' as *;
+
+@include b(card) {
+  position: relative;
+  display: flex;
+  padding: 16px;
+  background: getCssVar('color-white');
+  flex-direction: column;
+  align-items: flex-start;
+
+  & + & {
+    margin-top: 24px;
+  }
+
+  @include when(border) {
+    // border: getCssVar('border');
+    border-bottom: 8px solid getCssVar('color-primary');
+    border-radius: map.get($border-radius, 'small');
+  }
+
+  @include e(header) {
+    display: flex;
+    width: 100%;
+    height: 32px;
+    margin-bottom: 16px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @include e(extra) {
+    flex: 0 0 auto;
+  }
+
+  @include m(header--content) {
+    display: flex;
+    align-items: center;
+  }
+
+  @include e(title) {
+    display: inline-block;
+    margin-right: 4px;
+    font-size: 20px;
+    font-weight: bold;
+    color: getCssVar('color-black');
+  }
+}

@@ -3,5 +3,6 @@ import { XsConfigProvider } from '@xishui-ui/components/config-provider';
 import { XsTabs } from '@xishui-ui/components/tabs';
 import { XsIcon } from '@xishui-ui/components/icon';
 import { XsScrollbar } from '@xishui-ui/components/scrollbar';
+import { XsCard } from '@xishui-ui/components/card';
 
-export default [XsButton, XsTabs, XsConfigProvider, XsIcon, XsScrollbar];
+export default [XsButton, XsTabs, XsConfigProvider, XsIcon, XsScrollbar, XsCard];

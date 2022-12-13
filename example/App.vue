@@ -1,18 +1,22 @@
 <template>
-  <div>
+  <div style="width: 1000px">
     <xs-tabs v-model="tab" :tab-list="list">
       <template #key1>
         <div> hello slot </div>
       </template>
     </xs-tabs>
 
-    <xs-icon name="enterpriseSituation" color="red" size="100" loading />
-    <br />
-    <br />
-    <xs-icon prefix="svg-icon-" name="TableSortUp" size="100" color="red" loading></xs-icon>
-    <br />
-    <br />
-    <xs-icon name="close" color="red" size="100" loading />
+    <!-- <xs-scrollbar max-height="500px" wrap-class="test" view-class="test2">
+      <p v-for="item in 20" :key="item" class="scrollbar-demo-item">{{ item }}</p>
+    </xs-scrollbar> -->
+    <div style="height: 2000px"></div>
+    <xs-scrollbar always stickyable>
+      <div style="width: 1000px">
+        <p v-for="item in 100" :key="item" class="scrollbar-demo-item">{{ item }}</p>
+      </div>
+    </xs-scrollbar>
+
+    <div style="height: 1000px"></div>
   </div>
 </template>
 <script setup>
@@ -25,3 +29,18 @@
   ];
   const tab = ref('key2');
 </script>
+
+<style scoped>
+  .scrollbar-demo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 1700px;
+    margin: 10px;
+    text-align: center;
+    border-radius: 4px;
+    background: var(--xs-color-primary-light-9);
+    color: var(--xs-color-primary);
+  }
+</style>

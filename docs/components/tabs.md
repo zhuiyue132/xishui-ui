@@ -98,6 +98,12 @@
 | before-leave        | 切换标签之前的钩子函数， 若返回 false 或者返回被 reject 的 Promise，则阻止切换。 | Function(activeName, oldActiveName) |                                              | true   |
 | prop                | 指定选项的值为选项对象的某个属性值                                               | '{ label: 'label', name: 'name' }'  |                                              |        |
 
+## 插槽
+
+| 参数           | 说明                                   | 类型 | 可选值 | 默认值 |
+| -------------- | -------------------------------------- | ---- | ------ | ------ |
+| [tabPane.name] | 根据 tabPane 的 name 属性生成动态 slot |      |        |        |
+
 ## tabPane 属性
 
 | 参数     | 说明                   | 类型          | 可选值 | 默认值 |

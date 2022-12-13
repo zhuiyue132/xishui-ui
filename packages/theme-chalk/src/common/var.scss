@@ -437,3 +437,16 @@ $tabs: map.merge(
   ),
   $tabs
 );
+
+/* Scrollbar
+-------------------------- */
+$scrollbar: () !default;
+$scrollbar: map.merge(
+  (
+    'opacity': 0.3,
+    'bg-color': getCssVar('text-color-secondary'),
+    'hover-opacity': 0.5,
+    'hover-bg-color': getCssVar('text-color-secondary')
+  ),
+  $scrollbar
+);

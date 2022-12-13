@@ -14,6 +14,10 @@ export default {
         {
           text: 'Icon 图标',
           link: '/components/icon'
+        },
+        {
+          text: 'Scrollbar 滚动条',
+          link: '/components/scrollbar'
         }
       ]
     }

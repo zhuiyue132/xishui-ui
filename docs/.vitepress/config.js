@@ -2,7 +2,7 @@
  * @Author: chenghao
  * @Date: 2022-11-26 13:47:20
  * @Last Modified by: chenghao
- * @Last Modified time: 2022-12-10 16:51:36
+ * @Last Modified time: 2022-12-13 16:35:09
  * @Desc：文档站点的一些配置；
  */
 import { defineConfig } from 'vitepress';
@@ -35,14 +35,14 @@ export default defineConfig({
     anchor: { permalink: false },
 
     // options for markdown-it-toc
-    toc: { includeLevel: [1, 2] },
+    toc: { includeLevel: [1, 2, 3] },
 
     // light: #f9fafb, dark: --vp-code-block-bg
     theme: { light: 'github-light', dark: 'github-dark' },
 
     config: md => {
       md.use(demoBlockPlugin, {
-        cssPreprocessor: 'sass'
+        cssPreprocessor: 'scss'
       });
     }
   },

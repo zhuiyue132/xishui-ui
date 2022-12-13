@@ -89,6 +89,7 @@
     "vitepress-theme-demoblock": "^2.0.0"
   },
   "dependencies": {
+    "@vueuse/core": "^9.6.0",
     "@xishui-ui/components": "workspace:^0.0.1",
     "@xishui-ui/config": "workspace:^0.0.1",
     "@xishui-ui/eslint-config": "workspace:^0.0.1",

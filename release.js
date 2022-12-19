@@ -69,6 +69,7 @@ async function publishPkg(targetVersion) {
 }
 // 组合发布流程并执行
 (async function main() {
+  const targetVersion = rootPkgInfo.version;
   await generateChangelog(targetVersion);
   await buildModules();
   await publishPkg(targetVersion);

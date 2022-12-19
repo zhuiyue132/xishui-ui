@@ -5,11 +5,8 @@ triggers:
   trigger: auto
   push:
     tags:
-      include:
-        - '\d+\.\d+\.\d+'
-    commitMessages:
-      include:
-        - 'chore(release): publish'
+      prefix:
+        - ''
 stages:
   - name: stage-7e7a5ab2
     displayName: 打包发布流程

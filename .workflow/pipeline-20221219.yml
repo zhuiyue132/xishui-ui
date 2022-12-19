@@ -6,7 +6,7 @@ triggers:
   push:
     tags:
       include:
-        - /^v([1-9]\d|[1-9])(\.([1-9]\d|\d)){2}/
+        - /\d+\.\d+\.\d+/
 stages:
   - name: stage-7e7a5ab2
     displayName: 打包发布流程

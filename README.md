@@ -30,3 +30,6 @@ pnpm run dev # or build task and other...
    1. 如果需要修改包的所有者，请修改 `NPM_PUBLISH_TOKEN`。
 
 ## 如何发布文档站点
+
+- 跟随上述发 npm 流程自动更新文档站点;
+- 手动发布比较繁琐，等我写个脚本简化操作后再更新文档;

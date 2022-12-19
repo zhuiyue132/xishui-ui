@@ -6,7 +6,7 @@ triggers:
   push:
     tags:
       include:
-        - \d+\.\d+\.\d+
+        - '\d+\.\d+\.\d+'
     commitMessages:
       include:
         - 'chore(release): publish'

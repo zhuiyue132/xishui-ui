@@ -34,7 +34,7 @@ async function generateChangelog(targetVersion) {
   if (stdout) {
     // 文件有变化，提交代码
     await execa('git', ['add', '-A'], { stdio: 'inherit' });
-    await execa('git', ['commit', '-m', `chore(release): publish v${targetVersion}`], { stdio: 'inherit' });
+    await execa('git', ['commit', '-m', `"chore(release):publish v${targetVersion}"`], { stdio: 'inherit' });
   } else {
     console.log('No changes to commit.');
   }

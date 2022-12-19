@@ -10,6 +10,7 @@ node_modules
 
 # Bundle
 dist
+*/dist
 coverage
 pnpm-lock.yaml
 

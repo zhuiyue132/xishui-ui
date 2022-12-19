@@ -18,7 +18,7 @@ export default defineConfig({
   lastUpdated: true,
   cleanUrls: 'without-subfolders',
 
-  base: process.env.BASE || '/',
+  base: '/component-docs/',
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
     ['script', { src: '//at.alicdn.com/t/c/font_3759346_bq2y5b0qsgw.js' }],

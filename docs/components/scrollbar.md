@@ -46,29 +46,27 @@
         {{ item }}
       </p>
     </div>
-  </-scrollbar>
+  </xs-scrollbar>
 </template>
 
 <style scoped>
-.scrollbar-flex-content {
-  display: flex;
-}
-.scrollbar-demo-item2 {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  height: 50px;
-  margin: 10px !important;
-  text-align: center;
-  border-radius: 4px;
-  background: var(--xs-color-danger-light-9);
-  color: var(--xs-color-danger);
-}
+  .scrollbar-flex-content {
+    display: flex;
+  }
+  .scrollbar-demo-item2 {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 50px;
+    margin: 10px !important;
+    text-align: center;
+    border-radius: 4px;
+    background: var(--xs-color-danger-light-9);
+    color: var(--xs-color-danger);
+  }
 </style>
-
-
 ```
 
 :::
@@ -87,45 +85,45 @@
     <p v-for="item in count" :key="item" class="scrollbar-demo-item3">
       {{ item }}
     </p>
-  </-scrollbar>
+  </xs-scrollbar>
 </template>
 
-<script >
-import { ref } from 'vue'
-export default {
-  setup: () => {
-    const count = ref(3)
+<script>
+  import { ref } from 'vue';
+  export default {
+    setup: () => {
+      const count = ref(3);
 
-    const add = () => {
-      count.value++
+      const add = () => {
+        count.value++;
+      };
+      const onDelete = () => {
+        if (count.value > 0) {
+          count.value--;
+        }
+      };
+      return {
+        count,
+        add,
+        onDelete
+      };
     }
-    const onDelete = () => {
-      if (count.value > 0) {
-        count.value--
-      }
-    }
-    return {
-      count,
-      add,onDelete
-    };
-  }
-};
+  };
 </script>
 
 <style>
-.scrollbar-demo-item3 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 50px;
-  margin: 10px;
-  text-align: center;
-  border-radius: 4px;
-  background: var(--xs-color-primary-light-9);
-  color: var(--xs-color-primary);
-}
+  .scrollbar-demo-item3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    margin: 10px;
+    text-align: center;
+    border-radius: 4px;
+    background: var(--xs-color-primary-light-9);
+    color: var(--xs-color-primary);
+  }
 </style>
-
 ```
 
 :::

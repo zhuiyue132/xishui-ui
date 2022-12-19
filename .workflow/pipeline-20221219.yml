@@ -7,6 +7,9 @@ triggers:
     tags:
       include:
         - \d+\.\d+\.\d+
+    commitMessages:
+      include:
+        - 'chore(release): publish'
 stages:
   - name: stage-7e7a5ab2
     displayName: 打包发布流程

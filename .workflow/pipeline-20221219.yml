@@ -6,7 +6,7 @@ triggers:
   push:
     tags:
       include:
-        - ^v([1-9]\d|[1-9])(\.([1-9]\d|\d)){2}
+        - v([1-9]\d|[1-9])(\.([1-9]\d|\d)){2}
 stages:
   - name: stage-7e7a5ab2
     displayName: 打包发布流程
@@ -21,10 +21,11 @@ stages:
         commands:
           - '# 设置NPM源，提升安装速度'
           - npm config set registry https://registry.npmmirror.com
+          - '# 安装pnpm'
           - npm install pnpm -g
           - '# 执行编译命令'
+          - npm config set registry https://registry.npmjs.org
           - pnpm install && pnpm run build && node release
-          - 
         artifacts:
           - name: BUILD_ARTIFACT
             path:

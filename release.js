@@ -7,9 +7,6 @@
  */
 const process = require('process');
 const path = require('path');
-const fs = require('fs');
-const semver = require('semver');
-const inquirer = require('inquirer');
 const execa = require('execa');
 const consola = require('consola');
 const npmPublish = require('@jsdevtools/npm-publish');
@@ -19,42 +16,11 @@ const NPM_PUBLISH_TOKEN = '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';
 
 const root = process.cwd();
 const rootPkgInfo = require(path.resolve(root, 'package.json'));
-const xpPkgInfo = require(path.resolve(`${root}/packages/xishui-ui`, 'package.json'));
-const currentVersion = rootPkgInfo.version;
-const semverReleaseType = ['patch', 'minor', 'major', 'prepatch', 'preminor', 'premajor', 'prerelease'];
 
 /**
  * 打印步骤
  */
 const step = msg => consola.success(msg);
-
-/**
- * 询问并更新版本号
- */
-async function updateVersion() {
-  step('更新版本号');
-  const { targetVersion } = await inquirer.prompt([
-    {
-      type: 'list',
-      name: 'targetVersion',
-      message: '选择你想要发布的版本: ',
-      choices: semverReleaseType
-        .map(release => semver.inc(currentVersion, release, 'beta')) // semver.inc 方法递增版本号
-        .map(v => ({ value: v, title: v }))
-    }
-  ]);
-
-  // 更新版本号并写入 package.json 文件中
-  rootPkgInfo.version = targetVersion;
-  xpPkgInfo.version = targetVersion;
-  fs.writeFileSync(path.resolve(root, 'package.json'), JSON.stringify(rootPkgInfo, null, 2) + '\n');
-  fs.writeFileSync(
-    path.resolve(`${root}/packages/xishui-ui`, 'package.json'),
-    JSON.stringify(xpPkgInfo, null, 2) + '\n'
-  );
-
-  return targetVersion;
-}
 
 /**
  * 生成 changelog 文件，同时将 changelog 及 package.json 更改提交
@@ -101,25 +67,11 @@ async function publishPkg(targetVersion) {
     throw e;
   }
 }
-
-/**
- * 打 tag 并推送到远程仓库
- */
-async function gitTag(targetVersion) {
-  step('打 TAG');
-  const suffixVersion = `v${targetVersion}`;
-  await execa('git', ['tag', suffixVersion], { stdio: 'inherit' });
-  await execa('git', ['push', 'origin', `refs/tags/${suffixVersion}`], { stdio: 'inherit' });
-  await execa('git', ['push'], { stdio: 'inherit' });
-}
-
 // 组合发布流程并执行
 (async function main() {
-  const targetVersion = await updateVersion();
   await generateChangelog(targetVersion);
   await buildModules();
   await publishPkg(targetVersion);
-  await gitTag(targetVersion);
 })().catch(err => {
   throw err;
 });

@@ -1,0 +1,83 @@
+@use 'mixins/mixins.scss' as *;
+@use 'mixins/utils.scss' as *;
+@use 'common/var.scss' as *;
+@use 'mixins/var' as *;
+@use 'mixins/function.scss' as *;
+@use 'sass:map';
+
+@include b(date-picker) {
+  display: inline-flex;
+  font-size: 14px;
+  line-height: 2;
+  color: getCssVar('text-color', 'regular');
+  flex-direction: row;
+  align-items: center;
+
+  @include e(content) {
+    display: inline-flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  @include e(item) {
+    position: relative;
+    margin-left: 16px;
+
+    // &:first-child {
+    //   margin-left: 0;
+    // }
+
+    &:hover {
+      color: getCssVar('color', 'primary');
+    }
+
+    > span {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .el-date-editor {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      opacity: 0;
+    }
+
+    @include when(active) {
+      color: getCssVar('color', 'primary');
+
+      .el-date-editor {
+        bottom: 6px;
+      }
+
+      &::after {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 12px;
+        height: 3px;
+        background: getCssVar('color', 'primary');
+        border-radius: 7px;
+        content: ' ';
+        transform: translateX(-50%);
+      }
+    }
+  }
+}
+
+@for $i from 1 through 100 {
+  .el-popper.is-interval--#{$i} {
+    &::after {
+      float: right;
+      margin-right: 16px;
+      content: '* 最少选择1天，最多选择#{$i}天';
+    }
+  }
+}

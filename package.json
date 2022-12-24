@@ -89,6 +89,8 @@
     "vitepress-theme-demoblock": "^2.0.0"
   },
   "dependencies": {
+    "@vue/reactivity": "^3.2.45",
+    "@vue/shared": "^3.2.45",
     "@vueuse/core": "^9.6.0",
     "@xishui-ui/components": "workspace:^0.0.1",
     "@xishui-ui/config": "workspace:^0.0.1",
@@ -97,6 +99,7 @@
     "@xishui-ui/theme-chalk": "workspace:^0.0.1",
     "@xishui-ui/token": "workspace:^0.0.1",
     "@xishui-ui/utils": "workspace:^0.0.1",
+    "dayjs": "^1.11.7",
     "element-plus": "^2.2.26",
     "vue": "^3.2.36"
   }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <xs-date-picker v-model="time" v-model:type="timeType" limit-start-date="2022-10-31" />
+    <xs-date-picker v-model="time" v-model:type="timeType" shortcuts-enable />
 
     <br />
 

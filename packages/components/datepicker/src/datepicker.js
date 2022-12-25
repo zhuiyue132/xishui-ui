@@ -134,6 +134,13 @@ export const Props = {
   alias: {
     type: Object,
     default: () => ({})
+  },
+  // 是否开启快捷选择；
+  shortcutsEnable: Boolean,
+  // 快捷选项的年份范围，如[2019, 2020]，则只显示2019年和2020年的阴历和阳历快捷选项；如果不传，则默认计算当前年份的前后1年；
+  shortcutsYearRange: {
+    type: Array,
+    default: () => []
   }
 };
 

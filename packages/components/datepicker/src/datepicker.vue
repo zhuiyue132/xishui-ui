@@ -24,10 +24,13 @@
             :model-value="pickerModelValue(item)"
             :type="item"
             :disabled-date="disabledDate[item]"
-            :popper-class="[
-              `popover-${item}`,
-              ns.is(`interval--${dateRangeMaxInterval}`, dateRangeMaxInterval > 0 && item === 'daterange')
-            ]"
+            :popper-class="
+              [
+                `popover-${item}`,
+                ns.is(`interval--${dateRangeMaxInterval}`, dateRangeMaxInterval > 0 && item === 'daterange')
+              ].join(' ')
+            "
+            :shortcuts="item === 'daterange' ? shortcuts : []"
             format="YYYY-MM-DD"
             value-format="YYYY-MM-DD"
             @visible-change="onTogglePane(item, $event)"
@@ -59,11 +62,16 @@
   import locale from 'dayjs/locale/zh-cn';
   import zhCn from 'element-plus/dist/locale/zh-cn.mjs';
   import useCalcDate from './calc-date.js';
+  import useShortcuts from './shortcuts';
+
   const props = defineProps(Props);
   const emits = defineEmits(Emits);
-
   const ns = useNamespace('date-picker');
   const _disabled = useDisabled();
+  // 当前展开的面板类型；
+  const expandType = ref('');
+
+  const { shortcuts } = useShortcuts(props);
 
   /**
    * 设置el-date-picker的ref
@@ -84,8 +92,7 @@
     dayjs.locale(locale, null, true);
   };
   watch(() => props.firstDayOfWeek, setFirstDayOfWeek, { immediate: true });
-  // 当前展开的面板类型；
-  const expandType = ref('');
+
   /**
    * 合并时间类型的名称;
    */

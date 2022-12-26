@@ -1,16 +1,10 @@
 <template>
   <div>
-    <xs-date-picker v-model="time" v-model:type="timeType" shortcuts-enable />
-
-    <br />
-
-    {{ timeType }} {{ JSON.stringify(time) }}
+    <xs-avatar src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" name="成浩" />
+    <xs-avatar name="追月" />
+    <xs-avatar name="爱迪生" from="end" />
   </div>
 </template>
-<script setup>
-  import { ref } from 'vue';
-  const timeType = ref('date');
-  const time = ref([]);
-</script>
+<script setup></script>
 
 <style scoped></style>

@@ -194,6 +194,7 @@
   };
 
   const onTimeChange = (type, val) => {
+    console.log(2, type, val);
     currentModelValue.value = getDate(type, val);
     currentType.value = type;
   };

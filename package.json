@@ -4,9 +4,8 @@
   "version": "1.0.7-beta.0",
   "scripts": {
     "dev": "pnpm -C example dev",
-    "docs": "pnpm -C docs dev",
-    "docs:build": "pnpm -C docs build",
-    "docs:serve": "pnpm -C docs serve",
+    "docs": "cross-env NODE_ENV=dev pnpm -C docs dev",
+    "docs:build": "cross-env NODE_ENV=prod pnpm -C docs build",
     "lint:fix": "eslint . --fix",
     "lint:eslint": "eslint .",
     "lint:prettier": "prettier --write .",
@@ -85,6 +84,7 @@
     "vite": "^3.2.4",
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-vue-setup-extend": "^0.4.0",
+    "vite-svg-loader": "^4.0.0",
     "vitepress": "1.0.0-alpha.29",
     "vitepress-theme-demoblock": "^2.0.0"
   },

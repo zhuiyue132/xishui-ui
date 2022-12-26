@@ -135,6 +135,7 @@ const useCalcDate = props => {
   });
 
   const getDate = (type, date = '') => {
+    console.log('getDate', type, date);
     return condition.value(date).get(type);
   };
   const formatDate = dates => {

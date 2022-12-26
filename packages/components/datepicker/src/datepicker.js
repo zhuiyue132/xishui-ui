@@ -54,13 +54,6 @@ export const Props = {
     }
   },
   /**
-   * 默认时间类型
-   */
-  defaultLayout: {
-    type: String,
-    default: ''
-  },
-  /**
    * 默认日期
    */
   defaultDate: {
@@ -129,7 +122,7 @@ export const Props = {
     type: Number,
     default: 0
   },
-  // 周月年是否开启时间格式的别名显示；
+  // 开启时间格式的别名显示；
   aliasEnable: Boolean,
   alias: {
     type: Object,

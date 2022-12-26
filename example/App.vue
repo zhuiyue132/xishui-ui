@@ -1,10 +1,21 @@
 <template>
-  <div>
-    <xs-avatar src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" name="成浩" />
-    <xs-avatar name="追月" />
-    <xs-avatar name="爱迪生" from="end" />
-  </div>
-</template>
-<script setup></script>
+  <xs-date-picker v-model="value" v-model:type="type" :first-day-of-week="4" :layout="['date', 'week']" />
 
-<style scoped></style>
+  <br />
+
+  {{ type }} / {{ JSON.stringify(value) }}
+</template>
+<script>
+  import { ref } from 'vue';
+  export default {
+    setup: () => {
+      const type = ref('date');
+      const value = ref([]);
+
+      return {
+        type,
+        value
+      };
+    }
+  };
+</script>

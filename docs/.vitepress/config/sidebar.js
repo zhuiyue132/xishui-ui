@@ -4,6 +4,10 @@ export default {
       text: '组件',
       items: [
         {
+          text: 'Avatar 头像',
+          link: '/components/avatar'
+        },
+        {
           text: 'Button 按钮',
           link: '/components/button'
         },
@@ -22,6 +26,10 @@ export default {
         {
           text: 'Card 卡片',
           link: '/components/card'
+        },
+        {
+          text: 'DatePicker 时间类型选择',
+          link: '/components/datepicker'
         }
       ]
     }

@@ -1,0 +1,50 @@
+@use 'mixins/mixins' as *;
+@use 'mixins/var' as *;
+@use 'common/var' as *;
+@use 'mixins/function.scss' as *;
+
+@include b(empty) {
+  @include set-component-css-var('empty', $empty);
+
+  display: flex;
+  padding: getCssVar('empty-padding');
+  text-align: center;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  @include e(image) {
+    width: getCssVar('empty-image-width');
+
+    img {
+      width: 100%;
+      height: 100%;
+      vertical-align: top;
+      user-select: none;
+      object-fit: contain;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+      color: getCssVar('svg-monochrome-grey');
+      vertical-align: top;
+      fill: currentcolor;
+    }
+  }
+
+  @include e(description) {
+    margin-top: getCssVar('empty-description-margin-top');
+
+    p {
+      margin: 0;
+      font-size: getCssVar('font-size', 'base');
+      color: getCssVar('text-color', 'secondary');
+    }
+  }
+
+  @include e(bottom) {
+    margin-top: getCssVar('empty-bottom-margin-top');
+  }
+}

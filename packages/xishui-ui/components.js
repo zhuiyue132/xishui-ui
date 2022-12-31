@@ -8,6 +8,7 @@ import { XsDatePicker } from '@xishui-ui/components/datepicker';
 import { XsAvatar } from '@xishui-ui/components/avatar';
 import { XsShop } from '@xishui-ui/components/shop';
 import { XsGoods } from '@xishui-ui/components/goods';
+import { XsEmpty } from '@xishui-ui/components/empty';
 
 export default [
   XsButton,
@@ -19,5 +20,6 @@ export default [
   XsDatePicker,
   XsAvatar,
   XsShop,
-  XsGoods
+  XsGoods,
+  XsEmpty
 ];

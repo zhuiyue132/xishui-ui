@@ -1,0 +1,33 @@
+@use 'sass:map';
+@use 'mixins/function.scss' as *;
+@use 'mixins/mixins' as *;
+@use 'common/var' as *;
+
+@include b(shop) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  & + & {
+    margin-left: 16px;
+  }
+
+  @include e(image) {
+    margin-right: 4px;
+    flex: 0 0 var(--el-avatar-size);
+  }
+
+  @include e(link) {
+    font-size: 14px;
+    text-decoration: none;
+
+    --xs-shop-color: #{getCssVar('color-primary')};
+
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      color: var(--xs-shop-color);
+    }
+  }
+}

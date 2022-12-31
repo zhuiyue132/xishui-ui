@@ -1,0 +1,65 @@
+@use 'sass:map';
+@use 'mixins/function.scss' as *;
+@use 'mixins/mixins' as *;
+@use 'common/var' as *;
+
+@include b(goods) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & + & {
+    margin-left: 16px;
+  }
+
+  @include e(image) {
+    width: 40px;
+    margin-right: 8px;
+    flex: 0 0 var(--el-avatar-size);
+
+    --el-avatar-border-radius: 0;
+  }
+
+  @include e(content) {
+    flex: 1;
+    width: 0;
+
+    --xs-goods-color: #{getCssVar('color-primary')};
+
+    color: var(--xs-goods-color);
+  }
+
+  @include e(link) {
+    font-size: 14px;
+    text-decoration: none;
+    flex: 1;
+
+    &[linkable='false'] {
+      color: getCssVar('color-black');
+      cursor: pointer;
+    }
+
+    &:not([linkable='false']) {
+      &:link,
+      &:visited,
+      &:hover,
+      &:active {
+        color: var(--xs-goods-color);
+      }
+    }
+  }
+  @include m(row-1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  @for $i from 2 through 100 {
+    @include m(row-#{$i}) {
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-line-clamp: #{$i};
+      -webkit-box-orient: vertical;
+    }
+  }
+}

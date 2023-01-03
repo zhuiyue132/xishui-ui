@@ -1,7 +1,7 @@
 export default {
   '/components/': [
     {
-      text: '组件',
+      text: '通用组件',
       items: [
         {
           text: 'Avatar 头像',
@@ -12,8 +12,12 @@ export default {
           link: '/components/button'
         },
         {
-          text: 'Tabs 标签页',
-          link: '/components/tabs'
+          text: 'Card 卡片',
+          link: '/components/card'
+        },
+        {
+          text: 'Empty 空状态',
+          link: '/components/empty'
         },
         {
           text: 'Icon 图标',
@@ -24,12 +28,50 @@ export default {
           link: '/components/scrollbar'
         },
         {
-          text: 'Card 卡片',
-          link: '/components/card'
+          text: 'Tabs 标签页',
+          link: '/components/tabs'
+        }
+      ]
+    },
+    {
+      text: '反馈组件',
+      items: [
+        {
+          text: 'Drawer 抽屉',
+          link: '/components/drawer'
+        },
+        {
+          text: 'MessageBox 消息弹出框',
+          link: '/components/messagebox'
+        },
+        {
+          text: 'Tooltip 文字提示',
+          link: '/components/tooltip'
+        }
+      ]
+    },
+    {
+      text: '业务组件',
+      items: [
+        {
+          text: 'Cascader 级联选择',
+          link: '/components/cascader'
         },
         {
           text: 'DatePicker 时间类型选择',
           link: '/components/datepicker'
+        },
+        {
+          text: 'Goods 商品',
+          link: '/components/goods'
+        },
+        {
+          text: 'Shop 店铺',
+          link: '/components/shop'
+        },
+        {
+          text: 'Table 表格',
+          link: '/components/table'
         }
       ]
     }

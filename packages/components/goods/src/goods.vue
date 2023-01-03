@@ -1,10 +1,12 @@
 <template>
   <div :class="ns.b()">
-    <xs-avatar :src="_src" shape="square" :size="size" :class="ns.e('image')">
-      <template #error>
-        <slot name="error"></slot>
-      </template>
-    </xs-avatar>
+    <slot name="image">
+      <xs-avatar :src="_src" shape="square" :size="size" :class="ns.e('image')">
+        <template #error>
+          <slot name="error"></slot>
+        </template>
+      </xs-avatar>
+    </slot>
 
     <div :class="[ns.e('content'), ns.m(`row-${rows}`)]">
       <slot>

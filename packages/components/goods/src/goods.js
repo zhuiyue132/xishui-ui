@@ -15,11 +15,11 @@ export const Props = {
     default: () => defaultProp
   },
   size: {
-    type: [Number],
-    default: 40
+    type: Number,
+    default: 24
   },
   rows: {
-    type: [Number],
-    default: 2
+    type: Number,
+    default: 1
   }
 };

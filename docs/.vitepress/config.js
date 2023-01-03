@@ -12,7 +12,7 @@ import sidebar from './config/sidebar';
 
 export default defineConfig({
   // lang: 'en-US',
-  title: '溪水UI',
+  title: '溪水',
   description: '使用 Vitepress 搭建组件库文档站点。',
 
   lastUpdated: true,
@@ -61,8 +61,7 @@ export default defineConfig({
     socialLinks: [{ icon: 'github', link: 'https://gitee.com/creektech/xishui-ui' }],
 
     footer: {
-      message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2022-present 溪水网络'
+      message: 'Released under the MIT License. Made with ❤️ by zhuiyue132'
     }
   }
 });

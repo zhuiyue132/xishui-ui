@@ -10,4 +10,3 @@ export * from './goods';
 export * from './icon';
 export * from './scrollbar';
 export * from './shop';
-export * from './focus-trap';

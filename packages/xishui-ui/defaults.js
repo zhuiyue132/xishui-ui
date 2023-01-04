@@ -1,4 +1,4 @@
 import { makeInstaller } from './installer';
-import Components from './components';
+import * as Components from '@xishui-ui/components';
 
-export default makeInstaller([...Components]);
+export default makeInstaller([...Object.keys(Components).map(key => Components[key])]);

@@ -64,10 +64,28 @@ async function gitTag(targetVersion) {
   await execa('git', ['push', 'origin', `refs/tags/${suffixVersion}`], { stdio: 'inherit' });
   await execa('git', ['push'], { stdio: 'inherit' });
 }
+/**
+ * 生成 changelog 文件，同时将 changelog 及 package.json 更改提交
+ */
+async function generateChangelog(targetVersion) {
+  step('\n生成 changelog');
+  await execa('pnpm', ['changelog'], { stdio: 'inherit' });
+
+  // commit changes
+  const { stdout } = await execa('git', ['diff'], { stdio: 'pipe' });
+  if (stdout) {
+    // 文件有变化，提交代码
+    await execa('git', ['add', '-A'], { stdio: 'inherit' });
+    await execa('git', ['commit', '-m', `chore(release): publish v${targetVersion}`], { stdio: 'inherit' });
+  } else {
+    console.log('No changes to commit.');
+  }
+}
 
 // 组合发布流程并执行
 (async function main() {
   const targetVersion = await updateVersion();
+  generateChangelog(targetVersion);
   await gitTag(targetVersion);
 })().catch(err => {
   throw err;

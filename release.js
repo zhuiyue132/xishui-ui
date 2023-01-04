@@ -21,25 +21,6 @@ const rootPkgInfo = require(path.resolve(root, 'package.json'));
  * 打印步骤
  */
 const step = msg => consola.success(msg);
-
-/**
- * 生成 changelog 文件，同时将 changelog 及 package.json 更改提交
- */
-async function generateChangelog(targetVersion) {
-  step('\n生成 changelog');
-  await execa('pnpm', ['changelog'], { stdio: 'inherit' });
-
-  // commit changes
-  const { stdout } = await execa('git', ['diff'], { stdio: 'pipe' });
-  if (stdout) {
-    // 文件有变化，提交代码
-    await execa('git', ['add', '-A'], { stdio: 'inherit' });
-    await execa('git', ['commit', '-m', `chore(release): publish v${targetVersion}`], { stdio: 'inherit' });
-  } else {
-    console.log('No changes to commit.');
-  }
-}
-
 /**
  * 打包构建
  */
@@ -70,7 +51,6 @@ async function publishPkg(targetVersion) {
 // 组合发布流程并执行
 (async function main() {
   const targetVersion = rootPkgInfo.version;
-  await generateChangelog(targetVersion);
   await buildModules();
   await publishPkg(targetVersion);
 })().catch(err => {

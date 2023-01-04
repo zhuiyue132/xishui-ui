@@ -202,6 +202,7 @@
 | name    | 文字头像的名称                               | string                                                 |        |          |
 | count   | 文字头像文字数量                             | number                                                 |        | 1        |
 | from    | 文字头像内的文字从何种方向裁剪得到           | ['start', 'end']                                       |        | 'start'  |
+| colors  | 文字头像的背景色                             | array                                                  |        |          |
 
 ### 事件
 

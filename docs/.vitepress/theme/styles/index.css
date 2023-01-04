@@ -6,6 +6,7 @@
   --vp-c-brand-dark: #535bf2;
   --vp-c-brand-darker: #454ce1;
   --vp-code-block-bg: #f9fafb;
+  --vp-layout-max-width: 1600px;
 }
 
 .demo-block .meta {
@@ -18,4 +19,10 @@ html.dark {
 
 .demo-block .xs-button {
   margin: 0 10px 10px 0;
+}
+
+
+
+.VPDoc.has-aside .content-container {
+    max-width: 900px !important;
 }

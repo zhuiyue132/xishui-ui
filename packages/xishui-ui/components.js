@@ -9,7 +9,7 @@ import { XsAvatar } from '@xishui-ui/components/avatar';
 import { XsShop } from '@xishui-ui/components/shop';
 import { XsGoods } from '@xishui-ui/components/goods';
 import { XsEmpty } from '@xishui-ui/components/empty';
-
+import { XsMessageBox } from '@xishui-ui/components/message-box';
 export default [
   XsButton,
   XsTabs,
@@ -21,5 +21,6 @@ export default [
   XsAvatar,
   XsShop,
   XsGoods,
-  XsEmpty
+  XsEmpty,
+  XsMessageBox
 ];

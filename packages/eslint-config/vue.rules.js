@@ -189,5 +189,7 @@ module.exports = {
   // props 必须定义详细的类型 https://eslint.vuejs.org/rules/require-prop-types.html
   'vue/require-prop-types': 'error',
   // 支持＜template＞中的注释指令 https://eslint.vuejs.org/rules/comment-directive.html
-  'vue/comment-directive': 'off'
+  'vue/comment-directive': 'off',
+  'vue/no-v-html': 'off',
+  'vue/no-v-text-v-html-on-component': 'off'
 };

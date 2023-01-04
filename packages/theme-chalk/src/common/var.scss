@@ -473,3 +473,47 @@ $empty: map.merge(
   ),
   $empty
 );
+
+/* Messagebox
+-------------------------- */
+$messagebox: () !default;
+$messagebox: map.merge(
+  (
+    'title-color': getCssVar('text-color-primary'),
+    'width': 420px,
+    'border-radius': 2px,
+    'font-size': getCssVar('font-size-large'),
+    'content-font-size': getCssVar('font-size-base'),
+    'content-color': getCssVar('text-color-regular'),
+    'error-font-size': 12px,
+    'padding-primary': 15px
+  ),
+  $messagebox
+);
+
+/* Popup
+-------------------------- */
+$popup: () !default;
+$popup: map.merge(
+  (
+    'modal-bg-color': getCssVar('color-black'),
+    'modal-opacity': 0.5
+  ),
+  $popup
+);
+
+/* Message
+-------------------------- */
+$message: () !default;
+$message: map.merge(
+  (
+    'min-width': 380px,
+    'bg-color': getCssVar('color-info', 'light-9'),
+    'border-color': getCssVar('border-color-lighter'),
+    'padding': 15px 15px 15px 20px,
+    'close-size': 16px,
+    'close-icon-color': getCssVar('text-color', 'placeholder'),
+    'close-hover-color': getCssVar('text-color', 'secondary')
+  ),
+  $message
+);

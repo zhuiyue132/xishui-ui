@@ -1,0 +1,51 @@
+@use './var' as *;
+@use '../mixins/mixins' as *;
+@use '../mixins/var' as *;
+
+:root {
+  @include set-component-css-var('popup', $popup);
+}
+
+.v-modal-enter {
+  animation: v-modal-in getCssVar('transition-duration-fast') ease;
+}
+
+.v-modal-leave {
+  animation: v-modal-out getCssVar('transition-duration-fast') ease forwards;
+}
+
+@keyframes v-modal-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes v-modal-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.v-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: getCssVar('popup-modal-bg-color');
+  opacity: getCssVar('popup-modal-opacity');
+}
+
+@include b(popup-parent) {
+  @include m(hidden) {
+    overflow: hidden;
+  }
+}

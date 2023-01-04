@@ -24,6 +24,9 @@
   // FillColor
   @include set-component-css-var('fill-color', $fill-color);
 
+  // BgColor
+  @include set-component-css-var('bg-color', $bg-color);
+
   // TextColor
   @include set-component-css-var('text-color', $text-color);
 

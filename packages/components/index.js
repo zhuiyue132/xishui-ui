@@ -4,7 +4,7 @@ export * from './tabs';
 export * from './message-box';
 export * from './avatar';
 export * from './card';
-export * from './datepicker';
+export * from './date-picker';
 export * from './empty';
 export * from './goods';
 export * from './icon';

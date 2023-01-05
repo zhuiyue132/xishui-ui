@@ -43,12 +43,14 @@ async function updateVersion() {
   // 更新版本号并写入 package.json 文件中
   rootPkgInfo.version = targetVersion;
   xpPkgInfo.version = targetVersion;
+  console.log(1);
   fs.writeFileSync(path.resolve(root, 'package.json'), JSON.stringify(rootPkgInfo, null, 2) + '\n');
+  console.log(2);
   fs.writeFileSync(
     path.resolve(`${root}/packages/xishui-ui`, 'package.json'),
     JSON.stringify(xpPkgInfo, null, 2) + '\n'
   );
-
+  console.log(3);
   return targetVersion;
 }
 /**
@@ -56,6 +58,7 @@ async function updateVersion() {
  */
 async function gitTag(targetVersion) {
   step('打 TAG');
+  console.log(4);
   const suffixVersion = `v${targetVersion}`;
   await execa('git', ['tag', suffixVersion], { stdio: 'inherit' });
   await execa('git', ['push', 'origin', `refs/tags/${suffixVersion}`], { stdio: 'inherit' });
@@ -82,7 +85,7 @@ async function generateChangelog(targetVersion) {
 // 组合发布流程并执行
 (async function main() {
   const targetVersion = await updateVersion();
-  generateChangelog(targetVersion);
+  await generateChangelog(targetVersion);
   await gitTag(targetVersion);
 })().catch(err => {
   throw err;

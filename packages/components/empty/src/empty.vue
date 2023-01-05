@@ -26,7 +26,6 @@
   import { useNamespace } from '@xishui-ui/hooks';
   import { emptyProps, svgs } from './empty';
   import { addUnit } from '@xishui-ui/utils';
-  console.log('emptyProps', emptyProps, svgs);
 
   const props = defineProps(emptyProps);
 
@@ -43,9 +42,6 @@
     if (image) {
       return image;
     }
-    const _default = 'no-data';
-    return icon && svgs[`../svg/${icon}.svg`]
-      ? svgs[`../svg/${icon}.svg`].default
-      : svgs[`../svg/${_default}.svg`].default;
+    return svgs[`${icon}`] ?? svgs['no-data'];
   });
 </script>

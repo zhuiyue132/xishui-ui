@@ -1,4 +1,9 @@
 import { isValidComponentSize } from '@xishui-ui/utils';
+import Close from '../svg/close.svg';
+import Danger from '../svg/danger.svg';
+import Info from '../svg/info.svg';
+import Success from '../svg/success.svg';
+import Warn from '../svg/warn.svg';
 
 export const Props = {
   confirmBtnType: {
@@ -52,4 +57,10 @@ export const Props = {
 
 export const Emits = ['vanish', 'action'];
 
-export const Icons = import.meta.globEager('../svg/*.svg');
+export const Icons = {
+  close: Close,
+  danger: Danger,
+  info: Info,
+  success: Success,
+  warn: Warn
+};

@@ -36,7 +36,7 @@
                 @click="handleAction(distinguishCancelAndClose ? 'close' : 'cancel')"
                 @keydown.prevent.enter="handleAction(distinguishCancelAndClose ? 'close' : 'cancel')"
               >
-                <img :src="Icons[`../svg/close.svg`].default" />
+                <img :src="Icons.close" />
               </button>
             </div>
             <div :id="contentId" :class="ns.e('content')">
@@ -201,10 +201,7 @@
         { prop: true, form: true, formItem: true }
       );
 
-      const _defaultIcon = Icons['../svg/warn.svg']?.default;
-      const iconComponent = computed(() =>
-        state.icon ? Icons[`../svg/${state.icon}.svg`]?.default || _defaultIcon : null
-      );
+      const iconComponent = computed(() => (state.icon ? Icons[`${state.icon}`] || Icons.warn : null));
       const hasMessage = computed(() => !!state.message);
       const rootRef = ref();
       const headerRef = ref();

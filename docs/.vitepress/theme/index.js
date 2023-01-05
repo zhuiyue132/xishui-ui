@@ -4,12 +4,15 @@ import { useComponents } from './useComponents';
 import '../../../packages/theme-chalk/src/index.scss';
 import './styles/index.css';
 import XSUI from '../../../packages/xishui-ui/index';
+import { inBrowser } from 'vitepress';
 
 export default {
   ...DefaultTheme,
   enhanceApp(ctx) {
     DefaultTheme.enhanceApp(ctx);
     useComponents(ctx.app);
-    ctx.app.use(XSUI);
+    if (inBrowser) {
+      ctx.app.use(XSUI);
+    }
   }
 };

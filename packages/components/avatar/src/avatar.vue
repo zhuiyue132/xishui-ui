@@ -5,7 +5,6 @@
 </template>
 <script>
   import { ElAvatar } from 'element-plus';
-  import 'element-plus/lib/components/avatar/style/css';
 
   export default {
     name: 'XsAvatar',

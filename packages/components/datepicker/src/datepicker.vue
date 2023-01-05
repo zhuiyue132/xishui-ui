@@ -44,7 +44,6 @@
 </template>
 <script>
   import { ElDatePicker, ElConfigProvider } from 'element-plus';
-  import 'element-plus/lib/components/date-picker/style/css';
   export default {
     name: 'XsDatePicker',
     components: {

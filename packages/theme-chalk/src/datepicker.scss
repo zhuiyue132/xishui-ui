@@ -4,6 +4,12 @@
 @use 'mixins/var' as *;
 @use 'mixins/function.scss' as *;
 @use 'sass:map';
+@use '../../../node_modules/element-plus/theme-chalk/src/base.scss';
+@use '../../../node_modules/element-plus/theme-chalk/src/date-picker.scss';
+@use '../../../node_modules/element-plus/theme-chalk/src/input.scss';
+@use '../../../node_modules/element-plus/theme-chalk/src/scrollbar.scss';
+@use '../../../node_modules/element-plus/theme-chalk/src/popper.scss';
+@use '../../../node_modules/element-plus/theme-chalk/src/button.scss';
 
 @include b(date-picker) {
   display: inline-flex;

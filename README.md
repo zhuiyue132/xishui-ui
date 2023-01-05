@@ -24,7 +24,7 @@ pnpm run dev # or build task and other...
 1. 打开终端，执行 `node tag`, 选择你需要发布的版本号；
    1. 值得注意的是，本步骤会在远端仓库创建一个以`v{version}`的 tag。
    1. 每种版本号有不同含义，建议慎重选择。
-1. tag 创建后，gitee go 会以正则捕获这个 git tag 的 hook，默认会执行流水线任务。
+   1. tag 创建后，gitee go 会以正则捕获这个 git tag 的 hook，默认会执行流水线任务。
    1. 流水线内的任务定义在 `.workflow`内。
    1. 本质上执行的是 `node release.js`。
    1. 如果需要修改包的所有者，请修改 `NPM_PUBLISH_TOKEN`。

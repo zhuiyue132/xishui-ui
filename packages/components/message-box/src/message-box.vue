@@ -136,8 +136,6 @@
     useSize,
     useZIndex
   } from 'element-plus';
-  import 'element-plus/lib/components/input/style/css';
-  import 'element-plus/lib/components/overlay/style/css';
 
   import { Props, Icons } from '../config';
 

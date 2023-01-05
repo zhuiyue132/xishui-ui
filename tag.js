@@ -49,9 +49,6 @@ async function updateVersion() {
     JSON.stringify(xpPkgInfo, null, 2) + '\n'
   );
 
-  await execa('git', ['add', '-A'], { stdio: 'inherit' });
-  await execa('git', ['commit', '-m', `chore(release): publish v${targetVersion}`], { stdio: 'inherit' });
-
   return targetVersion;
 }
 /**

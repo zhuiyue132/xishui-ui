@@ -1,5 +1,5 @@
-import XsFocusTrap from './src/focus-trap.vue';
+import FocusTrap from './src/focus-trap.vue';
 
-export { XsFocusTrap };
+export const XsFocusTrap = FocusTrap;
 
 export default XsFocusTrap;

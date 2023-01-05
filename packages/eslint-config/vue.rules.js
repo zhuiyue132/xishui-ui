@@ -12,7 +12,7 @@ module.exports = {
   /* 自定义事件强制使用中划线连接 https://eslint.vuejs.org/rules/custom-event-name-casing.html */
   'vue/custom-event-name-casing': ['error', 'kebab-case', { ignores: [] }],
   /* 禁止使用 v-html  https://eslint.vuejs.org/rules/no-v-html.html */
-  'vue/no-v-html': 'error',
+  'vue/no-v-html': 'off',
   /* bind绑定时能简写就直接简写 https://eslint.vuejs.org/rules/prefer-true-attribute-shorthand.html */
   'vue/prefer-true-attribute-shorthand': 'error',
   /* 模板中未使用的组建不允许注册 https://eslint.vuejs.org/rules/no-unused-components.html */
@@ -122,7 +122,7 @@ module.exports = {
   // 禁止无用的属性<template> https://eslint.vuejs.org/rules/no-useless-template-attributes.html
   'vue/no-useless-template-attributes': 'error',
   // 禁止组件上的 v-text / v-html https://eslint.vuejs.org/rules/no-v-text-v-html-on-component.html
-  'vue/no-v-text-v-html-on-component': 'error',
+  'vue/no-v-text-v-html-on-component': 'off',
   // 要求 prop 类型是构造函数 https://eslint.vuejs.org/rules/require-prop-type-constructor.html
   'vue/require-prop-type-constructor': 'error',
   // 强制渲染函数始终返回值 https://eslint.vuejs.org/rules/require-render-return.html
@@ -189,7 +189,5 @@ module.exports = {
   // props 必须定义详细的类型 https://eslint.vuejs.org/rules/require-prop-types.html
   'vue/require-prop-types': 'error',
   // 支持＜template＞中的注释指令 https://eslint.vuejs.org/rules/comment-directive.html
-  'vue/comment-directive': 'off',
-  'vue/no-v-html': 'off',
-  'vue/no-v-text-v-html-on-component': 'off'
+  'vue/comment-directive': 'off'
 };

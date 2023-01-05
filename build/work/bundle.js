@@ -12,6 +12,8 @@ import { epOutput, epRoot } from '../utils';
 import { formatBundleFilename, generateExternal, withTaskName, writeBundles } from '../utils';
 import json from '@rollup/plugin-json';
 import { XishuiUiAlias } from '../plugin/alias';
+import image from '@rollup/plugin-image';
+import css from 'rollup-plugin-import-css';
 
 async function buildFullEntry(minify) {
   const plugins = [
@@ -22,14 +24,16 @@ async function buildFullEntry(minify) {
     }),
     vueJsx(),
     nodeResolve({
-      extensions: ['.mjs', '.js']
+      extensions: ['.mjs', '.js', '.jsx']
     }),
     commonjs(),
     json(),
+    css(),
+    image(),
     esbuild({
       exclude: [],
       sourceMap: minify,
-      target: 'es2018',
+      target: 'es2020',
       define: {
         'process.env.NODE_ENV': JSON.stringify('production')
       },

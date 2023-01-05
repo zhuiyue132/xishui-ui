@@ -10,33 +10,38 @@ import { epRoot, excludeFiles, pkgRoot, generateExternal, writeBundles } from '.
 import json from '@rollup/plugin-json';
 import { buildConfigEntries } from '../build-info';
 import { XishuiUiAlias } from '../plugin/alias';
+import image from '@rollup/plugin-image';
+import css from 'rollup-plugin-import-css';
 
 // 构建任务
 export const buildModules = async () => {
   const input = excludeFiles(
-    await glob('**/*.{js,vue}', {
+    await glob('**/*.{js,vue,svg}', {
       cwd: pkgRoot,
       absolute: true,
       onlyFiles: true
     })
   );
+
   const bundle = await rollup({
     input,
     plugins: [
       XishuiUiAlias(),
       DefineOptions(),
       vue({
-        isProduction: false
+        isProduction: true
       }),
       vueJsx(),
       nodeResolve({
-        extensions: ['.mjs', '.js']
+        extensions: ['.mjs', '.js', '.jsx']
       }),
       commonjs(),
       json(),
+      css(),
+      image(),
       esbuild({
         sourceMap: true,
-        target: 'es2018'
+        target: 'es2020'
       })
     ],
     external: await generateExternal({ full: false }),
@@ -45,7 +50,6 @@ export const buildModules = async () => {
   await writeBundles(
     bundle,
     buildConfigEntries.map(([module, config]) => {
-      console.log('config.output.path', config.output.path);
       return {
         format: config.format,
         dir: config.output.path,

@@ -41,7 +41,7 @@ export const buildModules = async () => {
       image(),
       esbuild({
         sourceMap: true,
-        target: 'es2020'
+        target: 'es2018'
       })
     ],
     external: await generateExternal({ full: false }),

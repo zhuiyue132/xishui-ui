@@ -33,7 +33,7 @@ async function buildFullEntry(minify) {
     esbuild({
       exclude: [],
       sourceMap: minify,
-      target: 'es2020',
+      target: 'es2018',
       define: {
         'process.env.NODE_ENV': JSON.stringify('production')
       },

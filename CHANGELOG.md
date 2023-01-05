@@ -1,3 +1,9 @@
+## [1.0.7-beta.11](https://gitee.com/creektech/xishui-ui/compare/v1.0.7-beta.10...v1.0.7-beta.11) (2023-01-05)
+
+### Bug Fixes
+
+- **empty:** 调整 Empty 组件图片的导入方式; ([b9159bc](https://gitee.com/creektech/xishui-ui/commits/b9159bc8b15bbe5847599226da3f457d65985704))
+
 ## [1.0.7-beta.10](https://gitee.com/creektech/xishui-ui/compare/v1.0.7-beta.9...v1.0.7-beta.10) (2023-01-05)
 
 ### Bug Fixes

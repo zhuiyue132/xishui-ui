@@ -1,3 +1,9 @@
+## [1.0.7-beta.10](https://gitee.com/creektech/xishui-ui/compare/v1.0.7-beta.9...v1.0.7-beta.10) (2023-01-05)
+
+### Bug Fixes
+
+- 调整 MessageBox 图片导入方式; ([9cab9be](https://gitee.com/creektech/xishui-ui/commits/9cab9beeaeefe7de0da665df8ca260700d676279))
+
 ## [1.0.7-beta.9](https://gitee.com/creektech/xishui-ui/compare/v1.0.7-beta.8...v1.0.7-beta.9) (2023-01-05)
 
 ## [1.0.7-beta.8](https://gitee.com/creektech/xishui-ui/compare/v1.0.7-beta.6...v1.0.7-beta.8) (2023-01-05)

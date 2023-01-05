@@ -26,6 +26,7 @@
   import { useNamespace } from '@xishui-ui/hooks';
   import { emptyProps, svgs } from './empty';
   import { addUnit } from '@xishui-ui/utils';
+  console.log('emptyProps', emptyProps, svgs);
 
   const props = defineProps(emptyProps);
 

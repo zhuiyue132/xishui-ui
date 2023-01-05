@@ -1,7 +1,6 @@
 import path from 'path';
 import { PKG_NAME } from './config';
 import { epOutput } from './utils';
-console.log('epOutput: ', epOutput);
 export const buildConfig = {
   esm: {
     module: 'ESNext',

@@ -1,3 +1,9 @@
+## [1.0.7-beta.6](https://gitee.com/creektech/xishui-ui/compare/v1.0.7-beta.5...v1.0.7-beta.6) (2023-01-05)
+
+### Bug Fixes
+
+- 调整 datepicker 的命名空间为 date-picker; ([3a911b0](https://gitee.com/creektech/xishui-ui/commits/3a911b008b54f0e2c8f81b796c48b884cb73aecc))
+
 ## [1.0.7-beta.5](https://gitee.com/creektech/xishui-ui/compare/v1.0.7-beta.4...v1.0.7-beta.5) (2023-01-05)
 
 ### Bug Fixes

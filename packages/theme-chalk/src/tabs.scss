@@ -4,6 +4,7 @@
 @use 'mixins/var' as *;
 @use 'mixins/function.scss' as *;
 @use 'sass:map';
+@use 'tab-pane.scss' as *;
 
 @include b(tabs) {
   @include set-component-css-var('tabs', $tabs);

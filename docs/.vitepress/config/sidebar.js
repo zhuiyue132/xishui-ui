@@ -89,24 +89,6 @@ export default {
           link: '/guide/quickstart'
         }
       ]
-    },
-    {
-      text: '进阶',
-      items: [
-        {
-          text: '主题',
-          link: '/guide/theme'
-        }
-      ]
-    },
-    {
-      text: '开发',
-      items: [
-        {
-          text: '开发指南',
-          link: '/guide/dev'
-        }
-      ]
     }
   ]
 };

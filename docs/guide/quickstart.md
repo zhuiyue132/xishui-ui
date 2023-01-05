@@ -2,9 +2,7 @@
 
 本节将介绍如何在项目中使用 Xishui Ui。
 
-## 用法
-
-### 完整引入
+## 完整引入
 
 如果你对打包后的文件大小不是很在乎，那么使用完整导入会更方便。
 
@@ -19,9 +17,43 @@ app.use(XSUI);
 app.mount('#app');
 ```
 
-### 按需引入
+## 按需引入
 
-需要借助插件 [unplugin-element-plus](https://github.com/element-plus/unplugin-element-plus/blob/main/README.zh-CN.md) 完成手动按需引入的工作。
+### 自动导入
+
+您需要使用额外的插件来导入要使用的组件。
+
+```bash
+npm install -D unplugin-components-vue unplugin-auto-import
+```
+
+然后把下列代码插入到你的 Vite 或 Webpack 的配置文件中
+
+```js
+import { defineConfig } from 'vite';
+import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-components-vue/vite';
+import { XishuiUiResolver, ElementPlusResolver } from 'unplugin-components-vue/resolvers';
+
+export default defineConfig({
+  // ...
+  plugins: [
+    // ...
+    AutoImport({
+      resolvers: [XishuiUiResolver() /** 如果你的项目用了多个组件库 ElementPlusResolver() */]
+    }),
+    Components({
+      resolvers: [XishuiUiResolver() /** 如果你的项目用了多个组件库 ElementPlusResolver() */]
+    })
+  ]
+});
+```
+
+### 手动引入
+
+```bash
+npm i unplugin-xishui-ui
+```
 
 ```html
 <template>
@@ -36,12 +68,21 @@ app.mount('#app');
 ```
 
 ```js
-// vite.config.js， 其他打包器参考 unplugin-element-plus 的文档；
+// vite.config.js
 import { defineConfig } from 'vite';
-import Element from 'unplugin-element-plus/vite';
+import xishui from 'unplugin-xishui-ui/vite';
 
 export default defineConfig({
   // ...
-  plugins: [element({ lib: 'xishui-ui', prefix: 'Xs' })]
+  plugins: [xishui()]
 });
 ```
+
+::: danger
+注意：无论你使用何种方式的按需加载，指令类和使用方法调用的组件，如 MessageBox 等需要手动引入样式,如：
+
+```js
+<script>import "xishui-ui/es/packages/components/message-box/style/css";</script>
+```
+
+:::

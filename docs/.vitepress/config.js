@@ -20,7 +20,14 @@ export default defineConfig({
 
   base: ['prod', 'production'].includes(process.env.NODE_ENV) ? '/component-docs/' : '',
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
+    [
+      'link',
+      {
+        rel: 'icon',
+        type: 'image/svg+xml',
+        href: `${['prod', 'production'].includes(process.env.NODE_ENV) ? '/component-docs/' : '/'}logo.svg`
+      }
+    ],
     ['script', { src: '//at.alicdn.com/t/c/font_3759346_bq2y5b0qsgw.js' }],
     ['script', { src: '//at.alicdn.com/t/c/font_3759470_js03enos04h.js' }],
     ['script', { src: '//at.alicdn.com/t/c/font_3766763_85qv1gojmxq.js' }]

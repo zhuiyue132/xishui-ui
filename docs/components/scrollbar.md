@@ -227,7 +227,7 @@
 ```vue
 <template>
   <xs-scrollbar always stickyable>
-    <div style="width: 500px">
+    <div style="width: 1000px">
       <p v-for="item in 50" :key="item" class="scrollbar-demo-item5">{{ item }}</p>
     </div>
   </xs-scrollbar>

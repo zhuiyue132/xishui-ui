@@ -29,11 +29,7 @@ stages:
           - git config --global user.name "GiteePipeline"
           - pnpm install && pnpm run build && node release
           - '# 更新组件库文档'
-          - pnpm run docs:build && cd docs/.vitepress/dist
-          - git init && git add . && git commit -m 'docs update'
-          - git remote add origin https://oauth2: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@gh.zhuiyue.work/github.com/zhuiyue132/component-docs.git
-          - git branch -M main
-          - git push -u -f origin main
+          - pnpm run docs:deploy
         artifacts:
           - name: BUILD_ARTIFACT
             path:

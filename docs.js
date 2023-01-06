@@ -9,14 +9,13 @@ const execa = require('execa');
 const consola = require('consola');
 
 const step = msg => consola.success(msg);
-
 const buildDocsAndPublish = async () => {
   step('构建文档');
+  const dir = 'docs/.vitepress/dist';
   await execa('pnpm', ['docs:build'], { stdio: 'inherit' });
-  await execa('cd', ['docs/.vitepress/dist'], { stdio: 'inherit' });
-  await execa('git', ['init'], { stdio: 'inherit' });
-  await execa('git', ['add', '-A'], { stdio: 'inherit' });
-  await execa('git', ['commit', '-m', 'docs: auto update'], { stdio: 'inherit' });
+  await execa('git', ['init'], { stdio: 'inherit', cwd: dir });
+  await execa('git', ['add', '-A'], { stdio: 'inherit', cwd: dir });
+  await execa('git', ['commit', '-m', 'docs: auto update'], { stdio: 'inherit', cwd: dir });
   await execa(
     'git',
     [
@@ -25,10 +24,10 @@ const buildDocsAndPublish = async () => {
       'origin',
       'https://oauth2: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@gh.zhuiyue.work/github.com/zhuiyue132/component-docs.git'
     ],
-    { stdio: 'inherit' }
+    { stdio: 'inherit', cwd: dir }
   );
-  await execa('git', ['branch', '-M', 'main'], { stdio: 'inherit' });
-  await execa('git', ['push', '-u', '-f', 'origin', 'main'], { stdio: 'inherit' });
+  await execa('git', ['branch', '-M', 'main'], { stdio: 'inherit', cwd: dir });
+  await execa('git', ['push', '-u', '-f', 'origin', 'main'], { stdio: 'inherit', cwd: dir });
 };
 
 // 组合发布流程并执行

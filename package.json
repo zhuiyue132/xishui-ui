@@ -6,6 +6,7 @@
     "dev": "pnpm -C example dev",
     "docs": "cross-env NODE_ENV=dev pnpm -C docs dev",
     "docs:build": "cross-env NODE_ENV=prod pnpm -C docs build",
+    "docs:deploy": "node docs.js",
     "lint:fix": "eslint . --fix",
     "lint:eslint": "eslint .",
     "lint:prettier": "prettier --write .",

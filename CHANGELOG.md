@@ -1,3 +1,9 @@
+## [1.0.7-beta.12](https://gitee.com/creektech/xishui-ui/compare/v1.0.7-beta.11...v1.0.7-beta.12) (2023-01-06)
+
+### Bug Fixes
+
+- **tabs:** 解决 tab-pane 样式丢失问题; ([0bebef4](https://gitee.com/creektech/xishui-ui/commits/0bebef43baf5b0b0e9627e11a85bce8a173ad6a6))
+
 ## [1.0.7-beta.11](https://gitee.com/creektech/xishui-ui/compare/v1.0.7-beta.10...v1.0.7-beta.11) (2023-01-05)
 
 ### Bug Fixes

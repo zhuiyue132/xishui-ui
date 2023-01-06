@@ -15,7 +15,6 @@
     ON_RELEASE_FOCUS_EVT,
     ON_TRAP_FOCUS_EVT
   } from './tokens';
-  import { isClient } from '@vueuse/core';
   export default defineComponent({
     name: 'XsFocusTrap',
     inheritAttrs: false,
@@ -59,7 +58,7 @@
         const { loop } = props;
         const isTabbing = key === EVENT_CODE.tab && !altKey && !ctrlKey && !metaKey;
 
-        const currentFocusingEl = isClient ? document.activeElement : null;
+        const currentFocusingEl = document.activeElement;
         if (isTabbing && currentFocusingEl) {
           const container = currentTarget;
           const [first, last] = getEdges(container);
@@ -163,7 +162,7 @@
         const trapContainer = unref(forwardRef);
         if (trapContainer) {
           focusableStack.push(focusLayer);
-          const prevFocusedElement = isClient ? document.activeElement : null;
+          const prevFocusedElement = document.activeElement;
           lastFocusBeforeTrapped = prevFocusedElement;
           const isPrevFocusContained = trapContainer.contains(prevFocusedElement);
           if (!isPrevFocusContained) {

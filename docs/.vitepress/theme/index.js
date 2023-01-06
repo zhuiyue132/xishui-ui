@@ -11,8 +11,8 @@ export default {
   enhanceApp(ctx) {
     DefaultTheme.enhanceApp(ctx);
     useComponents(ctx.app);
-    // if (inBrowser) {
-    ctx.app.use(XSUI);
-    // }
+    if (inBrowser) {
+      ctx.app.use(XSUI);
+    }
   }
 };

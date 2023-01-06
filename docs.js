@@ -16,6 +16,7 @@ const buildDocsAndPublish = async () => {
   await execa('git', ['init'], { stdio: 'inherit', cwd: dir });
   await execa('git', ['add', '-A'], { stdio: 'inherit', cwd: dir });
   await execa('git', ['commit', '-m', 'docs: auto update'], { stdio: 'inherit', cwd: dir });
+  await execa('git', ['remote', 'remove', 'origin'], { stdio: 'inherit', cwd: dir });
   await execa(
     'git',
     [

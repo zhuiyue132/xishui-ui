@@ -18,7 +18,6 @@
   import { useAttrs, computed } from 'vue';
   import { Props } from './avatar';
   import { isClient } from '@vueuse/core';
-
   const $attrs = useAttrs();
   const props = defineProps(Props);
 

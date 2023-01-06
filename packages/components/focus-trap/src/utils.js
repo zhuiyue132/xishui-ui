@@ -1,5 +1,8 @@
+import { isClient } from '@vueuse/core';
+
 export const obtainAllFocusableElements = element => {
   const nodes = [];
+  if (!isClient) return nodes;
   const walker = document.createTreeWalker(element, NodeFilter.SHOW_ELEMENT, {
     acceptNode: node => {
       const isHiddenInput = node.tagName === 'INPUT' && node.type === 'hidden';

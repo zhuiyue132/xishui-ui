@@ -17,6 +17,7 @@
 <script setup>
   import { useAttrs, computed } from 'vue';
   import { Props } from './avatar';
+  import { isClient } from '@vueuse/core';
 
   const $attrs = useAttrs();
   const props = defineProps(Props);
@@ -45,7 +46,8 @@
   };
 
   const getAvatar = () => {
-    let canvas = document.createElement('canvas');
+    let canvas = isClient ? document.createElement('canvas') : null;
+    if (!canvas) return;
     canvas.width = canvas.height = 200 * window.devicePixelRatio;
     const context = canvas.getContext('2d');
 

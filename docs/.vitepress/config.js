@@ -18,7 +18,8 @@ export default defineConfig({
   lastUpdated: true,
   cleanUrls: 'without-subfolders',
 
-  base: ['prod', 'production'].includes(process.env.NODE_ENV) ? '/component-docs/' : '',
+  // base: ['prod', 'production'].includes(process.env.NODE_ENV) ? '/component-docs/' : '',
+  base: '',
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
     ['script', { src: '//at.alicdn.com/t/c/font_3759346_bq2y5b0qsgw.js' }],

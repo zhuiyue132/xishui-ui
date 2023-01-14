@@ -1,0 +1,208 @@
+@use 'sass:map';
+@use 'mixins/function.scss' as *;
+@use 'mixins/mixins' as *;
+@use 'common/var' as *;
+@use '../../../node_modules/element-plus/theme-chalk/src/date-picker.scss';
+@use '../../../node_modules/element-plus/theme-chalk/src/button.scss';
+
+@include b(table-popover) {
+  &.el-popover {
+    width: 224px !important;
+    padding: 16px !important;
+    border: 1px solid #e2e6ef !important;
+    border-radius: 2px !important;
+    box-shadow: 0 2px 4px rgb(60 99 235 / 15%) !important;
+    box-sizing: border-box !important;
+  }
+
+  @include e(content) {
+    @include e(cell) {
+      &:not(:first-child) {
+        margin-top: 18px;
+      }
+      @include m(title) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 8px;
+
+        span:nth-child(1) {
+          font-size: 14px;
+          font-weight: 700;
+          line-height: 16px;
+        }
+
+        span:nth-child(2) {
+          font-size: 12px;
+          line-height: 16px;
+          opacity: 0.45;
+        }
+      }
+
+      @include m(sort) {
+        display: flex;
+        justify-content: space-between;
+
+        .xs-button {
+          display: flex;
+          font-weight: 400;
+          border-radius: 1px;
+          flex: 0 0 86px;
+          align-items: center;
+          justify-content: center;
+
+          & + & {
+            margin-left: 18px;
+          }
+
+          img {
+            display: none;
+            margin-right: 4px;
+
+            &:nth-child(1) {
+              display: block;
+            }
+          }
+
+          &.is-active,
+          &:hover {
+            color: getCssVar('color-primary');
+            border-color: getCssVar('color-primary');
+
+            img {
+              display: none;
+
+              &:nth-child(2) {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+
+      @include m(filter) {
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        .table-filter__select {
+          margin-bottom: 8px;
+
+          .el-input {
+            --el-input-border-radius: 1px;
+          }
+
+          --el-select-input-focus-border-color: #{getCssVar('color-primary')};
+        }
+
+        .table-filter__time {
+          position: relative;
+          width: 100% !important;
+          padding: 0;
+          margin-bottom: 8px;
+          overflow: hidden !important;
+          border-radius: 1px;
+          box-sizing: border-box;
+
+          --el-input-focus-border-color: #{getCssVar('color-primary')};
+
+          .el-range-input {
+            width: calc((100% - 12px) / 2);
+          }
+
+          .el-range-separator {
+            padding: 0 !important;
+            flex: 0 0 12px;
+          }
+
+          .el-icon.el-input__icon.el-range__icon {
+            display: none;
+          }
+
+          .el-range__close-icon {
+            position: absolute;
+            top: -1;
+            right: 1px;
+            width: 24px;
+            height: calc(100% - 2px);
+            text-align: center;
+            background: #fff;
+            opacity: 1;
+          }
+
+          &.el-range-editor.el-input__inner {
+            padding: 3px 10px;
+          }
+        }
+
+        .type-input {
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+
+          b {
+            height: 32px;
+            margin: 0 5px;
+            font-size: 14px;
+            line-height: 32px;
+            color: #d4dbe9;
+          }
+
+          .search-input-item {
+            position: relative;
+            flex: 1;
+
+            > span {
+              position: absolute;
+              top: 50%;
+              right: 5px;
+              color: #e2e6ef;
+              transform: translateY(-45%);
+
+              & + input {
+                padding-right: 18px;
+              }
+            }
+
+            input {
+              // width: 86px;
+              width: 100%;
+              height: 32px;
+              padding: 0 4px 0 8px;
+              font-size: 14px;
+              color: #1b2948;
+              cursor: text;
+              border: 1px solid #d4dbe9;
+              border-radius: 1px;
+              box-sizing: border-box;
+
+              &:hover,
+              &:focus {
+                outline: none;
+              }
+
+              &::placeholder {
+                color: #e2e6ef;
+                text-align: var(--xs-placeholder-align);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @include e(button) {
+      display: flex;
+      margin-top: 18px;
+      justify-content: space-between;
+
+      .xs-button {
+        flex: 0 0 86px;
+
+        & + & {
+          margin-left: 16px;
+        }
+      }
+    }
+  }
+}

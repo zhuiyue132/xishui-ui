@@ -63,6 +63,7 @@
     "husky": "^8.0.2",
     "inquirer": "8.1.2",
     "lint-staged": "^13.0.3",
+    "markdown-it-task-lists": "^2.1.1",
     "postcss": "^8.4.19",
     "postcss-scss": "^4.0.5",
     "prettier": "^2.7.1",
@@ -104,6 +105,7 @@
     "@xishui-ui/utils": "workspace:^0.0.1",
     "dayjs": "^1.11.7",
     "element-plus": "^2.2.26",
+    "numeral": "^2.0.6",
     "vue": "^3.2.36"
   }
 }

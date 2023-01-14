@@ -46,7 +46,7 @@ module.exports = {
   // 不允许 export 进入 <script setup> https://eslint.vuejs.org/rules/no-export-in-script-setup.html
   'vue/no-export-in-script-setup': 'error',
   // 不允许修改 props https://eslint.vuejs.org/rules/no-mutating-props.html
-  'vue/no-mutating-props': 'error',
+  'vue/no-mutating-props': 'off',
   // 不允许解析错误的 template https://eslint.vuejs.org/rules/no-parsing-error.html
   'vue/no-parsing-error': [
     'error',

@@ -4,7 +4,6 @@ import { useComponents } from './useComponents';
 import '../../../packages/theme-chalk/src/index.scss';
 import './styles/index.css';
 import XSUI from '../../../packages/xishui-ui/index';
-// import { inBrowser } from 'vitepress';
 
 export default {
   ...DefaultTheme,

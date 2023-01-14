@@ -40,8 +40,7 @@
     map.get($button-border-radius, 'default')
   );
 
-  &:hover,
-  &:focus {
+  &:hover {
     color: getCssVar('color-primary');
     background-color: getCssVar('color-primary-light-9');
     border-color: getCssVar('color-primary-light-7');
@@ -135,8 +134,7 @@
     }
 
     &:not(.is-disabled) {
-      &:hover,
-      &:focus {
+      &:hover {
         color: mix($color-white, $color-primary, $button-hover-tint-percent);
         background-color: transparent;
         border-color: transparent;
@@ -156,8 +154,7 @@
     background-color: transparent;
     border-color: transparent;
 
-    &:hover,
-    &:focus {
+    &:hover {
       position: relative;
       background-color: transparent;
       border-color: transparent;

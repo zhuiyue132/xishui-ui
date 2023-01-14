@@ -51,6 +51,9 @@ export default defineConfig({
       md.use(demoBlockPlugin, {
         cssPreprocessor: 'scss'
       });
+
+      // 使用更多的 markdown-it 插件!
+      md.use(require('markdown-it-task-lists'));
     }
   },
 

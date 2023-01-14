@@ -17,12 +17,56 @@ html.dark {
   --vp-code-block-bg: var(--vp-c-bg-alt);
 }
 
-.demo-block .xs-button {
+.demo-block._components_button  .xs-button {
   margin: 0 10px 10px 0;
 }
 
 
 
 .VPDoc.has-aside .content-container {
-    max-width: 900px !important;
+  max-width: 900px !important;
+}
+
+
+/**
+  * Table
+  * -------------------------------------------------------------------------- */
+
+.demo-table table {
+  display: block;
+  border-collapse: separate;
+  margin: unset;
+  overflow-x: unset;
+}
+
+.demo-table tr {
+  border-top: unset;
+  transition: unset;
+}
+
+.demo-table tr:nth-child(2n) {
+  background-color: unset;
+}
+
+.demo-table th,
+.demo-table td {
+  border: initial;
+  padding: initial;
+}
+
+.demo-table th {
+  font-size: unset;
+  font-weight: unset;
+  background-color: unset;
+}
+
+.dark .demo-table th {
+  background-color: unset;
+}
+
+
+.demo-table ul,
+.demo-table ol {
+  padding-left: unset;
+  margin: unset;
 }

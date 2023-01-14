@@ -39,3 +39,15 @@ export const once = (el, event, fn) => {
   };
   on(el, event, listener);
 };
+
+/**
+ * 手动触发事件
+ * @param {*} elm
+ * @param {*} name
+ * @returns
+ */
+export const triggerEvent = (elm, eventName) => {
+  const ev = document.createEvent('MouseEvents');
+  ev.initEvent(eventName, true, false);
+  elm.dispatchEvent(ev);
+};

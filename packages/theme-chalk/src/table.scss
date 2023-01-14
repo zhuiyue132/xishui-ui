@@ -1,0 +1,243 @@
+@use 'sass:map';
+@use 'mixins/function.scss' as *;
+@use 'mixins/mixins' as *;
+@use 'common/var' as *;
+@use 'table-column.scss' as *;
+@use 'table-popover.scss' as *;
+@use '../../../node_modules/element-plus/theme-chalk/src/base.scss';
+@use '../../../node_modules/element-plus/theme-chalk/src/table.scss';
+@use '../../../node_modules/element-plus/theme-chalk/src/table-column.scss';
+@use '../../../node_modules/element-plus/theme-chalk/src/checkbox.scss';
+@use '../../../node_modules/element-plus/theme-chalk/src/tag.scss';
+@use '../../../node_modules/element-plus/theme-chalk/src/tooltip.scss';
+@use '../../../node_modules/element-plus/theme-chalk/src/scrollbar.scss';
+@use '../../../node_modules/element-plus/theme-chalk/src/popper.scss';
+@use '../../../node_modules/element-plus/theme-chalk/src/skeleton-item.scss';
+@use '../../../node_modules/element-plus/theme-chalk/src/skeleton.scss';
+@use '../../../node_modules/element-plus/theme-chalk/src/pagination.scss';
+@use '../../../node_modules/element-plus/theme-chalk/src/input.scss';
+@use '../../../node_modules/element-plus/theme-chalk/src/option.scss';
+@use '../../../node_modules/element-plus/theme-chalk/src/option-group.scss';
+@use '../../../node_modules/element-plus/theme-chalk/src/select.scss';
+@use '../../../node_modules/element-plus/theme-chalk/src/message.scss';
+
+@mixin sticky {
+  z-index: 8;
+}
+
+@include b(table) {
+  position: relative;
+  overflow: hidden;
+  @include m(content) {
+    --el-fill-color-lighter: #f2f2f2;
+    --el-table-border-color: #ebeef5;
+    --el-table-row-hover-bg-color: #eef3ff;
+    --el-table-border: 1px solid var(--el-table-border-color);
+
+    overflow: visible;
+    color: #000;
+    border-bottom: var(--el-table-border);
+
+    .el-table__inner-wrapper {
+      .el-table__header-wrapper {
+        overflow: hidden;
+        @include sticky;
+
+        table {
+          @include sticky;
+
+          thead {
+            position: relative;
+
+            th {
+              @include sticky;
+
+              min-height: 32px;
+              padding: 0 8px;
+              vertical-align: bottom;
+              pointer-events: none;
+
+              &.el-table-fixed-column--left,
+              &.el-table-fixed-column--right {
+                z-index: 11;
+                pointer-events: bounding-box;
+              }
+
+              .cell {
+                padding: 0;
+
+                .caret-wrapper,
+                .el-table__column-filter-trigger {
+                  display: none;
+                }
+
+                .el-checkbox {
+                  pointer-events: bounding-box;
+                }
+
+                .xs-table-column__header {
+                  &::after {
+                    position: absolute;
+                    top: 0;
+                    // right: -8px;
+                    left: -4px;
+                    left: 0;
+                    z-index: -1;
+                    width: calc(100%);
+                    height: 100%;
+                    background: var(--xs-table-theme-color, var(--xs-table-column-color));
+                    content: '';
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .el-table__body-wrapper {
+        table {
+          tr {
+            td {
+              &.xs-table__cell--nil {
+                position: relative;
+                border-right: none;
+                border-bottom: none;
+
+                &-last {
+                  border-right: var(--el-table-border);
+                }
+
+                &::after {
+                  position: absolute;
+                  top: 0;
+                  left: -1px;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background: #f5fbff;
+                  content: '';
+                }
+              }
+
+              .cell {
+                padding: 0 8px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.is-empty {
+      .el-scrollbar__view {
+        width: 100%;
+
+        .el-table__empty-block {
+          width: 100% !important;
+        }
+      }
+
+      .el-scrollbar__bar.is-horizontal {
+        z-index: 11;
+        height: 8px;
+      }
+
+      .el-table__border-left-patch,
+      .el-table__border-right-patch {
+        display: none;
+      }
+    }
+
+    &.el-table--border::after,
+    &.el-table--border::before,
+    &.el-table--border .el-table__inner-wrapper::after,
+    .el-table__inner-wrapper::before {
+      z-index: 12;
+    }
+
+    &.is-summary-top {
+      .el-table__footer-wrapper {
+        position: absolute;
+        top: var(--xs-table-header-height);
+      }
+
+      .el-table__body-wrapper {
+        padding-top: var(--xs-table-footer-height);
+      }
+    }
+  }
+
+  &.is-sticky-table {
+    .el-table__header-wrapper {
+      position: var(--xs-table-position);
+    }
+
+    .is-sticky {
+      .el-table__header-wrapper {
+        position: fixed;
+        top: var(--xs-table-sticky-offset);
+        z-index: 19;
+        width: var(--xs-table-top-width);
+      }
+
+      .el-table__inner-wrapper {
+        padding-top: var(--xs-table-top-padding);
+      }
+    }
+  }
+
+  .el-table__empty-text {
+    width: 100%;
+  }
+
+  .el-scrollbar {
+    .el-scrollbar__bar.is-horizontal {
+      bottom: 0;
+      height: 12px;
+      border-radius: 6px;
+
+      --el-scrollbar-opacity: 1;
+
+      .el-scrollbar__thumb {
+        background-color: #c1c1c1;
+
+        &:hover {
+          background-color: #a8a8a8;
+        }
+      }
+    }
+  }
+
+  @include e(skeleton) {
+    padding: 8px 0 0;
+  }
+
+  @include e(skeleton-item) {
+    display: block;
+    width: 100%;
+    height: 30px;
+
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+
+  @include e(page) {
+    display: flex;
+    padding-top: 16px;
+    justify-content: flex-end;
+  }
+
+  @include e(group) {
+    @include m(empty) {
+      position: absolute;
+      top: var(--xs-table-header-height);
+      z-index: 1;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

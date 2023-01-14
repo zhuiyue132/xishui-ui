@@ -8,3 +8,4 @@
 export * from './config-provider';
 export * from './install';
 export * from './scrollbar';
+export * from './table';

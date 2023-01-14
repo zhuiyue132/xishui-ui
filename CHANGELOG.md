@@ -1,3 +1,17 @@
+## [1.0.7](https://gitee.com/creektech/xishui-ui/compare/v1.0.7-beta.12...v1.0.7) (2023-01-14)
+
+### Bug Fixes
+
+- 解决因服务端没有 document,window 等对象的报错的问题; ([c1701c6](https://gitee.com/creektech/xishui-ui/commits/c1701c64834a41c8b18b9d85a9039232139a7b9a))
+
+### Features
+
+- 增加 Table 组件及其文档; ([ba9202c](https://gitee.com/creektech/xishui-ui/commits/ba9202c5f8eb1973d398cc26aa06dd5356ee4933))
+
+### Reverts
+
+- Revert "docs(release): auto update" ([4452ff0](https://gitee.com/creektech/xishui-ui/commits/4452ff0f357fbf6701cf2a4674d3baaf3da6c24b))
+
 ## [1.0.7-beta.12](https://gitee.com/creektech/xishui-ui/compare/v1.0.7-beta.11...v1.0.7-beta.12) (2023-01-06)
 
 ### Bug Fixes

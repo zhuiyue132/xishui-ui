@@ -85,8 +85,6 @@
             layout,
             pageSizes
           }"
-          @current-change="onCurrentChange"
-          @size-change="onPageSizeChange"
         />
         <slot name="paginationRight"></slot>
       </div>
@@ -269,8 +267,6 @@
     pageSizes,
     layout,
     currentData: _data,
-    onPageSizeChange,
-    onCurrentChange,
     position
   } = useTablePagination(sortData, props);
 

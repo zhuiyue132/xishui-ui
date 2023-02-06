@@ -37,13 +37,15 @@ export const useTablePagination = ($data, props = {}) => {
   const position = computed(() => _pagination.value.position);
   const currentPage = ref(1);
   const total = ref($data.value.length);
-  const pageSize = computed(() => _pagination.value.pageSize);
+  // const pageSize = computed(() => _pagination.value.pageSize);
+  const pageSize = ref(_pagination.value.pageSize);
   const pageSizes = computed(() => _pagination.value.pageSizes);
   const layout = computed(() => _pagination.value.layout);
   const paging = ref(_chunk($data.value, _size.value));
   const currentData = ref(paging.value[0] || []);
 
   const onPageSizeChange = () => {
+    console.log('onPageSizeChange');
     paging.value = _chunk($data.value, _size.value);
     onCurrentChange();
   };

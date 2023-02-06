@@ -17,7 +17,8 @@
   import { ref } from 'vue';
 
   const data = ref(
-    Array.from({ length: 20 }).map((_, index) => ({
+    Array.from({ length: 200 }).map((_, index) => ({
+      rank: index + 1,
       date: `2023-01-1${index}`,
       name: 'Tom',
       state: 'California',
@@ -33,6 +34,12 @@
   );
 
   const columns2 = ref([
+    {
+      prop: 'rank',
+      label: 'Rank',
+      fixed: true,
+      width: 100
+    },
     {
       prop: 'date',
       label: 'Date',

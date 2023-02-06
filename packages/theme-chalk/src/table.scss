@@ -4,6 +4,7 @@
 @use 'common/var' as *;
 @use 'table-column.scss' as *;
 @use 'table-popover.scss' as *;
+@use 'table-render.scss' as *;
 @use '../../../node_modules/element-plus/theme-chalk/src/base.scss';
 @use '../../../node_modules/element-plus/theme-chalk/src/table.scss';
 @use '../../../node_modules/element-plus/theme-chalk/src/table-column.scss';
@@ -99,6 +100,8 @@
         table {
           tr {
             td {
+              padding: 0;
+
               &.xs-table__cell--nil {
                 position: relative;
                 border-right: none;
@@ -121,7 +124,9 @@
               }
 
               .cell {
-                padding: 0 8px;
+                min-height: 32px;
+                padding: 4px 8px;
+                line-height: 32px;
               }
             }
           }

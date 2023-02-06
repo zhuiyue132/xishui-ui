@@ -75,3 +75,10 @@ export const formatPercent = (value, digits = 2) => {
 
   return formatNumber(value, format);
 };
+
+/**
+ * 输入什么就输出什么，用于一些默认的格式化占位，避免没有格式函数时报错；
+ * @param {*} v
+ * @returns
+ */
+export const formatOriginal = v => v;

@@ -15,10 +15,21 @@
 
 <script setup>
   import { ref } from 'vue';
+  import {
+    createProgressCell,
+    formatNumber,
+    createColorFontCell,
+    createColorBlockCell,
+    createAverageCell,
+    createTooltipCell,
+    createTooltipListCell
+  } from '../packages/components';
 
   const data = ref(
     Array.from({ length: 200 }).map((_, index) => ({
-      rank: index + 1,
+      rank: index,
+      max: 10,
+      age: Math.random() * 10,
       date: `2023-01-1${index}`,
       name: 'Tom',
       state: 'California',
@@ -38,8 +49,85 @@
       prop: 'rank',
       label: 'Rank',
       fixed: true,
-      width: 100
+      width: 100,
+      render: ({ row }) => {
+        return createColorFontCell({
+          value: row.rank,
+          isPositive: row.rank > 15
+        });
+      }
     },
+    {
+      prop: 'rank',
+      label: 'Rank',
+      width: 100,
+      render: ({ row }) => {
+        return createColorBlockCell({
+          value: row.rank
+        });
+      }
+    },
+    {
+      prop: 'rank',
+      label: 'Rank',
+      width: 100,
+      render: ({ row }) => {
+        return createAverageCell({
+          value: row.rank,
+          average: 10
+        });
+      }
+    },
+
+    {
+      prop: 'rank',
+      label: 'RankTooltip',
+      width: 100,
+      fixed: 'right',
+      render: ({ row }) => {
+        return createTooltipCell(
+          createColorBlockCell({
+            value: row.rank
+          }),
+          '我是tooltip'
+        );
+      }
+    },
+    {
+      prop: 'rank',
+      label: 'RankTooltip',
+      width: 100,
+      fixed: 'right',
+      render: ({ row }) => {
+        return createTooltipListCell(
+          createColorBlockCell({
+            value: row.rank
+          }),
+          [
+            { roi: null, name: '淘宝客', cost: '8899' },
+            { roi: 222.2, name: '淘宝客', cost: '28899' },
+            { roi: 1112.2, name: '销售推广费用', cost: '8899' },
+            { roi: 999912.2, name: '销售推广费用', cost: '8899' }
+          ],
+          true
+        );
+      }
+    },
+    {
+      prop: 'age',
+      label: 'age',
+      fixed: true,
+      width: 100,
+      align: 'right',
+      render: ({ row }) => {
+        return createProgressCell({
+          value: row.age,
+          max: 10,
+          formatter: formatNumber
+        });
+      }
+    },
+
     {
       prop: 'date',
       label: 'Date',

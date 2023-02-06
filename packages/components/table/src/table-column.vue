@@ -38,6 +38,8 @@
       />
     </template>
 
+    <!-- <template v-else-if="column.type === 'singleSelect'" #default="{ row, $index }"> // TODO: 表格单选 </template> -->
+
     <!-- 单元格的cell slot 声明 -->
     <template v-else-if="column.slot" #default="{ row, $index }">
       <xs-render-helper

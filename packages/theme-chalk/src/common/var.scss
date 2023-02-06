@@ -474,6 +474,20 @@ $empty: map.merge(
   $empty
 );
 
+/* Table
+-------------------------- */
+$table: () !default;
+$table: map.merge(
+  (
+    'positive-color': #bd4206,
+    'negitive-color': #38903c,
+    'normal-color': #848484,
+    'average-bg-color': #f1bd2f,
+    'progress-bg-color': #d4e8ff
+  ),
+  $table
+);
+
 /* Messagebox
 -------------------------- */
 $messagebox: () !default;

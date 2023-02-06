@@ -39,7 +39,6 @@
           :header-clickable="headerClickable"
           :column="column"
         />
-        <div id="boxsss"></div>
 
         <template #empty>
           <el-skeleton v-if="loading" animated :class="[ns.e('skeleton')]">
@@ -222,7 +221,7 @@
       return leaf;
     };
 
-    return getColumnsLeaf(unref(_columns));
+    return getColumnsLeaf(unref(_columns)).filter(column => column.fixed !== 'right');
   });
 
   /* 数据源重算

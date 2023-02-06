@@ -11,7 +11,9 @@ import sortDescActive from './sort-desc-active.svg';
 import caretAsc from './caret-asc.svg';
 import caretDesc from './caret-desc.svg';
 import caretNoSort from './caret-no-sort.svg';
-
+import arrowWarning from './warning-arrow.svg';
+import arrowPositive from './positive-arrow.svg';
+import arrowNegitive from './negitive-arrow.svg';
 import { TABLE_HEAD_STATUS } from '../config';
 
 export default {
@@ -27,5 +29,8 @@ export default {
   sortDesc,
   [TABLE_HEAD_STATUS.caretAsc]: caretAsc,
   [TABLE_HEAD_STATUS.caretDesc]: caretDesc,
-  [TABLE_HEAD_STATUS.caretNoSort]: caretNoSort
+  [TABLE_HEAD_STATUS.caretNoSort]: caretNoSort,
+  arrowWarning,
+  arrowPositive,
+  arrowNegitive
 };

@@ -1,0 +1,159 @@
+@use 'sass:map';
+@use 'mixins/function.scss' as *;
+@use 'mixins/mixins' as *;
+@use 'common/var' as *;
+
+$positiveColor: getCssVar('table-column-positive-color');
+$normalColor: getCssVar('table-column-normal-color');
+$negitiveColor: getCssVar('table-column-negitive-color');
+
+@mixin bgcolor {
+  .positive,
+  &.positive {
+    background: $positiveColor;
+  }
+
+  .negitive,
+  &.negitive {
+    background: $negitiveColor;
+  }
+
+  .normal,
+  &.normal {
+    background: $normalColor;
+  }
+}
+
+@mixin color {
+  .positive,
+  &.positive {
+    color: $positiveColor;
+  }
+
+  .negitive,
+  &.negitive {
+    color: $negitiveColor;
+  }
+
+  .normal,
+  &.normal {
+    color: $normalColor;
+  }
+}
+
+/* 色块
+-------------------------- */
+@include b('color-block') {
+  .count {
+    padding: 0 10px;
+    color: #fff !important;
+    border-radius: 2px;
+  }
+
+  @include bgcolor;
+}
+
+/* 颜色字；
+-------------------------- */
+@include b('color-font') {
+  & {
+    @include color;
+  }
+}
+
+/* 进度条
+-------------------------- */
+@include b('progress-cell') {
+  position: relative;
+  height: 100%;
+
+  .count {
+    padding: 0 4px;
+  }
+
+  .progress {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    height: calc(100% - 4px);
+    max-width: 100%;
+    margin-top: 2px;
+    overflow: hidden;
+    background: getCssVar('table-column-progress-bg-color');
+    border-radius: 2px;
+  }
+
+  .move {
+    width: 200px;
+    height: 28px;
+    background: linear-gradient(-90deg, transparent 34%, rgb(255 255 255 / 80%) 38%, transparent 42%);
+    background-size: 200% 100%;
+    animation: progressmove 4s linear infinite;
+  }
+  @keyframes progressmove {
+    0% {
+      background-position: 0 0;
+    }
+
+    100% {
+      background-position: -200% 0;
+    }
+  }
+}
+
+/* 平均值以上的色块
+-------------------------- */
+
+@include b('average-cell') {
+  display: inline-flex;
+  width: 100%;
+  height: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 8px;
+  border-radius: 2px;
+
+  &.active {
+    background: getCssVar('table-column-average-bg-color');
+  }
+}
+
+.tooltip-cost__list {
+  display: flex;
+  min-width: 80px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  .tooltip-cost__item {
+    margin-top: 4px;
+    margin-right: 8px;
+    font-size: 14px;
+    line-height: 18px;
+    flex: 0 0 auto;
+
+    .roi {
+      display: flex;
+      justify-content: space-between;
+
+      span:first-child {
+        margin-right: 4px;
+      }
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:not(:first-child) {
+      text-align: right;
+    }
+
+    div {
+      display: block;
+    }
+  }
+}

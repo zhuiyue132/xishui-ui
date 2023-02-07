@@ -1,3 +1,9 @@
+## [1.0.10](https://gitee.com/creektech/xishui-ui/compare/v1.0.9...v1.0.10) (2023-02-07)
+
+### Bug Fixes
+
+- 删除不合规范的组件; ([0c6cc04](https://gitee.com/creektech/xishui-ui/commits/0c6cc04ba17212f3501c2739c94e91cc40d4e0fd))
+
 ## [1.0.9](https://gitee.com/creektech/xishui-ui/compare/v1.0.8...v1.0.9) (2023-02-07)
 
 ### Features

@@ -1,12 +1,7 @@
 <template>
   <div :class="ns.b()">
     <div class="count">
-      <template v-if="animated">
-        <count-up :end-val="value" :options="{ prefix, suffix }" />
-      </template>
-      <template v-else>
-        {{ formatter(value) }}
-      </template>
+      {{ formatter(value) }}
     </div>
     <div class="progress" :style="_style">
       <div v-if="animated" class="move"></div>
@@ -14,12 +9,8 @@
   </div>
 </template>
 <script>
-  import CountUp from 'vue-countup-v3';
   export default {
-    name: 'XsProgressCell',
-    components: {
-      CountUp
-    }
+    name: 'XsProgressCell'
   };
 </script>
 <script setup>

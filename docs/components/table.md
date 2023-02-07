@@ -1789,7 +1789,7 @@
 
 ### 1. createProgressCell 进度条，表示占比
 
-`参数：{ value = 单元格的值, formatter = 值的格式化函数, max = 本字段对应的最大值，用来计算进度, animated = 是否启用动画效果, prefix = 前缀（启用动画才生效）, suffix = 后缀（启用动画才生效） }`
+`参数：{ value = 单元格的值, formatter = 值的格式化函数, max = 本字段对应的最大值，用来计算进度, animated = 是否启用动画效果 }`
 ![sXzzVm](https://picture.zhuiyue.vip:444/images/2023/02/07/sXzzVm.png)
 
 ![ojedv6](https://picture.zhuiyue.vip:444/images/2023/02/07/ojedv6.png)

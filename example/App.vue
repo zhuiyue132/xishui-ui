@@ -22,7 +22,10 @@
     createColorBlockCell,
     createAverageCell,
     createTooltipCell,
-    createTooltipListCell
+    createTooltipListCell,
+    createSalaryCell,
+    createWarningCell,
+    createTrendCell
   } from '../packages/components';
 
   const data = ref(
@@ -111,6 +114,41 @@
           ],
           true
         );
+      }
+    },
+    {
+      prop: 'rank',
+      label: '薪水',
+      width: 100,
+      render: ({ row }) => {
+        return createSalaryCell({
+          value: row.rank
+        });
+      }
+    },
+    {
+      prop: 'rank',
+      label: '警告的薪水',
+      width: 100,
+      align: 'right',
+      render: ({ row }) => {
+        return createWarningCell({
+          value: row.rank,
+          showWarning: row.rank > 15
+        });
+      }
+    },
+
+    {
+      prop: 'rank',
+      label: '警告的薪水',
+      width: 100,
+      align: 'right',
+      render: ({ row }) => {
+        return createTrendCell({
+          value: row.rank,
+          base: 10
+        });
       }
     },
     {

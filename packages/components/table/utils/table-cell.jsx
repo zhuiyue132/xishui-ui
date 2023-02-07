@@ -1,7 +1,9 @@
 import numeral from 'numeral';
+import { ElTooltip } from 'element-plus';
 import { formatOriginal as defaultFormatter, formatPercent, formatNumber } from './format.js';
 import { XsProgressCell, XsColorFontCell, XsColorBlockCell } from '../components';
-import { ElTooltip } from 'element-plus';
+import svgs from '../svg';
+
 /**
  * 创建进度条的单元格
  * @param {*} param0
@@ -30,7 +32,7 @@ export const createColorFontCell = ({ value = 0, formatter = defaultFormatter, i
 /**
  * 颜色块的单元格;
  */
-export const createColorBlockCell = ({ value = 0, formatter = defaultFormatter, base = 10, align = 'right' }) => {
+export const createColorBlockCell = ({ value = 0, formatter = defaultFormatter, base = 0, align = 'right' }) => {
   return <XsColorBlockCell value={value} formatter={formatter} base={base} align={align} />;
 };
 
@@ -103,14 +105,35 @@ export const createTooltipListCell = (text, list = [], showRoi = false) => {
 /**
  * 创建有薪水的单元格;
  */
-export const createSalaryCell = () => {};
+export const createSalaryCell = ({ value, formatter = formatNumber, base = 0, align = 'right' }) => {
+  return <XsColorBlockCell class="salary-cell" value={value} formatter={formatter} base={base} align={align} />;
+};
 
 /**
  * 创建有警告的单元格;
  */
-export const createWarningCell = () => {};
+export const createWarningCell = ({
+  value,
+  formatter = defaultFormatter,
+  content = '低于平均人效',
+  showWarning = false
+}) => {
+  return (
+    <div class="xs-warning-cell">
+      <span class="content">{formatter(value)}</span>
+      {showWarning ? createTooltipCell(<img src={svgs.arrowWarning} />, content) : null}
+    </div>
+  );
+};
 
 /**
  * 创建有趋势的单元格;
  */
-export const createTrendCell = () => {};
+export const createTrendCell = ({ value, formatter = defaultFormatter, base = 0 }) => {
+  return (
+    <div class="xs-trend-cell">
+      <span class="content">{formatter(value)}</span>
+      {+value === +base ? null : <img src={+value > +base ? svgs.arrowPositive : svgs.arrowNegitive} />}
+    </div>
+  );
+};

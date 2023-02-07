@@ -14,7 +14,7 @@ import caretNoSort from './caret-no-sort.svg';
 import arrowWarning from './warning-arrow.svg';
 import arrowPositive from './positive-arrow.svg';
 import arrowNegitive from './negitive-arrow.svg';
-import { TABLE_HEAD_STATUS } from '../config';
+import { TABLE_HEAD_STATUS } from '../config/table';
 
 export default {
   [TABLE_HEAD_STATUS.normal]: normal,

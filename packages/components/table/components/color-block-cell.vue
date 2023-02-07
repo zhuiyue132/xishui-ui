@@ -1,6 +1,6 @@
 <template>
   <div :class="[ns.b()]">
-    <div class="count" :class="[_class]" :style="{ textAlign: align }">{{ formatter(value) }}</div>
+    <div class="count" :class="_class" :style="{ textAlign: align }">{{ formatter(value) }}</div>
   </div>
 </template>
 <script>

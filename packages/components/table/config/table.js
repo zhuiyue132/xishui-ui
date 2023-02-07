@@ -8,7 +8,7 @@
 
 import dayjs from 'dayjs';
 import { reactive, unref } from 'vue';
-import { plainTextFilter, multiPlainTextFilter, timeRangeFilter, numberRangeFilter } from '../utils';
+import { plainTextFilter, multiPlainTextFilter, timeRangeFilter, numberRangeFilter } from '../utils/filter-methods';
 
 /**
  * 过滤面板默认;

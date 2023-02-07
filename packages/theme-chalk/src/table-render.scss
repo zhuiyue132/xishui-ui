@@ -24,6 +24,23 @@ $negitiveColor: getCssVar('table-column-negitive-color');
   }
 }
 
+@mixin salarybgcolor {
+  .positive,
+  &.positive {
+    background: getCssVar('table-column-salary-positive-color');
+  }
+
+  .negitive,
+  &.negitive {
+    background: getCssVar('table-column-salary-negitive-color');
+  }
+
+  .normal,
+  &.normal {
+    background: getCssVar('table-column-salary-normal-color');
+  }
+}
+
 @mixin color {
   .positive,
   &.positive {
@@ -51,6 +68,14 @@ $negitiveColor: getCssVar('table-column-negitive-color');
   }
 
   @include bgcolor;
+
+  &.salary-cell {
+    @include salarybgcolor;
+
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 500;
+  }
 }
 
 /* 颜色字；
@@ -155,5 +180,40 @@ $negitiveColor: getCssVar('table-column-negitive-color');
     div {
       display: block;
     }
+  }
+}
+
+@include b('warning-cell') {
+  display: flex;
+  align-items: center;
+
+  .content {
+    flex: 1;
+    text-align: inherit;
+  }
+
+  .el-tooltip__trigger {
+    display: flex;
+    align-items: center;
+  }
+
+  img {
+    flex: 0 0 16px;
+    margin-left: 4px;
+  }
+}
+
+@include b('trend-cell') {
+  display: flex;
+  align-items: center;
+
+  img {
+    flex: 0 0 16px;
+    margin-left: 4px;
+  }
+
+  .content {
+    flex: 1;
+    text-align: inherit;
   }
 }

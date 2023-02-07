@@ -5,7 +5,7 @@ import { XsProgressCell, XsColorFontCell, XsColorBlockCell } from '../components
 import svgs from '../svg';
 
 /**
- * 创建进度条的单元格
+ *
  * @param {*} param0
  */
 export const createProgressCell = ({ value = 0, formatter = defaultFormatter, max = 0, animated, prefix, suffix }) => {

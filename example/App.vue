@@ -56,7 +56,7 @@
       render: ({ row }) => {
         return createColorFontCell({
           value: row.rank,
-          isPositive: row.rank > 15
+          isPositive: row.rank % 2 === 0
         });
       }
     },
@@ -66,7 +66,8 @@
       width: 100,
       render: ({ row }) => {
         return createColorBlockCell({
-          value: row.rank
+          value: row.rank,
+          base: 5
         });
       }
     },
@@ -77,7 +78,7 @@
       render: ({ row }) => {
         return createAverageCell({
           value: row.rank,
-          average: 10
+          average: 3
         });
       }
     },
@@ -122,32 +123,33 @@
       width: 100,
       render: ({ row }) => {
         return createSalaryCell({
-          value: row.rank
+          value: row.rank,
+          base: 2
         });
       }
     },
     {
       prop: 'rank',
-      label: '警告的薪水',
+      label: '警告',
       width: 100,
       align: 'right',
       render: ({ row }) => {
         return createWarningCell({
           value: row.rank,
-          showWarning: row.rank > 15
+          showWarning: row.rank > 1
         });
       }
     },
 
     {
       prop: 'rank',
-      label: '警告的薪水',
+      label: '趋势',
       width: 100,
       align: 'right',
       render: ({ row }) => {
         return createTrendCell({
           value: row.rank,
-          base: 10
+          base: 1
         });
       }
     },

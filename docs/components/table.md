@@ -1785,18 +1785,165 @@
 
 :::
 
-## 预设的 Dom 生成方法
+## 预设的数据形态
 
-## 表格属性
+### 1. createProgressCell 进度条，表示占比
+
+`参数：{ value = 单元格的值, formatter = 值的格式化函数, max = 本字段对应的最大值，用来计算进度, animated = 是否启用动画效果, prefix = 前缀（启用动画才生效）, suffix = 后缀（启用动画才生效） }`
+![sXzzVm](https://picture.zhuiyue.vip:444/images/2023/02/07/sXzzVm.png)
+
+![ojedv6](https://picture.zhuiyue.vip:444/images/2023/02/07/ojedv6.png)
+
+### 2. createColorFontCell 带颜色的文字，表示上升和下降
+
+`参数：({ value = 同上, formatter = 同上, isPositive = 是否显示为积极色 })`
+
+![V2XNce](https://picture.zhuiyue.vip:444/images/2023/02/07/V2XNce.png)
+
+![8rSNdz](https://picture.zhuiyue.vip:444/images/2023/02/07/8rSNdz.png)
+
+### 3. createColorBlockCell 色块，表示上升和下降
+
+`参数：{ value = 同上, formatter = 同上, base = 基础值，大于该值为积极色，小于该值为消极色, align = 对齐方式 }`
+
+![l0bNjD](https://picture.zhuiyue.vip:444/images/2023/02/07/l0bNjD.png)
+
+![ashw4T](https://picture.zhuiyue.vip:444/images/2023/02/07/ashw4T.png)
+
+### 4. createAverageCell 大于平均值的数据才着色
+
+`参数：{ average = 平均值, value = 同上, formatter = 同上 }`
+
+![rqNUra](https://picture.zhuiyue.vip:444/images/2023/02/07/rqNUra.png)
+
+![R6llDv](https://picture.zhuiyue.vip:444/images/2023/02/07/R6llDv.png)
+
+### 5. createTooltipCell 带小窗口的单元格
+
+`参数：(text = 单元格内容，可以是一个组件, content = tooltip 内容)`
+
+![jZFxWE](https://picture.zhuiyue.vip:444/images/2023/02/07/jZFxWE.png)
+
+![tfCRk8](https://picture.zhuiyue.vip:444/images/2023/02/07/tfCRk8.png)
+
+### 6. createTooltipListCell 带有数据明细窗口的单元格
+
+`参数：(text = 单元格内容，可以是一个组件, list = 明细列表，如下图, showRoi = 是否展示roi列)`
+
+![esUzkM](https://picture.zhuiyue.vip:444/images/2023/02/07/esUzkM.png)
+
+![s2qYpR](https://picture.zhuiyue.vip:444/images/2023/02/07/s2qYpR.png)
+
+### 7. createSalaryCell 特殊色块，用于表示薪水
+
+`参数：{ value = 同上, formatter = 同上, base = 基础值，大于该值为积极色，小于该值为消极色, align = 对齐方式 }`
+
+![5iTuPP](https://picture.zhuiyue.vip:444/images/2023/02/07/5iTuPP.png)
+
+![RIkdID](https://picture.zhuiyue.vip:444/images/2023/02/07/RIkdID.png)
+
+### 8. createWarningCell 带有警告图标的单元格
+
+`参数： ({ value = 同上, formatter = 同上, content = 警告内容,  showWarning = 是否展示警告图标})`
+
+![n4pny7](https://picture.zhuiyue.vip:444/images/2023/02/07/n4pny7.png)
+
+![tHt9lE](https://picture.zhuiyue.vip:444/images/2023/02/07/tHt9lE.png)
+
+### 9. createTrendCell 带有趋势图标的单元格
+
+`参数：({ value = 同上, formatter = 同上, base = 基础值，大于该值为上升趋势，小于该值为下降趋势 })`
+
+![yAJPKq](https://picture.zhuiyue.vip:444/images/2023/02/07/yAJPKq.png)
+
+![mTHgw1](https://picture.zhuiyue.vip:444/images/2023/02/07/mTHgw1.png)
+
+## 属性
+
+| 参数                      | 说明                           | 类型           | 可选值                                                                                                                                                           | 默认值                    |
+| ------------------------- | ------------------------------ | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| columns                   | 列的配置                       | Array          | 见下方的 **列属性** 章节                                                                                                                                         |                           |
+| loading                   | 是否处于加载状态               | Boolean        |                                                                                                                                                                  | false                     |
+| skeletonRows              | 骨架屏渲染行数                 | Number         |                                                                                                                                                                  | 20                        |
+| stickyable                | 该表格是否可以吸顶；           | Boolean        |                                                                                                                                                                  | false                     |
+| offset                    | 表格吸顶的偏移量               | Number         |                                                                                                                                                                  | 0                         |
+| themeColor                | 表头主题色                     | String         |                                                                                                                                                                  |                           |
+| pagination                | 表格是否分页                   | Boolean/Object | 默认的分页： `{ position: 'flex-end', pageSizes: [10, 25, 50], pageSize: 25, layout: 'total, sizes, prev, pager, next, jumper'}`，传入配置对象时将和默认配置合并 | true                      |
+| sort                      | 排序, 支持外部控制表格内的排序 | Object         |                                                                                                                                                                  | `{ prop: '', order: '' }` |
+| filter                    | 筛选项                         | Object         | prop 为 key，value 为筛选值构成的数组 的一个对象                                                                                                                 |                           |
+| stripeIndex               | 斑马纹的起始行号，             | Number         | 0， 1                                                                                                                                                            | 0                         |
+| useInnerSort              | 是否使用表格内部的排序         | Boolean        | 如果需要后端排序，则需要监听排序事件并请求接口，把数据赋值给表格回显                                                                                             | true                      |
+| useInnerFilter            | 是否使用表格内部的筛选         | Boolean        | 如果需要后端筛选，则需要监听筛选事件并请求接口，把数据赋值给表格回显                                                                                             | true                      |
+| timeProps                 | 指定哪些字段排序时按时间排序   | Array          |                                                                                                                                                                  |                           |
+| numberClassName           | 数字类型的单元格的 class 名称  | String         |                                                                                                                                                                  | xs-table-cell\_\_number   |
+| textClassName             | 文本类型的单元格 class 属性名  | String         |                                                                                                                                                                  | xs-table-cell\_\_number   |
+| summaryPosition           | 汇总行位置                     | string         | bottom ，top                                                                                                                                                     | bottom                    |
+| resetPositionOnDataChange | 数据变化时是否重置垂直滚动条   | Boolean        |                                                                                                                                                                  | false                     |
+
+以下为原有的 el-table 的属性，不支持的属性已被画了红线。
+
+![4sVYO2](https://picture.zhuiyue.vip:444/images/2023/02/07/4sVYO2.png)
+![rMqR50](https://picture.zhuiyue.vip:444/images/2023/02/07/rMqR50.png)
+![gGM0Qd](https://picture.zhuiyue.vip:444/images/2023/02/07/gGM0Qd.png)
+![1b6Sf6](https://picture.zhuiyue.vip:444/images/2023/02/07/1b6Sf6.png)
 
 ## 表格事件
 
+| 事件                | 说明                 | 回调参数                   |
+| ------------------- | -------------------- | -------------------------- |
+| popover-confirm     | 单列筛选时触发       | `{ column, value, prop }`  |
+| popover-cancel      | 取消单列筛选时触发   | `{ column, prop }`         |
+| sticky-change       | 吸顶状态变化时触发   | isSticky                   |
+| current-data-change | 表格显示的数据变化时 | `{ data }`                 |
+| scroll              | 滚动时触发           | `{ scrollLeft, position }` |
+| sort-change         | 排序变化时触发       | `{ prop, order }`          |
+| filter-change       | 筛选变化时触发       |                            |
+| header-click        | 表头点击时触发       | `{ column, prop }`         |
+
+![dAnylL](https://picture.zhuiyue.vip:444/images/2023/02/07/dAnylL.png)
+![HPZdmf](https://picture.zhuiyue.vip:444/images/2023/02/07/HPZdmf.png)
+
 ## 表格方法
+
+原 `el-table` 下的方法挂载在 `tableRef`
+
+| 方法        | 说明                                           | 回调参数 |
+| ----------- | ---------------------------------------------- | -------- |
+| clearFilter | 传入 prop 时清除指定的筛选，不传则清除所有筛选 |          |
+
+![vpGIST](https://picture.zhuiyue.vip:444/images/2023/02/07/vpGIST.png)
 
 ## 表格插槽
 
+| 插槽                     | 说明                                                                                                                                    |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| append                   | 插入至表格最后一行之后的内容， 如果需要对表格的内容进行无限滚动操作，可能需要用到这个 slot。 若表格有合计行，该 slot 会位于合计行之上。 |
+| empty                    | 当数据为空时自定义的内容                                                                                                                |
+| paginationLeft           | 分页左侧内容                                                                                                                            |
+| paginationRight          | 分页右侧的内容                                                                                                                          |
+| \`${column.group}Empty\` | 当一组的数据都为空时（跨页判断）自定义的内容                                                                                            |
+| \`${column.slot}\`       | 列自定义内容, 参数：`{ column, row, rows, columns, $index }`                                                                            |
+| \`${column.slotLabel}\`  | 列头自定义内容，参数：column                                                                                                            |
+
 ## 列属性
 
-## 列插槽
+在 columns 配置中，需要使用属性的驼峰命名。如：`showOverflowTooltip`
 
-## 这些 ElTable 的属性对本表格不支持。
+| 参数         | 说明                                             | 类型     | 可选值                                               | 默认值                                                                                                                                                                                                                                      |
+| ------------ | ------------------------------------------------ | -------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| slot         | 指定本列的 slot                                  | string   | 插槽的参数：`{ column, row, rows, columns, $index }` |                                                                                                                                                                                                                                             |
+| slotLabel    | 指定本列的列头的 slot                            | string   |                                                      |                                                                                                                                                                                                                                             |
+| sortable     | 本列是否开启排序                                 | Boolean  |                                                      | false                                                                                                                                                                                                                                       |
+| background   | 表头背景色                                       | string   |                                                      |                                                                                                                                                                                                                                             |
+| children     | 子列的集合                                       | Array    |                                                      |                                                                                                                                                                                                                                             |
+| filter       | 筛选面板的一些配置                               | Object   |                                                      | `{inputCount: 1,placeholder: '请输入',placeholderAlign: 'left',cancelBtnText: '清除',confirmBtnText: '确定',showCancelBtn: true, // 默认不显示清除按钮, sortSubTitle: '',filterSubTitle: '',suffixLabel: '',type: 'input',multiple: false}` |
+| filterMethod | 筛选方法，除非你要自定义筛选，否则用不到这个属性 | function |                                                      |                                                                                                                                                                                                                                             |
+| render       | 单元格的渲染方法                                 | function | 回调参数：`{ column, row, rows, columns, $index }`   |                                                                                                                                                                                                                                             |
+| renderLabel  | 列头的渲染方法                                   | function | 回调参数：`column`                                   |                                                                                                                                                                                                                                             |
+
+renderLabel
+
+![k7GO0V](https://picture.zhuiyue.vip:444/images/2023/02/07/k7GO0V.png)
+![e8tgpK](https://picture.zhuiyue.vip:444/images/2023/02/07/e8tgpK.png)
+![qYhYlj](https://picture.zhuiyue.vip:444/images/2023/02/07/qYhYlj.png)
+![hehiXQ](https://picture.zhuiyue.vip:444/images/2023/02/07/hehiXQ.png)

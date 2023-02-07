@@ -1,3 +1,9 @@
+## [1.0.9](https://gitee.com/creektech/xishui-ui/compare/v1.0.8...v1.0.9) (2023-02-07)
+
+### Features
+
+- **table:** 增加表格的按需加载; ([c942418](https://gitee.com/creektech/xishui-ui/commits/c942418d77d1aea73bd037d31a730801c26e7709))
+
 ## [1.0.8](https://gitee.com/creektech/xishui-ui/compare/v1.0.7...v1.0.8) (2023-02-07)
 
 ### Bug Fixes

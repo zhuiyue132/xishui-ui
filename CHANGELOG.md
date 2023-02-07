@@ -1,3 +1,14 @@
+## [1.0.8](https://gitee.com/creektech/xishui-ui/compare/v1.0.7...v1.0.8) (2023-02-07)
+
+### Bug Fixes
+
+- **table:** 修正表格分页 size-change 和 current-change 回调执行两次的问题; ([32df40a](https://gitee.com/creektech/xishui-ui/commits/32df40ad00cc934bc8f62170d440d7e51daec3dc))
+
+### Features
+
+- **table:** 薪资,警告,趋势三个数据形态的封装; ([6f4143f](https://gitee.com/creektech/xishui-ui/commits/6f4143f408ef9406d3a544203bb50923eb3658ae))
+- **table:** 增加了一些单元格数据形态的封装; ([1395029](https://gitee.com/creektech/xishui-ui/commits/1395029bb43bc0c8d4e5dabb4a40dd59c87e9365))
+
 ## [1.0.7](https://gitee.com/creektech/xishui-ui/compare/v1.0.7-beta.12...v1.0.7) (2023-01-14)
 
 ### Bug Fixes

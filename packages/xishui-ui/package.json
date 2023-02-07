@@ -1,6 +1,6 @@
 {
   "name": "xishui-ui",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "A Component Library for Vue 3",
   "keywords": [
     "ui framework",
@@ -47,13 +47,6 @@
     "@vue/reactivity": "^3.2.45",
     "@vue/shared": "^3.2.45",
     "@vueuse/core": "^9.6.0",
-    "@xishui-ui/components": "workspace:^0.0.1",
-    "@xishui-ui/config": "workspace:^0.0.1",
-    "@xishui-ui/eslint-config": "workspace:^0.0.1",
-    "@xishui-ui/hooks": "workspace:^0.0.1",
-    "@xishui-ui/theme-chalk": "workspace:^0.0.1",
-    "@xishui-ui/token": "workspace:^0.0.1",
-    "@xishui-ui/utils": "workspace:^0.0.1",
     "dayjs": "^1.11.7",
     "element-plus": "^2.2.26",
     "vue": "^3.2.37",

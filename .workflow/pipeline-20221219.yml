@@ -28,8 +28,6 @@ stages:
           - git config --global user.email "gitee@pipeline.com"
           - git config --global user.name "GiteePipeline"
           - pnpm install && pnpm run build && node release
-          - '# 更新组件库文档'
-          - pnpm run docs:deploy
         artifacts:
           - name: BUILD_ARTIFACT
             path:

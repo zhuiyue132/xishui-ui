@@ -1,3 +1,15 @@
+## [1.0.12](https://gitee.com/creektech/xishui-ui/compare/v1.0.11...v1.0.12) (2023-02-08)
+
+### Bug Fixes
+
+- 修正鼠标事件对象缺失了 path 属性导致筛选功能异常的问题;一些格式化问题的修改; ([6c3533e](https://gitee.com/creektech/xishui-ui/commits/6c3533e08917d8c485886e1d103d2d9a0e07c6f8))
+- **table:** 解决打包过程中出现循环依赖的警告; ([c0ffb41](https://gitee.com/creektech/xishui-ui/commits/c0ffb4161c995049a3fd7678e7a903e7aceb77d2))
+
+### Features
+
+- 增加样式覆盖 xishui-ui 时,自动透传到 element;增加样式主题的文档; ([744279a](https://gitee.com/creektech/xishui-ui/commits/744279a79cd93b5c79d8872c7eabc52adcaeed0f))
+- **table:** select 筛选类型兼容带有英文逗号的数据生成 option; ([049f1c8](https://gitee.com/creektech/xishui-ui/commits/049f1c8be5ad1526ea47091d41f3f95182af1202))
+
 ## [1.0.11](https://gitee.com/creektech/xishui-ui/compare/v1.0.10...v1.0.11) (2023-02-07)
 
 ## [1.0.10](https://gitee.com/creektech/xishui-ui/compare/v1.0.9...v1.0.10) (2023-02-07)

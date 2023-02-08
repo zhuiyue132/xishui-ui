@@ -85,6 +85,10 @@ export default {
           link: '/guide/install'
         },
         {
+          text: '主题',
+          link: '/guide/theme'
+        },
+        {
           text: '快速开始',
           link: '/guide/quickstart'
         }

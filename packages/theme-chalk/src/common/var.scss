@@ -39,17 +39,6 @@ $colors: map.deep-merge(
   $colors
 );
 
-@mixin set-color-mix-level($type, $number, $mode: 'light', $mix-color: $color-white) {
-  $colors: map.deep-merge(
-    (
-      $type: (
-        '#{$mode}-#{$number}': mix($mix-color, map.get($colors, $type, 'base'), math.percentage(math.div($number, 10)))
-      )
-    ),
-    $colors
-  ) !global;
-}
-
 // #region
 $color-white: map.get($colors, 'white') !default;
 $color-black: map.get($colors, 'black') !default;
@@ -70,19 +59,6 @@ $color-warning: #D89614 !default;
 $color-danger: #D32029 !default;
 $color-info: #7D7D7D !default;
 */
-
-/* 基础色降阶
--------------------------- */
-@each $type in $types {
-  @for $i from 1 through 9 {
-    @include set-color-mix-level($type, $i, 'light', $color-white);
-  }
-}
-
-// --xs-color-primary-dark-2
-@each $type in $types {
-  @include set-color-mix-level($type, 2, 'dark', $color-black);
-}
 
 // #endregion
 
@@ -304,7 +280,7 @@ $button: map.merge(
   ),
   $button
 );
-// @debug 1, getCssVar('border-color');
+
 $button-border-width: $border-width !default;
 $button-hover-tint-percent: 20%;
 $button-active-shade-percent: 10%;
@@ -312,22 +288,6 @@ $button-active-shade-percent: 10%;
 $button-border-color: () !default;
 $button-bg-color: () !default;
 $button-text-color: () !default;
-
-@each $type in $types {
-  $button-border-color: map.merge(
-    (
-      $type: map.get($colors, $type, 'base')
-    ),
-    $button-border-color
-  ) !global;
-
-  $button-bg-color: map.merge(
-    (
-      $type: map.get($colors, $type, 'base')
-    ),
-    $button-bg-color
-  ) !global;
-}
 
 $button-font-size: () !default;
 $button-font-size: map.merge(
@@ -534,3 +494,49 @@ $message: map.merge(
   ),
   $message
 );
+
+@forward '../../../../node_modules/element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: $colors,
+  $text-color: $text-color,
+  $border-radius: $border-radius
+);
+
+@mixin set-color-mix-level($type, $number, $mode: 'light', $mix-color: $color-white) {
+  $colors: map.deep-merge(
+    (
+      $type: (
+        '#{$mode}-#{$number}': mix($mix-color, map.get($colors, $type, 'base'), math.percentage(math.div($number, 10)))
+      )
+    ),
+    $colors
+  ) !global;
+}
+
+/* 基础色降阶
+-------------------------- */
+@each $type in $types {
+  @for $i from 1 through 9 {
+    @include set-color-mix-level($type, $i, 'light', $color-white);
+  }
+}
+
+// --xs-color-primary-dark-2
+@each $type in $types {
+  @include set-color-mix-level($type, 2, 'dark', $color-black);
+}
+
+@each $type in $types {
+  $button-border-color: map.merge(
+    (
+      $type: map.get($colors, $type, 'base')
+    ),
+    $button-border-color
+  ) !global;
+
+  $button-bg-color: map.merge(
+    (
+      $type: map.get($colors, $type, 'base')
+    ),
+    $button-bg-color
+  ) !global;
+}

@@ -1,4 +1,7 @@
 <template>
+  <xs-card>11223 </xs-card>
+  <xs-button type="primary">123</xs-button>
+
   <xs-table :columns="columns2" :data="data">
     <template #tagLabel>
       <xs-button type="link">自定义头部</xs-button>

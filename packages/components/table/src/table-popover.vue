@@ -192,12 +192,10 @@
     const { type } = filter;
     if (type !== 'select') return [];
 
-    const data = item[prop];
-    if (!data?.includes?.(',')) return [...new Set($data.value.map(item => item[prop]).filter(Boolean))];
     return [
       ...new Set(
         $data.value
-          .map(item => item[prop]?.split?.(','))
+          .map(item => String(item[prop])?.split?.(','))
           .flat(Infinity)
           .filter(Boolean)
       )

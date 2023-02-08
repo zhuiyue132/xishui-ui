@@ -10,7 +10,7 @@
 <script setup>
   import { computed } from 'vue';
   import { useNamespace } from '@xishui-ui/hooks';
-  import { formatOriginal } from '../utils';
+  import { formatOriginal } from '../utils/format';
 
   const props = defineProps({
     value: {

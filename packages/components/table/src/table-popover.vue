@@ -191,7 +191,17 @@
     if (!filter) return [];
     const { type } = filter;
     if (type !== 'select') return [];
-    return [...new Set($data.value.map(item => item[prop]).filter(Boolean))];
+
+    const data = item[prop];
+    if (!data?.includes?.(',')) return [...new Set($data.value.map(item => item[prop]).filter(Boolean))];
+    return [
+      ...new Set(
+        $data.value
+          .map(item => item[prop]?.split?.(','))
+          .flat(Infinity)
+          .filter(Boolean)
+      )
+    ];
   });
 
   /**

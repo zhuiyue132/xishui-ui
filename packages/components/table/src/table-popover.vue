@@ -147,7 +147,7 @@
 <script setup>
   import { ref, computed, inject, toRaw, nextTick } from 'vue';
   import { debounce } from '@xishui-ui/utils';
-  import { ClickOutside as vOnClickOutside } from 'element-plus';
+  import { ClickOutside as vOnClickOutside } from '@xishui-ui/directives';
   import { useNamespace } from '@xishui-ui/hooks';
   import { TABLE_HEAD_STATUS } from '../config';
   import { valueValidator } from '../utils';

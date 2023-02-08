@@ -9,7 +9,7 @@ const EMPTY = '--';
 
 const EMPTY_LIST = [null, undefined, '', '-', '--'];
 
-const isEmtpy = value => EMPTY_LIST.includes(value);
+export const isEmtpy = value => EMPTY_LIST.includes(value);
 
 numeral.nullFormat(EMPTY);
 

@@ -1,6 +1,6 @@
 import numeral from 'numeral';
 import { ElTooltip } from 'element-plus';
-import { formatOriginal as defaultFormatter, formatPercent, formatNumber } from './format.js';
+import { formatOriginal as defaultFormatter, formatPercent, formatNumber, isEmtpy } from './format.js';
 import { XsProgressCell, XsColorFontCell, XsColorBlockCell } from '../components';
 import svgs from '../svg';
 
@@ -9,6 +9,7 @@ import svgs from '../svg';
  * @param {*} param0
  */
 export const createProgressCell = ({ value = 0, formatter = defaultFormatter, max = 0, animated, prefix, suffix }) => {
+  if (isEmtpy(value)) return '--';
   const width = max ? formatPercent(numeral(value).divide(max).value()) : 0;
   return (
     <XsProgressCell
@@ -26,6 +27,7 @@ export const createProgressCell = ({ value = 0, formatter = defaultFormatter, ma
  * 创建颜色字体的单元格;
  */
 export const createColorFontCell = ({ value = 0, formatter = defaultFormatter, isPositive }) => {
+  if (isEmtpy(value)) return '--';
   return <XsColorFontCell value={value} formatter={formatter} isPositive={isPositive} />;
 };
 
@@ -60,7 +62,7 @@ export const createTooltipCell = (text, content) => {
   );
 };
 export const createTooltipListCell = (text, list = [], showRoi = false) => {
-  if (!list.length) return text;
+  if (!list?.length) return text;
 
   const nameList = list.map(({ name }) => ({ key: 'name', value: name }));
   const costList = list.map(({ cost }) => ({ key: 'cost', value: cost }));

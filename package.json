@@ -98,6 +98,7 @@
     "@vueuse/core": "^9.6.0",
     "@xishui-ui/components": "workspace:^0.0.1",
     "@xishui-ui/config": "workspace:^0.0.1",
+    "@xishui-ui/directives": "workspace:^0.0.1",
     "@xishui-ui/eslint-config": "workspace:^0.0.1",
     "@xishui-ui/hooks": "workspace:^0.0.1",
     "@xishui-ui/theme-chalk": "workspace:^0.0.1",

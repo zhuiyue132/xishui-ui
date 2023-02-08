@@ -120,6 +120,7 @@
     {
       prop: 'rank',
       label: '薪水',
+      filterable: true,
       width: 100,
       render: ({ row }) => {
         return createSalaryCell({
@@ -159,6 +160,10 @@
       fixed: true,
       width: 100,
       align: 'right',
+      filterable: true,
+      filter: {
+        type: 'select'
+      },
       render: ({ row }) => {
         return createProgressCell({
           value: row.age,
@@ -174,71 +179,7 @@
       fixed: true,
       width: 150
     },
-    {
-      prop: 'name',
-      label: 'Name',
-      align: 'center',
-      background: '#fcd3d3',
-      group: 'userName',
-      children: [
-        {
-          prop: 'tag',
-          label: 'Tag',
-          align: 'center',
-          background: '#ffd180',
-          slotLabel: 'tagLabel',
-          sortable: true
-        },
-        {
-          prop: 'zip',
-          label: '继承name的颜色',
-          align: 'center'
-        }
-      ]
-    },
 
-    {
-      prop: 'name',
-      label: 'Name',
-      align: 'center',
-      background: '#e1f3d8',
-      group: 'userName2',
-      children: [
-        {
-          prop: 'tag2',
-          label: 'Tag',
-          align: 'center'
-        },
-        {
-          prop: 'zip2',
-          label: 'Zip',
-          align: 'center'
-        }
-      ]
-    },
-
-    {
-      prop: 'name',
-      label: 'Name',
-      align: 'center',
-      background: '#fcd3d3',
-      group: 'userName3',
-      children: [
-        {
-          prop: 'tag3',
-          label: 'Tag',
-          align: 'center',
-          background: '#ffd180',
-          slotLabel: 'tagLabel',
-          sortable: true
-        },
-        {
-          prop: 'zip3',
-          label: '继承name的颜色',
-          align: 'center'
-        }
-      ]
-    },
     {
       prop: 'address',
       label: 'Address',

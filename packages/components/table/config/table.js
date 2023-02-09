@@ -90,7 +90,6 @@ export const getColumn = (columns, $filters, level = 0, color = '', group = '') 
       // 如果不是第一层，group继承上级的group；
       column.group = group;
     }
-
     // 对于group的处理做class的标记；
     if (column.group) {
       column.className = `${GROUPNAME_PEFIX}${column.group} ${className}`;

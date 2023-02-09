@@ -2,7 +2,14 @@
   <xs-card>11223 </xs-card>
   <xs-button type="primary" @click="setCurrentRow">123</xs-button>
 
-  <xs-table ref="tableRef" :columns="columns2" :data="data" highlight-current-row @current-change="onCurrentChange">
+  <xs-table
+    ref="tableRef"
+    :columns="columns2"
+    :data="data"
+    highlight-current-row
+    stickyable
+    @current-change="onCurrentChange"
+  >
     <template #tagLabel>
       <xs-button type="link">自定义头部</xs-button>
     </template>
@@ -28,7 +35,8 @@
     createTooltipListCell,
     createSalaryCell,
     createWarningCell,
-    createTrendCell
+    createTrendCell,
+    createTooltipLabel
   } from '../packages/components';
 
   const data = ref(
@@ -133,7 +141,11 @@
       prop: 'rank',
       label: '薪水',
       filterable: true,
+      sortable: true,
       width: 100,
+      renderLabel(column) {
+        return createTooltipLabel(column.label + '', '按支付时间统计的订单销售额总额');
+      },
       render: ({ row }) => {
         return createSalaryCell({
           value: row.rank,

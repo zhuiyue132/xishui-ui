@@ -54,9 +54,9 @@ export const createAverageCell = ({ average = 0, value = 0, formatter = defaultF
 /**
  * 创建有tooltip的单元格;
  */
-export const createTooltipCell = (text, content) => {
+export const createTooltipCell = (text, content, placement = 'right') => {
   return (
-    <ElTooltip class="item" effect="dark" content={content} placement="right" raw-content hide-after={0}>
+    <ElTooltip class="item" effect="dark" content={content} placement={placement} raw-content hide-after={0}>
       <span class="ellipsis">{text}</span>
     </ElTooltip>
   );
@@ -137,5 +137,20 @@ export const createTrendCell = ({ value, formatter = defaultFormatter, base = 0 
       <span class="content">{formatter(value)}</span>
       {+value === +base ? null : <img src={+value > +base ? svgs.arrowPositive : svgs.arrowNegitive} />}
     </div>
+  );
+};
+
+/**
+ *
+ * @param {*} str
+ * @returns
+ */
+export const createTooltipLabel = (str = '', content = '') => {
+  const arr = String(str).split('').filter(Boolean);
+  const rawStr = arr.map(item => `<span class="xs-column-tip">${item}</span>`).join('');
+  return (
+    <ElTooltip effect="dark" content={content} placement="top" raw-content hide-after={0}>
+      <span v-html={rawStr}></span>
+    </ElTooltip>
   );
 };

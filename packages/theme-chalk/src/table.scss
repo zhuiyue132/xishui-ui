@@ -183,6 +183,18 @@
         top: var(--xs-table-sticky-offset);
         z-index: 19;
         width: var(--xs-table-top-width);
+
+        th {
+          background-color: #e0e2e6;
+
+          .custom-header,
+          .custom-header .xs-column-tip {
+            display: inline-flex;
+            font-weight: 700;
+            color: #000;
+            align-items: center;
+          }
+        }
       }
 
       .el-table__inner-wrapper {

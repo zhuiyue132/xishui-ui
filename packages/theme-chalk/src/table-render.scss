@@ -217,3 +217,19 @@ $negitiveColor: getCssVar('table-column-negitive-color');
     text-align: inherit;
   }
 }
+
+@include b('column-tip') {
+  position: relative;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 18px;
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 1px;
+    width: calc(100% - 2px);
+    border-bottom: 1px dashed #8c8c8c;
+    content: '';
+  }
+}

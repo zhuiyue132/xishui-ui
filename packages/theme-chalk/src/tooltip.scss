@@ -1,0 +1,27 @@
+@use 'sass:map';
+@use 'mixins/function.scss' as *;
+@use 'mixins/mixins' as *;
+@use 'common/var' as *;
+@use '../../../node_modules/element-plus/theme-chalk/src/base.scss';
+@use '../../../node_modules/element-plus/theme-chalk/src/tooltip.scss';
+@use '../../../node_modules/element-plus/theme-chalk/src/popper.scss';
+
+@include b('tooltip') {
+  width: 100%;
+
+  &.rows-1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  @for $i from 2 through 50 {
+    &.rows-#{$i} {
+      display: -webkit-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: $i;
+      -webkit-box-orient: vertical;
+    }
+  }
+}

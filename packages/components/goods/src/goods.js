@@ -1,7 +1,8 @@
 export const defaultProp = {
   name: 'goodsName',
   link: 'goodsLink',
-  url: 'goodsUrl'
+  url: 'goodsUrl',
+  id: 'goodsId'
 };
 
 // 默认props
@@ -21,5 +22,10 @@ export const Props = {
   rows: {
     type: Number,
     default: 1
+  },
+  popoverDisabled: Boolean,
+  idVisible: {
+    type: Boolean,
+    default: true
   }
 };

@@ -48,18 +48,27 @@
       }
     }
   }
-  @include m(row-1) {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
 
-  @for $i from 2 through 100 {
-    @include m(row-#{$i}) {
-      display: -webkit-box;
-      overflow: hidden;
-      -webkit-line-clamp: #{$i};
-      -webkit-box-orient: vertical;
+  .text-popup {
+    position: absolute;
+    z-index: 99;
+    color: var(--xs-primary-color);
+    white-space: nowrap;
+    animation: text-popup 1s;
+    user-select: none;
+  }
+  @keyframes text-popup {
+    0% {
+      opacity: 0;
+    }
+
+    5% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+      transform: translateY(-50px);
     }
   }
 }

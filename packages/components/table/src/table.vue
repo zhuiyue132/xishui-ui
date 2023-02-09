@@ -19,6 +19,7 @@
         :stripe="false"
         :row-class-name="_rowClassName"
         :cell-class-name="_cellClassName"
+        :highlight-current-row="highlightCurrentRow"
         :class="[
           ns.m('content'),
           ns.m(tableId),
@@ -30,6 +31,7 @@
         :max-height="maxHeight"
         :height="height"
         table-layout="fixed"
+        @current-change="onCurrentChange"
       >
         <xs-table-column
           v-for="(column, index) in _columns"
@@ -116,7 +118,7 @@
   import { useElementBounding, isClient } from '@vueuse/core';
   import zhCn from 'element-plus/dist/locale/zh-cn.mjs';
   import { useNamespace, useId } from '@xishui-ui/hooks';
-  import { isFunction, isObject, toNumber, isNil } from '@xishui-ui/utils';
+  import { isFunction, isObject, toNumber, isNil, isEqual } from '@xishui-ui/utils';
   import {
     tableSortContextKey,
     tableFilterContextKey,
@@ -321,9 +323,30 @@
     return className;
   };
 
+  /**
+   * 单选事件代理；
+   * @param {*} currentRow
+   * @param {*} oldCurrentRow
+   */
+  const onCurrentChange = (currentRow, oldCurrentRow) => {
+    if (!props.highlightCurrentRow) return;
+    const oldCurrentRowIndex = oldCurrentRow ? _data.value.findIndex(row => isEqual(row, oldCurrentRow)) : -1;
+    const currentRowIndex = currentRow ? _data.value.findIndex(row => isEqual(row, currentRow)) : -1;
+    emits('current-change', { currentRow, oldCurrentRow, oldCurrentRowIndex, currentRowIndex });
+  };
+
+  /**
+   * 单选设置选中行， 如果不传 rowIndex，则清空选中行；
+   * @param {*} rowIndex 选中行的索引
+   */
+  const setCurrentRow = rowIndex => {
+    tableRef.value.setCurrentRow(_data.value[rowIndex] || null);
+  };
+
   defineExpose({
     tableRef,
     tableId,
-    clearFilter
+    clearFilter,
+    setCurrentRow
   });
 </script>

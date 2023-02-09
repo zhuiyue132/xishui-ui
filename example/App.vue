@@ -1,8 +1,8 @@
 <template>
   <xs-card>11223 </xs-card>
-  <xs-button type="primary">123</xs-button>
+  <xs-button type="primary" @click="setCurrentRow">123</xs-button>
 
-  <xs-table :columns="columns2" :data="data">
+  <xs-table ref="tableRef" :columns="columns2" :data="data" highlight-current-row @current-change="onCurrentChange">
     <template #tagLabel>
       <xs-button type="link">自定义头部</xs-button>
     </template>
@@ -49,6 +49,15 @@
       tag3: '--'
     }))
   );
+  const onCurrentChange = row => {
+    console.log(row);
+  };
+
+  const tableRef = ref();
+
+  const setCurrentRow = () => {
+    tableRef.value.setCurrentRow(1);
+  };
 
   const columns2 = ref([
     {

@@ -179,6 +179,11 @@ export const TableProps = {
   maxHeight: [String, Number],
   height: [String, Number],
 
+  /**
+   * 是否要高亮当前行,单选功能的开关。
+   */
+  highlightCurrentRow: Boolean,
+
   // 引入其他的props
   ...ColumnProps
 };
@@ -191,5 +196,6 @@ export const Emits = [
   'filterChange',
   'currentDataChange',
   'scroll',
-  'headerClick'
+  'headerClick',
+  'current-change'
 ];

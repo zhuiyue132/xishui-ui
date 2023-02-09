@@ -20,7 +20,7 @@
 1. [x] 支持分组和分组的 EmptySlot 自定义;
 1. [x] 合计行支持位置调整；
 1. [x] 数字格式化,支持格式与小数位数的自定义;
-1. [ ] ~~单选支持~~
+1. [x] 单选调整
 1. [ ] ~~跨页多选支持~~
 
 :::
@@ -961,7 +961,94 @@
 
 ## 单选
 
-不支持。
+::: warning
+本表格的单选与 `el-table` 的单选使用方式略有不同。具体请看 demo。
+:::
+
+选择单行数据时使用色块表示。
+
+Table 组件提供了单选的支持， 只需要配置 `highlight-current-row` 属性即可实现单选。 之后由 `current-change` 事件来管理选中时触发的事件，它会传入 `{ currentRow, oldCurrentRow, currentRowIndex, oldCurrentIndex }`。
+
+::: demo
+
+```vue
+<template>
+  <div style="margin-bottom:12px;">
+    <xs-button type="warning" @click="onClick(2)">选中第三行</xs-button>
+    <xs-button type="primary" @click="onClick">清除选中</xs-button>
+  </div>
+  <xs-table ref="tableRef" :columns="columns" :data="data" highlight-current-row @current-change="onCurrentChange">
+  </xs-table>
+</template>
+<script>
+  import { ref } from 'vue';
+  export default {
+    setup() {
+      const tableRef = ref(null);
+      const data = ref(
+        Array.from({ length: 10 }).map((_, index) => ({
+          date: `2023-01-1${index}`,
+          age: index + 1,
+          name: 'Tom',
+          state: 'California',
+          city: 'Los Angeles',
+          address: 'No. 189, Grove St, Los Angeles',
+          zip: 'CA 90036',
+          tag: 'Office'
+        }))
+      );
+      const columns = ref([
+        {
+          type: 'index',
+          width: 60,
+          label: '#',
+          align: 'center'
+        },
+        {
+          prop: 'date',
+          label: 'Date',
+          sortable: true
+        },
+        {
+          prop: 'age',
+          label: 'Age',
+          sortable: true
+        },
+        {
+          prop: 'name',
+          label: 'Name',
+          render: ({ column, row, rows, columns, $index }) =>
+            `${row.name}-${rows.length}-${columns.length}-${column.prop}-${$index}`
+        },
+
+        {
+          prop: 'address',
+          showOverflowTooltip: true,
+          label: 'Address'
+        }
+      ]);
+
+      const onClick = rowIndex => {
+        tableRef.value.setCurrentRow(rowIndex);
+      };
+
+      const onCurrentChange = ({ currentRowIndex }) => {
+        alert(currentRowIndex === -1 ? '取消单选' : `选中了第${currentRowIndex + 1}行`);
+      };
+
+      return {
+        data,
+        tableRef,
+        columns,
+        onCurrentChange,
+        onClick
+      };
+    }
+  };
+</script>
+```
+
+:::
 
 ## 排序
 
@@ -1889,16 +1976,17 @@
 
 ## 表格事件
 
-| 事件                | 说明                 | 回调参数                   |
-| ------------------- | -------------------- | -------------------------- |
-| popover-confirm     | 单列筛选时触发       | `{ column, value, prop }`  |
-| popover-cancel      | 取消单列筛选时触发   | `{ column, prop }`         |
-| sticky-change       | 吸顶状态变化时触发   | isSticky                   |
-| current-data-change | 表格显示的数据变化时 | `{ data }`                 |
-| scroll              | 滚动时触发           | `{ scrollLeft, position }` |
-| sort-change         | 排序变化时触发       | `{ prop, order }`          |
-| filter-change       | 筛选变化时触发       |                            |
-| header-click        | 表头点击时触发       | `{ column, prop }`         |
+| 事件                | 说明                                     | 回调参数                                                             |
+| ------------------- | ---------------------------------------- | -------------------------------------------------------------------- |
+| popover-confirm     | 单列筛选时触发                           | `{ column, value, prop }`                                            |
+| popover-cancel      | 取消单列筛选时触发                       | `{ column, prop }`                                                   |
+| sticky-change       | 吸顶状态变化时触发                       | isSticky                                                             |
+| current-data-change | 表格显示的数据变化时                     | `{ data }`                                                           |
+| scroll              | 滚动时触发                               | `{ scrollLeft, position }`                                           |
+| sort-change         | 排序变化时触发                           | `{ prop, order }`                                                    |
+| filter-change       | 筛选变化时触发                           |                                                                      |
+| header-click        | 表头点击时触发                           | `{ column, prop }`                                                   |
+| current-change      | 当表格的当前行发生变化的时候会触发该事件 | `{ currentRow, oldCurrentRow, currentRowIndex, oldCurrentRowIndex }` |
 
 ![dAnylL](https://picture.zhuiyue.vip:444/images/2023/02/07/dAnylL.png)
 ![HPZdmf](https://picture.zhuiyue.vip:444/images/2023/02/07/HPZdmf.png)
@@ -1907,9 +1995,10 @@
 
 原 `el-table` 下的方法挂载在 `tableRef`
 
-| 方法        | 说明                                           | 回调参数 |
-| ----------- | ---------------------------------------------- | -------- |
-| clearFilter | 传入 prop 时清除指定的筛选，不传则清除所有筛选 |          |
+| 方法          | 说明                                                                                  | 回调参数 |
+| ------------- | ------------------------------------------------------------------------------------- | -------- |
+| clearFilter   | 传入 prop 时清除指定的筛选，不传则清除所有筛选                                        |          |
+| setCurrentRow | 用于单选表格，设定某一行为选中行， 如果调用时不加参数，则会取消目前高亮行的选中状态。 | rowIndex |
 
 ![vpGIST](https://picture.zhuiyue.vip:444/images/2023/02/07/vpGIST.png)
 

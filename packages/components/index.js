@@ -11,3 +11,4 @@ export * from './icon';
 export * from './scrollbar';
 export * from './shop';
 export * from './table';
+export * from './tooltip';

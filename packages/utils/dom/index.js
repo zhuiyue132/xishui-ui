@@ -8,3 +8,4 @@ export * from './debounce';
 export * from './data';
 export * from './wait';
 export * from './eq';
+export * from './clipboard';

@@ -1,3 +1,9 @@
+## [1.0.14-beta.2](https://gitee.com/creektech/xishui-ui/compare/v1.0.14-beta.1...v1.0.14-beta.2) (2023-02-10)
+
+### Bug Fixes
+
+- **table:** 修正表头处于吸顶时改变窗口大小导致计算宽度错的问题; ([c204008](https://gitee.com/creektech/xishui-ui/commits/c204008a74069d947ada4434a5b2611f318917fc))
+
 ## [1.0.14-beta.1](https://gitee.com/creektech/xishui-ui/compare/v1.0.14-beta.0...v1.0.14-beta.1) (2023-02-10)
 
 ### Bug Fixes

@@ -13,7 +13,7 @@ import { formatBundleFilename, generateExternal, withTaskName, writeBundles } fr
 import json from '@rollup/plugin-json';
 import { XishuiUiAlias } from '../plugin/alias';
 import image from '@rollup/plugin-image';
-import css from 'rollup-plugin-import-css';
+import scss from 'rollup-plugin-scss';
 
 async function buildFullEntry(minify) {
   const plugins = [
@@ -24,11 +24,11 @@ async function buildFullEntry(minify) {
     }),
     vueJsx(),
     nodeResolve({
-      extensions: ['.mjs', '.js', '.jsx']
+      extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx']
     }),
     commonjs(),
     json(),
-    css(),
+    scss(),
     image(),
     esbuild({
       exclude: [],

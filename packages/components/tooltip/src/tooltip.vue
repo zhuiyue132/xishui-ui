@@ -9,11 +9,11 @@
 </template>
 
 <script>
-  import { ElTooltip } from 'element-plus';
+  // import { ElTooltip } from 'element-plus';
   export default {
     name: 'XsTooltip',
     components: {
-      ElTooltip
+      // ElTooltip
     }
   };
 </script>

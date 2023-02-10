@@ -49,16 +49,16 @@
   </div>
 </template>
 <script>
-  import XsAvatar from '@xishui-ui/components/avatar';
-  import XsTooltip from '@xishui-ui/components/tooltip';
+  // import XsAvatar from '@xishui-ui/components/avatar';
+  // import XsTooltip from '@xishui-ui/components/tooltip';
 
-  import { ElPopover } from 'element-plus';
+  // import { ElPopover } from 'element-plus';
   export default {
     name: 'XsGoods',
     components: {
-      XsAvatar,
-      ElPopover,
-      XsTooltip
+      // XsAvatar,
+      // ElPopover,
+      // XsTooltip
     }
   };
 </script>
@@ -68,7 +68,8 @@
   import { defaultProp, Props } from './goods';
   import { useNamespace } from '@xishui-ui/hooks';
   import { toClipboard } from '@xishui-ui/utils';
-  import svgs from '../svgs';
+  // import svgs from '../svgs';
+  const svgs = {};
 
   const props = defineProps(Props);
   const prop = computed(() => ({ ...defaultProp, ...props.prop }));

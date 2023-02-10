@@ -1,3 +1,9 @@
+## [1.0.14-beta.3](https://gitee.com/creektech/xishui-ui/compare/v1.0.14-beta.2...v1.0.14-beta.3) (2023-02-10)
+
+### Bug Fixes
+
+- **table:** 吸顶状态切换时,更新一下滚动状态,避免样式丢失; ([9a67e0d](https://gitee.com/creektech/xishui-ui/commits/9a67e0da77dfa1d672da65018a682c45cd705cbd))
+
 ## [1.0.14-beta.2](https://gitee.com/creektech/xishui-ui/compare/v1.0.14-beta.1...v1.0.14-beta.2) (2023-02-10)
 
 ### Bug Fixes

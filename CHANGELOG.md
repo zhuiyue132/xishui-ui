@@ -1,3 +1,11 @@
+## [1.0.13](https://gitee.com/creektech/xishui-ui/compare/v1.0.12...v1.0.13) (2023-02-10)
+
+### Features
+
+- 增加 tooltip 组件和维护 goods 组件; ([0f8d8ab](https://gitee.com/creektech/xishui-ui/commits/0f8d8abb0805bc905a38a82edf7b7603ab6c1a41))
+- **table:** 表头吸顶样式改版;表头自定义 tooltip; ([09be532](https://gitee.com/creektech/xishui-ui/commits/09be5329d32b0bcbb07dc45f34a0b05aa936fa2d))
+- **table:** 增加表格单选的支持; ([02ed2c8](https://gitee.com/creektech/xishui-ui/commits/02ed2c85ead63511e1ec2bf2d4c0a84cae268221))
+
 ## [1.0.12](https://gitee.com/creektech/xishui-ui/compare/v1.0.11...v1.0.12) (2023-02-08)
 
 ### Bug Fixes

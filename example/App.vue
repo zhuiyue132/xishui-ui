@@ -207,6 +207,7 @@
     {
       prop: 'address',
       label: 'Address',
+      width: 800,
       showOverflowTooltip: true
     }
   ]);

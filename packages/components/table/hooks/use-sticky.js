@@ -86,6 +86,7 @@ export const useTableSticky = ({ reference, referenceBottom, tableRef, isSticky 
 
   const stop = watch(isSticky, () => {
     $emits('stickyChange', isSticky.value);
+    tableRef.value?.doLayout?.();
   });
 
   const createObserver = () => {

@@ -1,3 +1,9 @@
+## [1.0.14-beta.0](https://gitee.com/creektech/xishui-ui/compare/v1.0.13...v1.0.14-beta.0) (2023-02-10)
+
+### Features
+
+- 增加 tooltip 组件和维护 goods 组件; ([1514f3e](https://gitee.com/creektech/xishui-ui/commits/1514f3e81735ab64da3f583e0e8569daeb0e3b4f))
+
 ## [1.0.13](https://gitee.com/creektech/xishui-ui/compare/v1.0.12...v1.0.13) (2023-02-10)
 
 ### Features

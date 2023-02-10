@@ -11,8 +11,7 @@ import json from '@rollup/plugin-json';
 import { buildConfigEntries } from '../build-info';
 import { XishuiUiAlias } from '../plugin/alias';
 import image from '@rollup/plugin-image';
-import css from 'rollup-plugin-import-css';
-
+import scss from 'rollup-plugin-scss';
 // 构建任务
 export const buildModules = async () => {
   const input = excludeFiles(
@@ -37,7 +36,7 @@ export const buildModules = async () => {
       }),
       commonjs(),
       json(),
-      css(),
+      scss(),
       image(),
       esbuild({
         sourceMap: true,

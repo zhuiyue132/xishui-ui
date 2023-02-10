@@ -1,3 +1,9 @@
+## [1.0.14-beta.1](https://gitee.com/creektech/xishui-ui/compare/v1.0.14-beta.0...v1.0.14-beta.1) (2023-02-10)
+
+### Bug Fixes
+
+- 组件按需加载的样式补充; ([deb9361](https://gitee.com/creektech/xishui-ui/commits/deb9361c0ad981421146f288a3da58c01c753328))
+
 ## [1.0.14-beta.0](https://gitee.com/creektech/xishui-ui/compare/v1.0.13...v1.0.14-beta.0) (2023-02-10)
 
 ### Features

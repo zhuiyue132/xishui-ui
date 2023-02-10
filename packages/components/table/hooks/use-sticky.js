@@ -1,5 +1,5 @@
 import { toRefs, computed, unref, ref, onMounted, onBeforeUnmount, nextTick, watch } from 'vue';
-import { useIntersectionObserver, useElementBounding, useWindowSize, isClient } from '@vueuse/core';
+import { useIntersectionObserver, useElementBounding, useWindowSize, isClient, useResizeObserver } from '@vueuse/core';
 
 export const useTableSticky = ({ reference, referenceBottom, tableRef, isSticky }, props, $emits) => {
   const { stickyable, offset, maxHeight, height } = toRefs(props);
@@ -54,6 +54,12 @@ export const useTableSticky = ({ reference, referenceBottom, tableRef, isSticky 
     tableRef.value.$el.style.setProperty('--xs-table-top-width', `${width}px`);
   };
 
+  const onResize = () => {
+    const { height } = useElementBounding(tableRef.value.$refs.tableHeaderRef);
+    const { width } = useElementBounding(tableRef.value.$el);
+    setStyleVariable(isSticky.value ? height.value : 0, width.value);
+  };
+
   const observerCb = ([event]) => {
     const {
       target,
@@ -85,7 +91,8 @@ export const useTableSticky = ({ reference, referenceBottom, tableRef, isSticky 
   const createObserver = () => {
     const { stop: s1 } = useIntersectionObserver(reference, observerCb, unref(observerOpts));
     const { stop: s2 } = useIntersectionObserver(referenceBottom, observerCb, unref(observerOpts));
-    return { reference: s1, referenceBottom: s2 };
+    const { stop: s3 } = useResizeObserver(reference, onResize);
+    return { reference: s1, referenceBottom: s2, resize: s3 };
   };
 
   const destoryObserver = () => {

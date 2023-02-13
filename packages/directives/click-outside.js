@@ -2,6 +2,7 @@
  * 复制 element 的 clickOutSide 指令，处理 event.path
  */
 
+import { isClient } from '@vueuse/core';
 const isElement = e => {
   if (typeof Element === 'undefined') return false;
   return e instanceof Element;
@@ -9,14 +10,15 @@ const isElement = e => {
 
 const nodeList = new Map();
 let startClick;
-document.addEventListener('mousedown', e => (startClick = e));
-document.addEventListener('mouseup', e => {
-  for (const handlers of nodeList.values()) {
-    for (const { documentHandler } of handlers) {
-      documentHandler(e, startClick);
+isClient && document.addEventListener('mousedown', e => (startClick = e));
+isClient &&
+  document.addEventListener('mouseup', e => {
+    for (const handlers of nodeList.values()) {
+      for (const { documentHandler } of handlers) {
+        documentHandler(e, startClick);
+      }
     }
-  }
-});
+  });
 function createDocumentHandler(el, binding) {
   let excludes = [];
   if (Array.isArray(binding.arg)) {

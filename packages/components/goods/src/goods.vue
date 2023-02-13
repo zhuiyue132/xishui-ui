@@ -40,7 +40,7 @@
           :linkable="!!data[prop.link]"
           rel="noopener noreferrer"
         >
-          <xs-tooltip :content="_name" :text="_name + '踩踩踩踩踩踩'" :rows="rows"></xs-tooltip>
+          <xs-tooltip :content="_name" :rows="rows"></xs-tooltip>
         </a>
       </slot>
     </div>
@@ -89,37 +89,13 @@
     return { '--xs-goods-color': '#000' };
   });
 
-  const onCopy = (code, evt) => {
+  const onCopy = (code, { target }) => {
     toClipboard(code);
-    evt.target.src = svgs.success;
+    target.src = svgs.success;
+    target.parentNode.classList.toggle('success');
     setTimeout(() => {
-      evt.target.src = svgs.copy;
+      target.src = svgs.copy;
+      target.parentNode.classList.toggle('success');
     }, 1000);
   };
 </script>
-
-<style lang="scss">
-  .xs-goods-popper {
-    padding: 4px !important;
-    width: auto !important;
-    border: none !important;
-    border-radius: 2px;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.12);
-    .popover-content {
-      font-size: 14px;
-      .xs-goods__image {
-        width: auto;
-      }
-      .code {
-        padding: 0 4px;
-        display: flex;
-        align-items: center;
-        img {
-          width: 16px;
-          margin: 0 4px;
-          cursor: pointer;
-        }
-      }
-    }
-  }
-</style>

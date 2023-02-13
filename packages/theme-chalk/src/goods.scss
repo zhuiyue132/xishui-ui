@@ -48,27 +48,4 @@
       }
     }
   }
-
-  .text-popup {
-    position: absolute;
-    z-index: 99;
-    color: var(--xs-primary-color);
-    white-space: nowrap;
-    animation: text-popup 1s;
-    user-select: none;
-  }
-  @keyframes text-popup {
-    0% {
-      opacity: 0;
-    }
-
-    5% {
-      opacity: 1;
-    }
-
-    100% {
-      opacity: 0;
-      transform: translateY(-50px);
-    }
-  }
 }

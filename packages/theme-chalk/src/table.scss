@@ -5,21 +5,6 @@
 @use 'table-column.scss' as *;
 @use 'table-popover.scss' as *;
 @use 'table-render.scss' as *;
-@use '../../../node_modules/element-plus/theme-chalk/src/table.scss';
-@use '../../../node_modules/element-plus/theme-chalk/src/table-column.scss';
-@use '../../../node_modules/element-plus/theme-chalk/src/checkbox.scss';
-@use '../../../node_modules/element-plus/theme-chalk/src/tag.scss';
-@use '../../../node_modules/element-plus/theme-chalk/src/tooltip.scss';
-@use '../../../node_modules/element-plus/theme-chalk/src/scrollbar.scss';
-@use '../../../node_modules/element-plus/theme-chalk/src/popper.scss';
-@use '../../../node_modules/element-plus/theme-chalk/src/skeleton-item.scss';
-@use '../../../node_modules/element-plus/theme-chalk/src/skeleton.scss';
-@use '../../../node_modules/element-plus/theme-chalk/src/pagination.scss';
-@use '../../../node_modules/element-plus/theme-chalk/src/input.scss';
-@use '../../../node_modules/element-plus/theme-chalk/src/option.scss';
-@use '../../../node_modules/element-plus/theme-chalk/src/option-group.scss';
-@use '../../../node_modules/element-plus/theme-chalk/src/select.scss';
-@use '../../../node_modules/element-plus/theme-chalk/src/message.scss';
 
 @mixin sticky {
   z-index: 8;

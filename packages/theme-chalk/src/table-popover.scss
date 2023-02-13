@@ -2,8 +2,6 @@
 @use 'mixins/function.scss' as *;
 @use 'mixins/mixins' as *;
 @use 'common/var' as *;
-@use '../../../node_modules/element-plus/theme-chalk/src/date-picker.scss';
-@use '../../../node_modules/element-plus/theme-chalk/src/button.scss';
 
 @include b(table-popover) {
   &.el-popover {

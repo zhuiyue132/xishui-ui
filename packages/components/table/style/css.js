@@ -1,3 +1,22 @@
+import 'element-plus/theme-chalk/base.css';
+import 'element-plus/theme-chalk/el-date-picker.css';
+import 'element-plus/theme-chalk/el-button.css';
+import 'element-plus/theme-chalk/el-table.css';
+import 'element-plus/theme-chalk/el-table-column.css';
+import 'element-plus/theme-chalk/el-checkbox.css';
+import 'element-plus/theme-chalk/el-tag.css';
+import 'element-plus/theme-chalk/el-tooltip.css';
+import 'element-plus/theme-chalk/el-scrollbar.css';
+import 'element-plus/theme-chalk/el-popper.css';
+import 'element-plus/theme-chalk/el-skeleton-item.css';
+import 'element-plus/theme-chalk/el-skeleton.css';
+import 'element-plus/theme-chalk/el-pagination.css';
+import 'element-plus/theme-chalk/el-input.css';
+import 'element-plus/theme-chalk/el-option.css';
+import 'element-plus/theme-chalk/el-option-group.css';
+import 'element-plus/theme-chalk/el-select.css';
+import 'element-plus/theme-chalk/el-message.css';
+
 import '@xishui-ui/components/base/css';
 import '@xishui-ui/theme-chalk/xs-table.css';
 import '@xishui-ui/components/empty/style/css';

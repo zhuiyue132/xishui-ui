@@ -495,12 +495,6 @@ $message: map.merge(
   $message
 );
 
-@forward '../../../../node_modules/element-plus/theme-chalk/src/common/var.scss' with (
-  $colors: $colors,
-  $text-color: $text-color,
-  $border-radius: $border-radius
-);
-
 @mixin set-color-mix-level($type, $number, $mode: 'light', $mix-color: $color-white) {
   $colors: map.deep-merge(
     (

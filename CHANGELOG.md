@@ -1,3 +1,9 @@
+## [1.0.14-beta.8](https://gitee.com/creektech/xishui-ui/compare/v1.0.14-beta.7...v1.0.14-beta.8) (2023-02-13)
+
+### Bug Fixes
+
+- 修正一些组件按需加载时应该使用 scss 却引入了 css 的问题; ([2cc7763](https://gitee.com/creektech/xishui-ui/commits/2cc7763d59ef84c9977dc7ff85be589a166bbb79))
+
 ## [1.0.14-beta.7](https://gitee.com/creektech/xishui-ui/compare/v1.0.14-beta.6...v1.0.14-beta.7) (2023-02-13)
 
 ## [1.0.14-beta.6](https://gitee.com/creektech/xishui-ui/compare/v1.0.14-beta.5...v1.0.14-beta.6) (2023-02-13)

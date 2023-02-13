@@ -4,7 +4,9 @@
 
 ## 完整引入
 
-如果你对打包后的文件大小不是很在乎，那么使用完整导入会更方便。
+如果你对打包后的文件大小不是很在乎，那么使用完整导入会更方便。因为本库依赖了 `element-plus`, 完整引入时会把 `element-plus/theme-chalk/index.css` 全量引入。
+
+更建议你使用按需引入，见下一章节。
 
 ```js
 import { createApp } from 'vue';

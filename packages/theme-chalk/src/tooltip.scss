@@ -2,9 +2,6 @@
 @use 'mixins/function.scss' as *;
 @use 'mixins/mixins' as *;
 @use 'common/var' as *;
-@use '../../../node_modules/element-plus/theme-chalk/src/base.scss';
-@use '../../../node_modules/element-plus/theme-chalk/src/tooltip.scss';
-@use '../../../node_modules/element-plus/theme-chalk/src/popper.scss';
 
 @include b('tooltip') {
   width: 100%;

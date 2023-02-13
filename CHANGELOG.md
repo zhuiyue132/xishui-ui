@@ -1,3 +1,5 @@
+## [1.0.14-beta.6](https://gitee.com/creektech/xishui-ui/compare/v1.0.14-beta.5...v1.0.14-beta.6) (2023-02-13)
+
 ## [1.0.14-beta.5](https://gitee.com/creektech/xishui-ui/compare/v1.0.14-beta.4...v1.0.14-beta.5) (2023-02-13)
 
 ## [1.0.14-beta.4](https://gitee.com/creektech/xishui-ui/compare/v1.0.14-beta.3...v1.0.14-beta.4) (2023-02-13)

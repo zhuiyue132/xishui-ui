@@ -25,6 +25,7 @@
             <div v-if="idVisible" class="code">
               商品ID：{{ data[prop.id] }}
               <img :src="svgs.copy" alt="copy" @click.stop="onCopy(data[prop.id], $event)" />
+              <span class="tip">复制成功</span>
             </div>
           </slot>
         </div>

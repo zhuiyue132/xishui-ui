@@ -1,3 +1,9 @@
+## [1.0.14-beta.9](https://gitee.com/creektech/xishui-ui/compare/v1.0.14-beta.8...v1.0.14-beta.9) (2023-02-13)
+
+### Bug Fixes
+
+- **goods:** 修正商品主图的 popper 样式丢失的问题; ([b6fd0b1](https://gitee.com/creektech/xishui-ui/commits/b6fd0b13869c816e2e1376e48b45b77927224003))
+
 ## [1.0.14-beta.8](https://gitee.com/creektech/xishui-ui/compare/v1.0.14-beta.7...v1.0.14-beta.8) (2023-02-13)
 
 ### Bug Fixes

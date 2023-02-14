@@ -1,0 +1,334 @@
+<template>
+  <div :class="[ns.b('panel'), ns.is('bordered', border)]" @keydown="handleKeyDown">
+    <xs-cascader-menu
+      v-for="(menu, index) in menus"
+      :key="index"
+      :ref="item => (menuList[index] = item)"
+      :index="index"
+      :nodes="[...menu]"
+      :style="{ width: width ? addUnit(width) : 'auto' }"
+    />
+  </div>
+</template>
+
+<script>
+  import { computed, defineComponent, nextTick, onBeforeUpdate, onMounted, provide, reactive, ref, watch } from 'vue';
+  import { isClient } from '@vueuse/core';
+  import {
+    castArray,
+    focusNode,
+    getSibling,
+    isEmpty,
+    scrollIntoView,
+    unique,
+    isEqual,
+    flattenDeep,
+    addUnit
+  } from '@xishui-ui/utils';
+  import { EVENT_CODE } from '@xishui-ui/config';
+  import { useNamespace } from '@xishui-ui/hooks';
+  import XsCascaderMenu from './menu.vue';
+  import Store from './store';
+  import Node, { ExpandTrigger } from './node';
+  import { CommonProps, useCascaderConfig } from './config';
+  import { checkNode, getMenuIndex, sortByOriginalOrder } from './utils';
+  import { CASCADER_PANEL_INJECTION_KEY } from './types';
+
+  export default defineComponent({
+    name: 'XsCascaderPanel',
+
+    components: {
+      XsCascaderMenu
+    },
+
+    props: {
+      ...CommonProps,
+      border: {
+        type: Boolean,
+        default: true
+      },
+      renderLabel: {
+        type: Function,
+        default: undefined
+      },
+      width: {
+        type: [Number, String],
+        default: 220
+      }
+    },
+
+    emits: ['update:modelValue', 'change', 'close', 'expand-change'],
+
+    setup(props, { emit, slots }) {
+      // for interrupt sync check status in lazy mode
+      let manualChecked = false;
+
+      const ns = useNamespace('cascader');
+      const config = useCascaderConfig(props);
+
+      let store = null;
+      const initialLoaded = ref(true);
+      const menuList = ref([]);
+      const checkedValue = ref(null);
+      const menus = ref([]);
+      const expandingNode = ref(null);
+      const checkedNodes = ref([]);
+
+      const isHoverMenu = computed(() => config.value.expandTrigger === ExpandTrigger.HOVER);
+      const renderLabelFn = computed(() => props.renderLabel || slots.default);
+
+      const initStore = () => {
+        const { options } = props;
+        const cfg = config.value;
+
+        manualChecked = false;
+        store = new Store(options, cfg);
+        menus.value = [store.getNodes()];
+
+        if (cfg.lazy && isEmpty(props.options)) {
+          initialLoaded.value = false;
+          lazyLoad(undefined, list => {
+            if (list) {
+              store = new Store(list, cfg);
+              menus.value = [store.getNodes()];
+            }
+            initialLoaded.value = true;
+            syncCheckedValue(false, true);
+          });
+        } else {
+          syncCheckedValue(false, true);
+        }
+      };
+
+      const lazyLoad = (node, cb) => {
+        const cfg = config.value;
+        node = node || new Node({}, cfg, undefined, true);
+        node.loading = true;
+
+        const resolve = dataList => {
+          const _node = node;
+          const parent = _node.root ? null : _node;
+          dataList && store?.appendNodes(dataList, parent);
+          _node.loading = false;
+          _node.loaded = true;
+          _node.childrenData = _node.childrenData || [];
+          cb && cb(dataList);
+        };
+
+        cfg.lazyLoad(node, resolve);
+      };
+
+      const expandNode = (node, silent) => {
+        const { level } = node;
+        const newMenus = menus.value.slice(0, level);
+        let newExpandingNode;
+
+        if (node.isLeaf) {
+          newExpandingNode = node.pathNodes[level - 2];
+        } else {
+          newExpandingNode = node;
+          newMenus.push(node.children);
+        }
+
+        if (expandingNode.value?.uid !== newExpandingNode?.uid) {
+          expandingNode.value = node;
+          menus.value = newMenus;
+          !silent && emit('expand-change', node?.pathValues || []);
+        }
+      };
+
+      const handleCheckChange = (node, checked, emitClose = true) => {
+        const { checkStrictly, multiple } = config.value;
+        const oldNode = checkedNodes.value?.[0];
+        manualChecked = true;
+
+        !multiple && oldNode?.doCheck?.(false);
+        node.doCheck(checked);
+        calculateCheckedValue();
+        emitClose && !multiple && !checkStrictly && emit('close');
+        !emitClose && !multiple && !checkStrictly && expandParentNode(node);
+      };
+
+      const expandParentNode = node => {
+        if (!node) return;
+        node = node.parent;
+        expandParentNode(node);
+        node && expandNode(node);
+      };
+
+      const getFlattedNodes = leafOnly => {
+        return store?.getFlattedNodes(leafOnly);
+      };
+
+      const getCheckedNodes = leafOnly => {
+        return getFlattedNodes(leafOnly)?.filter(node => node.checked !== false);
+      };
+
+      const clearCheckedNodes = () => {
+        checkedNodes.value.forEach(node => node.doCheck(false));
+        calculateCheckedValue();
+      };
+
+      const calculateCheckedValue = () => {
+        const { checkStrictly, multiple } = config.value;
+        const oldNodes = checkedNodes.value;
+        const newNodes = getCheckedNodes(!checkStrictly);
+        // ensure the original order
+        const nodes = sortByOriginalOrder(oldNodes, newNodes);
+        const values = nodes.map(node => node.valueByOption);
+        checkedNodes.value = nodes;
+        checkedValue.value = multiple ? values : values[0] ?? null;
+      };
+
+      const syncCheckedValue = (loaded = false, forced = false) => {
+        const { modelValue } = props;
+        const { lazy, multiple, checkStrictly } = config.value;
+        const leafOnly = !checkStrictly;
+
+        if (!initialLoaded.value || manualChecked || (!forced && isEqual(modelValue, checkedValue.value))) return;
+
+        if (lazy && !loaded) {
+          const values = unique(flattenDeep(castArray(modelValue)));
+          const nodes = values
+            .map(val => store?.getNodeByValue(val))
+            .filter(node => !!node && !node.loaded && !node.loading);
+
+          if (nodes.length) {
+            nodes.forEach(node => {
+              lazyLoad(node, () => syncCheckedValue(false, forced));
+            });
+          } else {
+            syncCheckedValue(true, forced);
+          }
+        } else {
+          const values = multiple ? castArray(modelValue) : [modelValue];
+          const nodes = unique(values.map(val => store?.getNodeByValue(val, leafOnly)));
+          syncMenuState(nodes, false);
+          checkedValue.value = modelValue;
+        }
+      };
+
+      const syncMenuState = (newCheckedNodes, reserveExpandingState = true) => {
+        const { checkStrictly } = config.value;
+        const oldNodes = checkedNodes.value;
+        const newNodes = newCheckedNodes.filter(node => !!node && (checkStrictly || node.isLeaf));
+        const oldExpandingNode = store?.getSameNode(expandingNode.value);
+        const newExpandingNode = (reserveExpandingState && oldExpandingNode) || newNodes[0];
+
+        if (newExpandingNode) {
+          newExpandingNode.pathNodes.forEach(node => expandNode(node, true));
+        } else {
+          expandingNode.value = null;
+        }
+
+        oldNodes.forEach(node => node.doCheck(false));
+        newNodes.forEach(node => node.doCheck(true));
+
+        checkedNodes.value = newNodes;
+
+        nextTick(scrollToExpandingNode);
+      };
+
+      const scrollToExpandingNode = () => {
+        if (!isClient) return;
+
+        menuList.value.forEach(menu => {
+          const menuElement = menu?.$el;
+          if (menuElement) {
+            const container = menuElement.querySelector(`.${ns.namespace.value}-scrollbar__wrap`);
+            const activeNode =
+              menuElement.querySelector(`.${ns.b('node')}.${ns.is('active')}`) ||
+              menuElement.querySelector(`.${ns.b('node')}.in-active-path`);
+            scrollIntoView(container, activeNode);
+          }
+        });
+      };
+
+      const handleKeyDown = e => {
+        const target = e.target;
+        const { code } = e;
+
+        switch (code) {
+          case EVENT_CODE.up:
+          case EVENT_CODE.down: {
+            e.preventDefault();
+            const distance = code === EVENT_CODE.up ? -1 : 1;
+            focusNode(getSibling(target, distance, `.${ns.b('node')}[tabindex="-1"]`));
+            break;
+          }
+          case EVENT_CODE.left: {
+            e.preventDefault();
+            const preMenu = menuList.value[getMenuIndex(target) - 1];
+            const expandedNode = preMenu?.$el.querySelector(`.${ns.b('node')}[aria-expanded="true"]`);
+            focusNode(expandedNode);
+            break;
+          }
+          case EVENT_CODE.right: {
+            e.preventDefault();
+            const nextMenu = menuList.value[getMenuIndex(target) + 1];
+            const firstNode = nextMenu?.$el.querySelector(`.${ns.b('node')}[tabindex="-1"]`);
+            focusNode(firstNode);
+            break;
+          }
+          case EVENT_CODE.enter:
+            checkNode(target);
+            break;
+        }
+      };
+
+      provide(
+        CASCADER_PANEL_INJECTION_KEY,
+        reactive({
+          config,
+          expandingNode,
+          checkedNodes,
+          isHoverMenu,
+          initialLoaded,
+          renderLabelFn,
+          lazyLoad,
+          expandNode,
+          handleCheckChange
+        })
+      );
+
+      watch([config, () => props.options], initStore, {
+        deep: true,
+        immediate: true
+      });
+
+      watch(
+        () => props.modelValue,
+        () => {
+          manualChecked = false;
+          syncCheckedValue();
+        }
+      );
+
+      watch(checkedValue, val => {
+        if (!isEqual(val, props.modelValue)) {
+          emit('update:modelValue', val);
+          emit('change', val);
+        }
+      });
+
+      onBeforeUpdate(() => (menuList.value = []));
+
+      onMounted(() => !isEmpty(props.modelValue) && syncCheckedValue());
+
+      return {
+        ns,
+        menuList,
+        menus,
+        addUnit,
+        checkedNodes,
+        handleKeyDown,
+        handleCheckChange,
+        getFlattedNodes,
+        getCheckedNodes,
+        clearCheckedNodes,
+        calculateCheckedValue,
+        scrollToExpandingNode
+      };
+    }
+  });
+</script>

@@ -12,3 +12,5 @@ export * from './scrollbar';
 export * from './shop';
 export * from './table';
 export * from './tooltip';
+export * from './cascader';
+export * from './cascader-panel';

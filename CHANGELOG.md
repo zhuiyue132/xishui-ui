@@ -1,3 +1,9 @@
+## [1.0.14](https://gitee.com/creektech/xishui-ui/compare/v1.0.14-beta.9...v1.0.14) (2023-02-14)
+
+### Features
+
+- **goods:** 增加 id 复制成功的提示; ([c2be988](https://gitee.com/creektech/xishui-ui/commits/c2be988abf2fe1fe63106d001cb56f571f21151e))
+
 ## [1.0.14-beta.9](https://gitee.com/creektech/xishui-ui/compare/v1.0.14-beta.8...v1.0.14-beta.9) (2023-02-13)
 
 ### Bug Fixes

@@ -1,8 +1,9 @@
 import { toRefs, computed, unref, ref, onMounted, onBeforeUnmount, nextTick, watch } from 'vue';
 import { useIntersectionObserver, useElementBounding, useWindowSize, isClient, useResizeObserver } from '@vueuse/core';
+import { addUnit } from '@xishui-ui/utils';
 
 export const useTableSticky = ({ reference, referenceBottom, tableRef, isSticky }, props, $emits) => {
-  const { stickyable, offset, maxHeight, height } = toRefs(props);
+  const { stickyable, offset, maxHeight, height, scrollbarOffsetBottom } = toRefs(props);
   const observerOpts = computed(() => {
     return {
       threshold: [1],
@@ -33,7 +34,7 @@ export const useTableSticky = ({ reference, referenceBottom, tableRef, isSticky 
     const scrollbar = $el.querySelector('.el-scrollbar__bar.is-horizontal');
     if (!scrollbar) return;
 
-    const styleStr = 'position:fixed;bottom:0px;';
+    const styleStr = `position:fixed;bottom:${addUnit(unref(scrollbarOffsetBottom))};`;
 
     // element滚动条左侧留白2px;
 
@@ -68,7 +69,7 @@ export const useTableSticky = ({ reference, referenceBottom, tableRef, isSticky 
     } = event;
     const isReferenceTop = target.classList.contains('reference-top');
 
-    if (tableRef.value.$refs.tableHeaderRef) {
+    if (tableRef.value.$refs.tableHeaderRef && unref(stickyable)) {
       const { top, height } = useElementBounding(tableRef.value.$refs.tableHeaderRef);
       const { width } = useElementBounding(tableRef.value.$el);
       if (isReferenceTop) {
@@ -104,7 +105,7 @@ export const useTableSticky = ({ reference, referenceBottom, tableRef, isSticky 
 
   onMounted(async () => {
     await nextTick();
-    if (!unref(stickyable) || !isClient || maxHeight.value || height.value) return;
+    if (!isClient || maxHeight.value || height.value) return;
     instance.value = createObserver();
   });
 

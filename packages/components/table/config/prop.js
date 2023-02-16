@@ -184,6 +184,14 @@ export const TableProps = {
    */
   highlightCurrentRow: Boolean,
 
+  /**
+   * 滚动条吸底时，距离视口底部的距离， 默认为0；
+   */
+  scrollbarOffsetBottom: {
+    type: [Number, String],
+    default: 0
+  },
+
   // 引入其他的props
   ...ColumnProps
 };

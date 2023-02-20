@@ -23,7 +23,7 @@ const buildDocsAndPublish = async () => {
       'remote',
       'add',
       'origin',
-      'https://oauth2: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@gh.zhuiyue.work/github.com/zhuiyue132/component-docs.git'
+      'https://oauth2:xxx@gh.zhuiyue.work/github.com/zhuiyue132/component-docs.git'
     ],
     { stdio: 'inherit', cwd: dir }
   );

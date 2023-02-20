@@ -12,7 +12,7 @@ const consola = require('consola');
 const npmPublish = require('@jsdevtools/npm-publish');
 
 const NPM_DEFAULT_REGISTRY = 'https://registry.npmjs.org';
-const NPM_PUBLISH_TOKEN = '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';
+const NPM_PUBLISH_TOKEN = '';
 
 const root = process.cwd();
 const rootPkgInfo = require(path.resolve(root, 'package.json'));
